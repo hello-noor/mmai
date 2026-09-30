@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<title>Le due direzioni del metodo</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+@font-face{font-family:"Newsreader";src:url("fonts/newsreader.woff2") format("woff2");font-weight:400 600;font-style:normal}
+@font-face{font-family:"Schibsted Grotesk";src:url("fonts/sg500.woff2") format("woff2");font-weight:400 700;font-style:normal}
+:root{--paper:#EEF0EB;--ink:#16202E;--graphite:#566070;--rule:#C6CBC2;--cobalt:#2B45D8;--soft:#9DA9F5}
+body{margin:0;background:var(--paper);font-family:"Schibsted Grotesk",sans-serif;color:var(--ink)}
+#root{position:relative;width:100%;height:100%;overflow:hidden;background:var(--paper)}
+.clip{position:absolute;inset:0}
+.in{position:absolute;inset:0}
+.bg{position:absolute;inset:0}
+.cob{background:var(--cobalt)}.dk{background:var(--ink)}
+.serif{font-family:"Newsreader",serif;font-weight:400;letter-spacing:-.02em}
+.logo{position:absolute;left:96px;top:64px;height:44px;width:auto;color:var(--cobalt)}
+.w .logo{color:#fff}
+.h{position:absolute;margin:0;line-height:1.02;white-space:nowrap}
+.num{position:absolute;font-family:"Newsreader",serif;line-height:.85}
+.nd{position:absolute;width:56px;height:56px;border-radius:50%;background:var(--ink);box-sizing:border-box}
+.cd{position:absolute;top:420px;width:520px;height:270px;border-radius:14px;border:4px dashed #9AA3B2;box-sizing:border-box;padding:34px;color:#fff}
+.cd b{display:block;font-size:40px;font-weight:600;line-height:1.15;margin-top:70px}
+.cd svg{position:absolute;left:34px;top:30px}
+.cd .ok{opacity:0}
+.cd .st{position:absolute;right:30px;top:40px;font-size:26px;font-weight:600;color:#9AA3B2}
+.cap{position:absolute;margin:0}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="direzioni" data-start="0" data-width="1920" data-height="1080" data-duration="26">
+
+<section id="s1" class="clip" data-start="0" data-duration="4.6"><div class="in" id="s1i">
+  <svg class="logo" viewBox="0 0 1322 793" aria-hidden="true" focusable="false"><path d="M 221.81 791.99 C186.04,789.70 157.46,782.50 130.50,768.98 C111.93,759.67 100.12,751.13 84.93,736.01 C71.20,722.34 64.61,713.99 55.03,698.07 C26.56,650.81 8.60,574.81 1.85,473.00 C-0.00,445.18 0.30,369.89 2.37,340.00 C10.76,219.27 29.23,150.40 67.05,98.93 C75.45,87.51 97.39,65.97 109.00,57.75 C120.74,49.44 141.08,39.20 155.00,34.58 C180.62,26.07 214.85,21.52 247.50,22.29 C277.58,23.00 299.27,26.84 322.74,35.61 C340.42,42.21 362.83,54.76 373.20,63.87 L 376.85 67.08 L 381.65 61.94 C391.78,51.11 409.44,39.52 426.71,32.36 C463.85,16.96 509.39,6.54 560.00,1.86 C580.30,-0.01 630.81,0.26 651.79,2.35 C708.20,7.99 755.39,21.43 782.78,39.66 C793.08,46.51 809.02,61.61 816.61,71.69 C840.77,103.78 854.15,146.88 858.95,208.00 C859.53,215.43 860.29,224.88 860.64,229.00 L 861.27 236.50 L 863.50 224.50 C883.39,117.14 938.43,49.16 1022.04,28.64 C1039.04,24.47 1051.30,22.93 1072.61,22.31 C1109.18,21.24 1145.54,26.45 1173.00,36.71 C1243.34,62.97 1288.55,128.42 1306.84,230.50 C1330.28,361.25 1326.11,522.51 1296.62,626.00 C1278.34,690.16 1252.67,729.82 1211.50,757.49 C1176.70,780.88 1134.98,792.12 1082.50,792.24 C1071.50,792.26 1057.78,791.74 1052.00,791.07 C979.64,782.68 925.83,746.59 895.55,686.12 C872.16,639.40 856.81,574.49 850.48,495.50 C848.44,470.02 846.90,417.93 847.66,400.00 C848.00,392.02 848.05,385.73 847.77,386.00 C847.49,386.27 846.00,391.00 844.47,396.50 C833.64,435.25 814.36,469.11 793.16,486.60 C785.29,493.09 772.41,499.88 761.50,503.30 C710.13,519.36 638.68,496.90 557.75,439.25 C531.46,420.52 504.11,397.88 484.97,379.00 L 474.32 368.50 L 474.35 413.50 C474.39,494.84 467.46,558.94 452.47,615.75 C433.60,687.30 406.38,730.51 361.78,759.74 C325.02,783.83 274.86,795.39 221.81,791.99 Z" fill="currentColor"/></svg>
+  <p class="cap" id="s1k" style="left:96px;top:140px;font-size:28px;color:var(--graphite)">Come lavoro. Due direzioni.</p>
+  <div class="num" id="s1n1" style="left:96px;top:250px;font-size:520px;color:var(--cobalt)">1</div>
+  <h2 class="h serif" id="s1t1" style="left:400px;top:400px;font-size:100px;white-space:normal;width:480px">Migliorare il presente.</h2>
+  <div class="num" id="s1n2" style="left:980px;top:250px;font-size:520px;color:var(--ink)">2</div>
+  <h2 class="h serif" id="s1t2" style="left:1320px;top:400px;font-size:100px;white-space:normal;width:540px">Aprire ciò che non si è mai provato.</h2>
+</div></section>
+
+<section id="s2" class="clip" data-start="4" data-duration="9.6"><div class="in" id="s2i">
+  <svg class="logo" viewBox="0 0 1322 793" aria-hidden="true" focusable="false"><path d="M 221.81 791.99 C186.04,789.70 157.46,782.50 130.50,768.98 C111.93,759.67 100.12,751.13 84.93,736.01 C71.20,722.34 64.61,713.99 55.03,698.07 C26.56,650.81 8.60,574.81 1.85,473.00 C-0.00,445.18 0.30,369.89 2.37,340.00 C10.76,219.27 29.23,150.40 67.05,98.93 C75.45,87.51 97.39,65.97 109.00,57.75 C120.74,49.44 141.08,39.20 155.00,34.58 C180.62,26.07 214.85,21.52 247.50,22.29 C277.58,23.00 299.27,26.84 322.74,35.61 C340.42,42.21 362.83,54.76 373.20,63.87 L 376.85 67.08 L 381.65 61.94 C391.78,51.11 409.44,39.52 426.71,32.36 C463.85,16.96 509.39,6.54 560.00,1.86 C580.30,-0.01 630.81,0.26 651.79,2.35 C708.20,7.99 755.39,21.43 782.78,39.66 C793.08,46.51 809.02,61.61 816.61,71.69 C840.77,103.78 854.15,146.88 858.95,208.00 C859.53,215.43 860.29,224.88 860.64,229.00 L 861.27 236.50 L 863.50 224.50 C883.39,117.14 938.43,49.16 1022.04,28.64 C1039.04,24.47 1051.30,22.93 1072.61,22.31 C1109.18,21.24 1145.54,26.45 1173.00,36.71 C1243.34,62.97 1288.55,128.42 1306.84,230.50 C1330.28,361.25 1326.11,522.51 1296.62,626.00 C1278.34,690.16 1252.67,729.82 1211.50,757.49 C1176.70,780.88 1134.98,792.12 1082.50,792.24 C1071.50,792.26 1057.78,791.74 1052.00,791.07 C979.64,782.68 925.83,746.59 895.55,686.12 C872.16,639.40 856.81,574.49 850.48,495.50 C848.44,470.02 846.90,417.93 847.66,400.00 C848.00,392.02 848.05,385.73 847.77,386.00 C847.49,386.27 846.00,391.00 844.47,396.50 C833.64,435.25 814.36,469.11 793.16,486.60 C785.29,493.09 772.41,499.88 761.50,503.30 C710.13,519.36 638.68,496.90 557.75,439.25 C531.46,420.52 504.11,397.88 484.97,379.00 L 474.32 368.50 L 474.35 413.50 C474.39,494.84 467.46,558.94 452.47,615.75 C433.60,687.30 406.38,730.51 361.78,759.74 C325.02,783.83 274.86,795.39 221.81,791.99 Z" fill="currentColor"/></svg>
+  <div class="num" id="s2n" style="left:96px;top:150px;font-size:260px;color:var(--cobalt)">1</div>
+  <h2 class="h serif" id="s2t" style="left:400px;top:150px;font-size:84px;white-space:normal;width:1400px">Migliorare e ottimizzare<br>il presente.</h2>
+  <svg style="position:absolute;left:0;top:0" width="1920" height="1080">
+    <path id="pw" d="M200 720 C300 720 330 540 430 540 S560 760 660 760 S790 540 890 540 S1020 760 1120 760 S1250 540 1350 540 S1480 760 1580 760 S1700 600 1780 600" fill="none" stroke="#9AA3B2" stroke-width="6" stroke-linecap="round"/>
+    <path id="ps" d="M200 650 L1780 650" fill="none" stroke="#2B45D8" stroke-width="10" stroke-linecap="round"/>
+  </svg>
+  <div class="nd" id="nd0" style="left:172px;top:692px"></div>
+  <div class="nd" id="nd1" style="left:402px;top:512px"></div>
+  <div class="nd" id="nd2" style="left:632px;top:732px"></div>
+  <div class="nd" id="nd3" style="left:862px;top:512px"></div>
+  <div class="nd" id="nd4" style="left:1092px;top:732px"></div>
+  <div class="nd" id="nd5" style="left:1322px;top:512px"></div>
+  <div class="nd" id="nd6" style="left:1552px;top:732px"></div>
+  <div class="nd" id="nd7" style="left:1752px;top:572px"></div>
+  
+  <p class="cap" id="s2a" style="left:96px;top:830px;font-size:34px;color:var(--graphite);font-weight:600">Oggi: passaggi inutili, attese, doppioni.</p>
+  <p class="cap" id="s2b" style="left:96px;top:830px;font-size:34px;color:var(--cobalt);font-weight:600">Dopo: stesso lavoro, meno attrito.</p>
+  <div id="tb" style="position:absolute;left:96px;top:930px;width:1000px;height:22px;border-radius:11px;background:#16202E;transform-origin:left center"></div>
+  <p class="cap" style="left:1130px;top:915px;font-size:28px;color:var(--graphite)">tempo</p>
+</div></section>
+
+<section id="s3" class="clip" data-start="13.2" data-duration="9.6"><div class="in w" id="s3i">
+  <div class="bg dk"></div>
+  <svg class="logo" viewBox="0 0 1322 793" aria-hidden="true" focusable="false"><path d="M 221.81 791.99 C186.04,789.70 157.46,782.50 130.50,768.98 C111.93,759.67 100.12,751.13 84.93,736.01 C71.20,722.34 64.61,713.99 55.03,698.07 C26.56,650.81 8.60,574.81 1.85,473.00 C-0.00,445.18 0.30,369.89 2.37,340.00 C10.76,219.27 29.23,150.40 67.05,98.93 C75.45,87.51 97.39,65.97 109.00,57.75 C120.74,49.44 141.08,39.20 155.00,34.58 C180.62,26.07 214.85,21.52 247.50,22.29 C277.58,23.00 299.27,26.84 322.74,35.61 C340.42,42.21 362.83,54.76 373.20,63.87 L 376.85 67.08 L 381.65 61.94 C391.78,51.11 409.44,39.52 426.71,32.36 C463.85,16.96 509.39,6.54 560.00,1.86 C580.30,-0.01 630.81,0.26 651.79,2.35 C708.20,7.99 755.39,21.43 782.78,39.66 C793.08,46.51 809.02,61.61 816.61,71.69 C840.77,103.78 854.15,146.88 858.95,208.00 C859.53,215.43 860.29,224.88 860.64,229.00 L 861.27 236.50 L 863.50 224.50 C883.39,117.14 938.43,49.16 1022.04,28.64 C1039.04,24.47 1051.30,22.93 1072.61,22.31 C1109.18,21.24 1145.54,26.45 1173.00,36.71 C1243.34,62.97 1288.55,128.42 1306.84,230.50 C1330.28,361.25 1326.11,522.51 1296.62,626.00 C1278.34,690.16 1252.67,729.82 1211.50,757.49 C1176.70,780.88 1134.98,792.12 1082.50,792.24 C1071.50,792.26 1057.78,791.74 1052.00,791.07 C979.64,782.68 925.83,746.59 895.55,686.12 C872.16,639.40 856.81,574.49 850.48,495.50 C848.44,470.02 846.90,417.93 847.66,400.00 C848.00,392.02 848.05,385.73 847.77,386.00 C847.49,386.27 846.00,391.00 844.47,396.50 C833.64,435.25 814.36,469.11 793.16,486.60 C785.29,493.09 772.41,499.88 761.50,503.30 C710.13,519.36 638.68,496.90 557.75,439.25 C531.46,420.52 504.11,397.88 484.97,379.00 L 474.32 368.50 L 474.35 413.50 C474.39,494.84 467.46,558.94 452.47,615.75 C433.60,687.30 406.38,730.51 361.78,759.74 C325.02,783.83 274.86,795.39 221.81,791.99 Z" fill="currentColor"/></svg>
+  <div class="num" id="s3n" style="left:96px;top:150px;font-size:260px;color:#9DA9F5">2</div>
+  <h2 class="h serif" id="s3t" style="left:400px;top:150px;font-size:84px;white-space:normal;width:1400px;color:#fff">Trovare soluzioni<br>inesplorate.</h2>
+  <div class="cd" id="cd0" style="left:96px"><svg class="lock" id="lk0" width="64" height="64" viewBox="0 0 64 64"><rect x="12" y="28" width="40" height="30" rx="6" fill="#9AA3B2"/><path id="sh0" d="M20 28 V20 a12 12 0 0 1 24 0 V28" fill="none" stroke="#9AA3B2" stroke-width="6" stroke-linecap="round"/></svg><svg class="ok" id="ok0" width="64" height="64" viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="#2B45D8"/><path d="M19 33 L28 42 L45 23" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Un archivio che risponde alle domande</b><span class="st" id="st0">nel cassetto</span><span class="st" id="sv0" style="opacity:0;color:#fff">ora si può</span></div>
+  <div class="cd" id="cd1" style="left:700px"><svg class="lock" id="lk1" width="64" height="64" viewBox="0 0 64 64"><rect x="12" y="28" width="40" height="30" rx="6" fill="#9AA3B2"/><path id="sh1" d="M20 28 V20 a12 12 0 0 1 24 0 V28" fill="none" stroke="#9AA3B2" stroke-width="6" stroke-linecap="round"/></svg><svg class="ok" id="ok1" width="64" height="64" viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="#2B45D8"/><path d="M19 33 L28 42 L45 23" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Offerte pronte in pochi minuti</b><span class="st" id="st1">nel cassetto</span><span class="st" id="sv1" style="opacity:0;color:#fff">ora si può</span></div>
+  <div class="cd" id="cd2" style="left:1304px"><svg class="lock" id="lk2" width="64" height="64" viewBox="0 0 64 64"><rect x="12" y="28" width="40" height="30" rx="6" fill="#9AA3B2"/><path id="sh2" d="M20 28 V20 a12 12 0 0 1 24 0 V28" fill="none" stroke="#9AA3B2" stroke-width="6" stroke-linecap="round"/></svg><svg class="ok" id="ok2" width="64" height="64" viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="#2B45D8"/><path d="M19 33 L28 42 L45 23" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Un assistente per i clienti</b><span class="st" id="st2">nel cassetto</span><span class="st" id="sv2" style="opacity:0;color:#fff">ora si può</span></div>
+  
+  <p class="cap serif" id="s3w" style="left:96px;top:770px;font-size:56px;color:#fff;letter-spacing:-.01em">Troppo tempo. Troppi costi. Poche risorse.</p>
+  <p class="cap serif" id="s3o" style="left:96px;top:770px;font-size:56px;color:#9DA9F5;letter-spacing:-.01em">Quello che avresti voluto fare, ora si può.</p>
+</div></section>
+
+<section id="s4" class="clip" data-start="22.4" data-duration="3.6"><div class="in w" id="s4i">
+  <div class="bg cob"></div>
+  <h1 class="h serif" id="s4a" style="left:96px;top:330px;width:1728px;font-size:140px;color:#fff;text-align:center">Il presente migliora.</h1>
+  <h1 class="h serif" id="s4b" style="left:96px;top:500px;width:1728px;font-size:140px;color:#fff;text-align:center;opacity:.8">Il futuro si apre.</h1>
+  <div id="s4l" style="position:absolute;left:0;right:0;top:820px;display:flex;justify-content:center"><svg style="height:80px;width:auto;color:#fff" viewBox="0 0 1322 793" aria-hidden="true" focusable="false"><path d="M 221.81 791.99 C186.04,789.70 157.46,782.50 130.50,768.98 C111.93,759.67 100.12,751.13 84.93,736.01 C71.20,722.34 64.61,713.99 55.03,698.07 C26.56,650.81 8.60,574.81 1.85,473.00 C-0.00,445.18 0.30,369.89 2.37,340.00 C10.76,219.27 29.23,150.40 67.05,98.93 C75.45,87.51 97.39,65.97 109.00,57.75 C120.74,49.44 141.08,39.20 155.00,34.58 C180.62,26.07 214.85,21.52 247.50,22.29 C277.58,23.00 299.27,26.84 322.74,35.61 C340.42,42.21 362.83,54.76 373.20,63.87 L 376.85 67.08 L 381.65 61.94 C391.78,51.11 409.44,39.52 426.71,32.36 C463.85,16.96 509.39,6.54 560.00,1.86 C580.30,-0.01 630.81,0.26 651.79,2.35 C708.20,7.99 755.39,21.43 782.78,39.66 C793.08,46.51 809.02,61.61 816.61,71.69 C840.77,103.78 854.15,146.88 858.95,208.00 C859.53,215.43 860.29,224.88 860.64,229.00 L 861.27 236.50 L 863.50 224.50 C883.39,117.14 938.43,49.16 1022.04,28.64 C1039.04,24.47 1051.30,22.93 1072.61,22.31 C1109.18,21.24 1145.54,26.45 1173.00,36.71 C1243.34,62.97 1288.55,128.42 1306.84,230.50 C1330.28,361.25 1326.11,522.51 1296.62,626.00 C1278.34,690.16 1252.67,729.82 1211.50,757.49 C1176.70,780.88 1134.98,792.12 1082.50,792.24 C1071.50,792.26 1057.78,791.74 1052.00,791.07 C979.64,782.68 925.83,746.59 895.55,686.12 C872.16,639.40 856.81,574.49 850.48,495.50 C848.44,470.02 846.90,417.93 847.66,400.00 C848.00,392.02 848.05,385.73 847.77,386.00 C847.49,386.27 846.00,391.00 844.47,396.50 C833.64,435.25 814.36,469.11 793.16,486.60 C785.29,493.09 772.41,499.88 761.50,503.30 C710.13,519.36 638.68,496.90 557.75,439.25 C531.46,420.52 504.11,397.88 484.97,379.00 L 474.32 368.50 L 474.35 413.50 C474.39,494.84 467.46,558.94 452.47,615.75 C433.60,687.30 406.38,730.51 361.78,759.74 C325.02,783.83 274.86,795.39 221.81,791.99 Z" fill="currentColor"/></svg></div>
+</div></section>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+const E="power3.out", X="power2.in";
+function out(id,t){ tl.to(id,{opacity:0,duration:.35,ease:X},t); }
+
+// S1
+tl.from("#s1i .logo",{opacity:0,duration:.4},0.1);
+tl.from("#s1k",{opacity:0,y:20,duration:.4},0.2);
+tl.from("#s1n1",{x:-160,opacity:0,duration:.8,ease:E},0.4);
+tl.from("#s1t1",{y:40,opacity:0,duration:.6,ease:E},0.9);
+tl.from("#s1n2",{x:160,opacity:0,duration:.8,ease:E},1.7);
+tl.from("#s1t2",{y:40,opacity:0,duration:.6,ease:E},2.2);
+out("#s1i",4.25);
+
+// S2 (4)
+tl.from("#s2i",{opacity:0,duration:.3},4);
+tl.from("#s2n",{x:-120,opacity:0,duration:.7,ease:E},4.2);
+tl.from("#s2t",{y:40,opacity:0,duration:.7,ease:E},4.5);
+tl.fromTo("#pw",{strokeDasharray:2600,strokeDashoffset:2600},{strokeDashoffset:0,duration:1.6,ease:"power1.inOut"},5.4);
+tl.from("#nd0",{scale:0,duration:.3,ease:"back.out(2)"},5.60);
+tl.from("#nd1",{scale:0,duration:.3,ease:"back.out(2)"},5.80);
+tl.from("#nd2",{scale:0,duration:.3,ease:"back.out(2)"},6.00);
+tl.from("#nd3",{scale:0,duration:.3,ease:"back.out(2)"},6.20);
+tl.from("#nd4",{scale:0,duration:.3,ease:"back.out(2)"},6.40);
+tl.from("#nd5",{scale:0,duration:.3,ease:"back.out(2)"},6.60);
+tl.from("#nd6",{scale:0,duration:.3,ease:"back.out(2)"},6.80);
+tl.from("#nd7",{scale:0,duration:.3,ease:"back.out(2)"},7.00);
+
+tl.from("#s2a",{opacity:0,y:20,duration:.4},6.6);
+tl.from("#tb",{scaleX:0,duration:.8,ease:"power2.out"},6.4);
+// trasformazione
+[1,3,4,6].forEach((i,k)=>tl.to("#nd"+i,{scale:0,opacity:0,duration:.35,ease:"back.in(2)"},8.6+k*.12));
+tl.to("#pw",{opacity:0,duration:.5},8.6);
+[[0,0,-70],[2,80,-110],[5,-80,110],[7,0,50]].forEach((a,k)=>tl.to("#nd"+a[0],{x:a[1],y:a[2],backgroundColor:"#2B45D8",duration:.7,ease:"power3.inOut"},9.2+k*.05));
+tl.fromTo("#ps",{strokeDasharray:1700,strokeDashoffset:1700},{strokeDashoffset:0,duration:.9,ease:"power2.inOut"},9.6);
+tl.to("#s2a",{opacity:0,duration:.3},9.4);
+tl.from("#s2b",{opacity:0,y:20,duration:.5,ease:E},10.0);
+tl.to("#tb",{scaleX:.42,backgroundColor:"#2B45D8",duration:.9,ease:"power2.inOut"},10.0);
+out("#s2i",13.25);
+
+// S3 (13.2)
+tl.from("#s3i",{opacity:0,duration:.3},13.2);
+tl.from("#s3n",{x:-120,opacity:0,duration:.7,ease:E},13.4);
+tl.from("#s3t",{y:40,opacity:0,duration:.7,ease:E},13.7);
+[0,1,2].forEach(i=>tl.from("#cd"+i,{y:60,opacity:0,duration:.55,ease:E},14.8+i*.25));
+tl.from("#s3w",{opacity:0,y:20,duration:.5,ease:E},16.2);
+// sblocco
+[0,1,2].forEach(i=>{
+  const t=18.0+i*.35;
+  tl.to("#lk"+i,{opacity:0,scale:.6,duration:.25},t);
+  tl.to("#ok"+i,{opacity:1,scale:1,duration:.4,ease:"back.out(2)"},t+.1);
+  tl.to("#cd"+i,{backgroundColor:"rgba(43,69,216,.85)",borderColor:"#9DA9F5",borderStyle:"solid",duration:.4},t);
+  tl.to("#st"+i,{opacity:0,duration:.2},t);tl.to("#sv"+i,{opacity:1,duration:.3},t+.1);
+});
+tl.to("#s3w",{opacity:0,duration:.3},18.0);
+tl.from("#s3o",{opacity:0,y:20,duration:.6,ease:E},18.7);
+out("#s3i",22.45);
+
+// S4 (22.4)
+tl.from("#s4i",{opacity:0,duration:.3},22.4);
+tl.from("#s4a",{y:50,opacity:0,duration:.7,ease:E},22.6);
+tl.from("#s4b",{y:50,opacity:0,duration:.7,ease:E},23.4);
+tl.from("#s4l",{opacity:0,y:20,duration:.5,ease:E},24.4);
+
+window.__timelines["direzioni"] = tl;
+</script>
+</body>
+</html>

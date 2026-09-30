@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<title>Il metodo di Mario Mele</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+@font-face{font-family:"Newsreader";src:url("fonts/newsreader.woff2") format("woff2");font-weight:400 600;font-style:normal}
+@font-face{font-family:"Schibsted Grotesk";src:url("fonts/sg500.woff2") format("woff2");font-weight:400 700;font-style:normal}
+:root{--paper:#EEF0EB;--ink:#16202E;--graphite:#566070;--rule:#C6CBC2;--cobalt:#2B45D8;--soft:#9DA9F5;--s1:#D6DCF6;--s2:#A7B2EE;--s3:#5E71E2}
+body{margin:0;background:var(--paper);font-family:"Schibsted Grotesk",sans-serif;color:var(--ink)}
+#root{position:relative;width:100%;height:100%;overflow:hidden;background:var(--paper)}
+.clip{position:absolute;inset:0}
+.in{position:absolute;inset:0}
+.bg{position:absolute;inset:0}
+.cob{background:var(--cobalt)}.dk{background:var(--ink)}
+.serif{font-family:"Newsreader",serif;font-weight:400;letter-spacing:-.02em}
+.logo{position:absolute;left:96px;top:64px;height:44px;width:auto;color:var(--cobalt)}
+.w .logo,.on-dark .logo{color:#fff}
+.h{position:absolute;margin:0;line-height:1.02;white-space:nowrap}
+.bignum{position:absolute;left:96px;top:190px;font-size:560px;line-height:.85;color:var(--cobalt)}
+.ttl{position:absolute;left:640px;top:200px;width:1180px;font-size:104px;line-height:1.02;margin:0}
+.ph{position:absolute;left:640px;font-size:26px;letter-spacing:.06em;text-transform:uppercase;color:var(--graphite);top:150px}
+.band{position:absolute;height:150px;border-radius:6px;display:flex;align-items:center;gap:26px;padding:0 34px;box-sizing:border-box;transform-origin:left center}
+.band .n{font-family:"Newsreader",serif;font-size:66px;line-height:1}
+.band .t{font-size:34px;font-weight:600}
+.row{position:absolute;left:640px;width:1100px;height:112px;border-radius:8px;background:#F7F8F5;border:2px solid var(--rule);display:flex;align-items:center;padding:0 36px;box-sizing:border-box;font-size:38px;font-weight:600;gap:26px}
+.row i{width:22px;height:22px;border-radius:50%;background:var(--cobalt);flex:none}
+.row span{font-weight:400;color:var(--graphite);font-size:30px;margin-left:auto}
+.bar{position:absolute;left:640px;height:26px;border-radius:13px;background:var(--cobalt);transform-origin:left center}
+.lbl{position:absolute;left:640px;font-size:38px;font-weight:600}
+.chip{position:absolute;height:104px;border-radius:8px;border:2px solid var(--rule);background:#F7F8F5;display:flex;align-items:center;padding:0 36px;font-size:36px;font-weight:600;box-sizing:border-box}
+.stamp{position:absolute;border:5px solid var(--cobalt);color:var(--cobalt);font-weight:700;font-size:40px;letter-spacing:.04em;text-transform:uppercase;padding:14px 28px;border-radius:8px;transform:rotate(-4deg)}
+.prog{position:absolute;left:96px;right:96px;bottom:64px;height:10px;display:flex;gap:10px}
+.prog b{flex:1;background:var(--rule);border-radius:5px;position:relative;overflow:hidden}
+.prog u{position:absolute;inset:0;background:var(--cobalt);transform-origin:left center;transform:scaleX(0)}
+/* s2 process */
+.node{position:absolute;top:640px;width:290px;height:120px;border:3px solid rgba(255,255,255,.85);border-radius:10px;color:#fff;font-size:34px;font-weight:600;display:flex;align-items:center;justify-content:center;box-sizing:border-box}
+.arrow{position:absolute;top:698px;height:4px;width:62px;background:rgba(255,255,255,.6)}
+.scan{position:absolute;top:628px;width:314px;height:144px;border:5px solid #fff;border-radius:14px;left:96px;box-shadow:0 0 0 2000px rgba(0,0,0,0)}
+.dot{position:absolute;top:614px;width:26px;height:26px;border-radius:50%;background:#fff}
+/* s3 */
+.card{position:absolute;top:150px;width:828px;height:800px;border-radius:12px;box-sizing:border-box;padding:52px}
+.card.a{left:96px;background:#F7F8F5;border:2px solid var(--rule)}
+.card.b{left:996px;background:var(--ink);color:#fff}
+.card .num{font-family:"Newsreader",serif;font-size:140px;line-height:.9;color:var(--cobalt)}
+.card.b .num{color:var(--soft)}
+.card h3{font-family:"Newsreader",serif;font-weight:400;font-size:74px;line-height:1.02;margin:12px 0 0;letter-spacing:-.02em}
+.tag{position:absolute;font-size:30px;font-weight:600;padding:12px 24px;border-radius:999px;border:2px solid rgba(255,255,255,.6);color:#fff}
+.box{position:absolute;border-radius:14px;box-sizing:border-box}
+/* s4 */
+.sq{position:absolute;width:44px;height:44px;border-radius:6px;background:#9DA9F5}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="metodo" data-start="0" data-width="1920" data-height="1080" data-duration="60">
+
+<div id="ov" class="clip" data-start="0" data-duration="1.8" style="z-index:50"><div style="position:absolute;inset:0;background:#2B45D8" id="ovb"></div>
+<svg id="ovl" viewBox="0 0 1322 793" style="position:absolute;left:700px;top:425px;width:520px;height:312px;fill:#fff" aria-hidden="true"><path d="M 221.81 791.99 C186.04,789.70 157.46,782.50 130.50,768.98 C111.93,759.67 100.12,751.13 84.93,736.01 C71.20,722.34 64.61,713.99 55.03,698.07 C26.56,650.81 8.60,574.81 1.85,473.00 C-0.00,445.18 0.30,369.89 2.37,340.00 C10.76,219.27 29.23,150.40 67.05,98.93 C75.45,87.51 97.39,65.97 109.00,57.75 C120.74,49.44 141.08,39.20 155.00,34.58 C180.62,26.07 214.85,21.52 247.50,22.29 C277.58,23.00 299.27,26.84 322.74,35.61 C340.42,42.21 362.83,54.76 373.20,63.87 L 376.85 67.08 L 381.65 61.94 C391.78,51.11 409.44,39.52 426.71,32.36 C463.85,16.96 509.39,6.54 560.00,1.86 C580.30,-0.01 630.81,0.26 651.79,2.35 C708.20,7.99 755.39,21.43 782.78,39.66 C793.08,46.51 809.02,61.61 816.61,71.69 C840.77,103.78 854.15,146.88 858.95,208.00 C859.53,215.43 860.29,224.88 860.64,229.00 L 861.27 236.50 L 863.50 224.50 C883.39,117.14 938.43,49.16 1022.04,28.64 C1039.04,24.47 1051.30,22.93 1072.61,22.31 C1109.18,21.24 1145.54,26.45 1173.00,36.71 C1243.34,62.97 1288.55,128.42 1306.84,230.50 C1330.28,361.25 1326.11,522.51 1296.62,626.00 C1278.34,690.16 1252.67,729.82 1211.50,757.49 C1176.70,780.88 1134.98,792.12 1082.50,792.24 C1071.50,792.26 1057.78,791.74 1052.00,791.07 C979.64,782.68 925.83,746.59 895.55,686.12 C872.16,639.40 856.81,574.49 850.48,495.50 C848.44,470.02 846.90,417.93 847.66,400.00 C848.00,392.02 848.05,385.73 847.77,386.00 C847.49,386.27 846.00,391.00 844.47,396.50 C833.64,435.25 814.36,469.11 793.16,486.60 C785.29,493.09 772.41,499.88 761.50,503.30 C710.13,519.36 638.68,496.90 557.75,439.25 C531.46,420.52 504.11,397.88 484.97,379.00 L 474.32 368.50 L 474.35 413.50 C474.39,494.84 467.46,558.94 452.47,615.75 C433.60,687.30 406.38,730.51 361.78,759.74 C325.02,783.83 274.86,795.39 221.81,791.99 Z"/></svg></div>
+<!-- S1 hook 0-6 -->
+<section id="s1" class="clip" data-start="0" data-duration="5.4"><div class="in" id="s1i">
+  <svg class="logo" viewBox="0 0 1322 793" aria-hidden="true" focusable="false"><path d="M 221.81 791.99 C186.04,789.70 157.46,782.50 130.50,768.98 C111.93,759.67 100.12,751.13 84.93,736.01 C71.20,722.34 64.61,713.99 55.03,698.07 C26.56,650.81 8.60,574.81 1.85,473.00 C-0.00,445.18 0.30,369.89 2.37,340.00 C10.76,219.27 29.23,150.40 67.05,98.93 C75.45,87.51 97.39,65.97 109.00,57.75 C120.74,49.44 141.08,39.20 155.00,34.58 C180.62,26.07 214.85,21.52 247.50,22.29 C277.58,23.00 299.27,26.84 322.74,35.61 C340.42,42.21 362.83,54.76 373.20,63.87 L 376.85 67.08 L 381.65 61.94 C391.78,51.11 409.44,39.52 426.71,32.36 C463.85,16.96 509.39,6.54 560.00,1.86 C580.30,-0.01 630.81,0.26 651.79,2.35 C708.20,7.99 755.39,21.43 782.78,39.66 C793.08,46.51 809.02,61.61 816.61,71.69 C840.77,103.78 854.15,146.88 858.95,208.00 C859.53,215.43 860.29,224.88 860.64,229.00 L 861.27 236.50 L 863.50 224.50 C883.39,117.14 938.43,49.16 1022.04,28.64 C1039.04,24.47 1051.30,22.93 1072.61,22.31 C1109.18,21.24 1145.54,26.45 1173.00,36.71 C1243.34,62.97 1288.55,128.42 1306.84,230.50 C1330.28,361.25 1326.11,522.51 1296.62,626.00 C1278.34,690.16 1252.67,729.82 1211.50,757.49 C1176.70,780.88 1134.98,792.12 1082.50,792.24 C1071.50,792.26 1057.78,791.74 1052.00,791.07 C979.64,782.68 925.83,746.59 895.55,686.12 C872.16,639.40 856.81,574.49 850.48,495.50 C848.44,470.02 846.90,417.93 847.66,400.00 C848.00,392.02 848.05,385.73 847.77,386.00 C847.49,386.27 846.00,391.00 844.47,396.50 C833.64,435.25 814.36,469.11 793.16,486.60 C785.29,493.09 772.41,499.88 761.50,503.30 C710.13,519.36 638.68,496.90 557.75,439.25 C531.46,420.52 504.11,397.88 484.97,379.00 L 474.32 368.50 L 474.35 413.50 C474.39,494.84 467.46,558.94 452.47,615.75 C433.60,687.30 406.38,730.51 361.78,759.74 C325.02,783.83 274.86,795.39 221.81,791.99 Z" fill="currentColor"/></svg>
+  <p id="s1k" style="position:absolute;left:96px;top:140px;margin:0;font-size:26px;color:var(--graphite)">Consulenza e formazione sull'AI</p>
+  <h1 class="h serif" id="s1a" style="left:96px;top:270px;font-size:112px;white-space:normal;width:1000px">Non una lezione sull'AI.</h1>
+  <h1 class="h serif" id="s1b" style="left:96px;top:600px;font-size:112px;color:var(--cobalt);white-space:normal;width:1000px">Un affiancamento che cambia il lavoro.</h1>
+  <div class="band" id="b1" style="left:1200px;top:330px;width:620px;height:170px;background:#A7B2EE"><span class="n">1</span><span class="t">Formazione</span></div>
+  <div class="band" id="b2" style="left:1290px;top:530px;width:530px;height:170px;background:var(--cobalt);color:#fff"><span class="n">2</span><span class="t">Fractional CAIO<span style="display:block;font-size:24px;font-weight:400;opacity:.85;margin-top:4px">Chief AI Officer a tempo parziale</span></span></div>
+</div></section>
+
+<!-- S2 concept 6-14 (cobalt) -->
+<section id="s2" class="clip" data-start="5" data-duration="7.4"><div class="in w" id="s2i">
+  <div class="bg cob"></div>
+  <svg class="logo" viewBox="0 0 1322 793" aria-hidden="true" focusable="false"><path d="M 221.81 791.99 C186.04,789.70 157.46,782.50 130.50,768.98 C111.93,759.67 100.12,751.13 84.93,736.01 C71.20,722.34 64.61,713.99 55.03,698.07 C26.56,650.81 8.60,574.81 1.85,473.00 C-0.00,445.18 0.30,369.89 2.37,340.00 C10.76,219.27 29.23,150.40 67.05,98.93 C75.45,87.51 97.39,65.97 109.00,57.75 C120.74,49.44 141.08,39.20 155.00,34.58 C180.62,26.07 214.85,21.52 247.50,22.29 C277.58,23.00 299.27,26.84 322.74,35.61 C340.42,42.21 362.83,54.76 373.20,63.87 L 376.85 67.08 L 381.65 61.94 C391.78,51.11 409.44,39.52 426.71,32.36 C463.85,16.96 509.39,6.54 560.00,1.86 C580.30,-0.01 630.81,0.26 651.79,2.35 C708.20,7.99 755.39,21.43 782.78,39.66 C793.08,46.51 809.02,61.61 816.61,71.69 C840.77,103.78 854.15,146.88 858.95,208.00 C859.53,215.43 860.29,224.88 860.64,229.00 L 861.27 236.50 L 863.50 224.50 C883.39,117.14 938.43,49.16 1022.04,28.64 C1039.04,24.47 1051.30,22.93 1072.61,22.31 C1109.18,21.24 1145.54,26.45 1173.00,36.71 C1243.34,62.97 1288.55,128.42 1306.84,230.50 C1330.28,361.25 1326.11,522.51 1296.62,626.00 C1278.34,690.16 1252.67,729.82 1211.50,757.49 C1176.70,780.88 1134.98,792.12 1082.50,792.24 C1071.50,792.26 1057.78,791.74 1052.00,791.07 C979.64,782.68 925.83,746.59 895.55,686.12 C872.16,639.40 856.81,574.49 850.48,495.50 C848.44,470.02 846.90,417.93 847.66,400.00 C848.00,392.02 848.05,385.73 847.77,386.00 C847.49,386.27 846.00,391.00 844.47,396.50 C833.64,435.25 814.36,469.11 793.16,486.60 C785.29,493.09 772.41,499.88 761.50,503.30 C710.13,519.36 638.68,496.90 557.75,439.25 C531.46,420.52 504.11,397.88 484.97,379.00 L 474.32 368.50 L 474.35 413.50 C474.39,494.84 467.46,558.94 452.47,615.75 C433.60,687.30 406.38,730.51 361.78,759.74 C325.02,783.83 274.86,795.39 221.81,791.99 Z" fill="currentColor"/></svg>
+  <h1 class="h serif" id="s2a" style="left:96px;top:150px;font-size:210px;color:#fff">Ti affianco.</h1>
+  <h1 class="h serif" id="s2b" style="left:96px;top:380px;font-size:210px;color:#fff">Studio i processi.</h1>
+  <div class="node" id="n1" style="left:96px">Richiesta</div><div class="arrow" id="a1" style="left:386px"></div>
+  <div class="node" id="n2" style="left:448px">Controllo</div><div class="arrow" id="a2" style="left:738px"></div>
+  <div class="node" id="n3" style="left:800px">Report</div><div class="arrow" id="a3" style="left:1090px"></div>
+  <div class="node" id="n4" style="left:1152px">Verifica</div><div class="arrow" id="a4" style="left:1442px"></div>
+  <div class="node" id="n5" style="left:1504px">Invio</div>
+  <div class="dot" id="d2" style="left:595px"></div><div class="dot" id="d4" style="left:1299px"></div>
+  <div class="scan" id="scan"></div>
+  <p id="s2c" style="position:absolute;left:96px;top:880px;margin:0;font-size:50px;color:#fff;font-weight:600">per trovare la soluzione migliore.</p>
+</div></section>
+
+<!-- S3 two directions 14-24 -->
+<section id="s3" class="clip" data-start="12" data-duration="9.4"><div class="in" id="s3i">
+  <div class="card a" id="ca">
+    <div class="num">1</div>
+    <h3>Migliorare e ottimizzare il presente.</h3>
+    <div style="position:absolute;left:52px;top:430px;font-size:28px;color:var(--graphite)">Prima</div>
+    <div id="pb1" style="position:absolute;left:52px;top:470px;width:724px;height:40px;border-radius:20px;background:#9AA3B2;transform-origin:left center"></div>
+    <div style="position:absolute;left:52px;top:560px;font-size:28px;color:var(--cobalt);font-weight:600">Dopo</div>
+    <div id="pb2" style="position:absolute;left:52px;top:600px;width:724px;height:40px;border-radius:20px;background:var(--cobalt);transform-origin:left center"></div>
+    <div id="pbt" style="position:absolute;left:52px;top:690px;font-size:34px;font-weight:600">Stesso lavoro, meno attrito.</div>
+  </div>
+  <div class="card b" id="cb">
+    <div class="num">2</div>
+    <h3>Trovare soluzioni inesplorate.</h3>
+    <div id="bx" class="box" style="left:52px;top:430px;width:724px;height:260px;border:4px dashed rgba(255,255,255,.55)"></div>
+    <div id="bxl" style="position:absolute;left:84px;top:450px;font-size:32px;color:#fff;font-weight:600">Quello che avresti voluto fare</div>
+    <div class="tag" id="t1" style="left:84px;top:540px">tempi</div>
+    <div class="tag" id="t2" style="left:236px;top:540px">costi</div>
+    <div class="tag" id="t3" style="left:384px;top:540px">risorse</div>
+    <div id="bxo" style="position:absolute;left:84px;top:625px;font-size:40px;font-weight:700;color:#16202E;opacity:0">Ora si può.</div>
+  </div>
+</div></section>
+
+<!-- S4 small optimizations 24-32 (dark) -->
+<section id="s4" class="clip" data-start="21" data-duration="7.4"><div class="in w" id="s4i">
+  <div class="bg dk"></div>
+  <svg class="logo" viewBox="0 0 1322 793" aria-hidden="true" focusable="false"><path d="M 221.81 791.99 C186.04,789.70 157.46,782.50 130.50,768.98 C111.93,759.67 100.12,751.13 84.93,736.01 C71.20,722.34 64.61,713.99 55.03,698.07 C26.56,650.81 8.60,574.81 1.85,473.00 C-0.00,445.18 0.30,369.89 2.37,340.00 C10.76,219.27 29.23,150.40 67.05,98.93 C75.45,87.51 97.39,65.97 109.00,57.75 C120.74,49.44 141.08,39.20 155.00,34.58 C180.62,26.07 214.85,21.52 247.50,22.29 C277.58,23.00 299.27,26.84 322.74,35.61 C340.42,42.21 362.83,54.76 373.20,63.87 L 376.85 67.08 L 381.65 61.94 C391.78,51.11 409.44,39.52 426.71,32.36 C463.85,16.96 509.39,6.54 560.00,1.86 C580.30,-0.01 630.81,0.26 651.79,2.35 C708.20,7.99 755.39,21.43 782.78,39.66 C793.08,46.51 809.02,61.61 816.61,71.69 C840.77,103.78 854.15,146.88 858.95,208.00 C859.53,215.43 860.29,224.88 860.64,229.00 L 861.27 236.50 L 863.50 224.50 C883.39,117.14 938.43,49.16 1022.04,28.64 C1039.04,24.47 1051.30,22.93 1072.61,22.31 C1109.18,21.24 1145.54,26.45 1173.00,36.71 C1243.34,62.97 1288.55,128.42 1306.84,230.50 C1330.28,361.25 1326.11,522.51 1296.62,626.00 C1278.34,690.16 1252.67,729.82 1211.50,757.49 C1176.70,780.88 1134.98,792.12 1082.50,792.24 C1071.50,792.26 1057.78,791.74 1052.00,791.07 C979.64,782.68 925.83,746.59 895.55,686.12 C872.16,639.40 856.81,574.49 850.48,495.50 C848.44,470.02 846.90,417.93 847.66,400.00 C848.00,392.02 848.05,385.73 847.77,386.00 C847.49,386.27 846.00,391.00 844.47,396.50 C833.64,435.25 814.36,469.11 793.16,486.60 C785.29,493.09 772.41,499.88 761.50,503.30 C710.13,519.36 638.68,496.90 557.75,439.25 C531.46,420.52 504.11,397.88 484.97,379.00 L 474.32 368.50 L 474.35 413.50 C474.39,494.84 467.46,558.94 452.47,615.75 C433.60,687.30 406.38,730.51 361.78,759.74 C325.02,783.83 274.86,795.39 221.81,791.99 Z" fill="currentColor"/></svg>
+  <h1 class="h serif" id="s4a" style="left:96px;top:150px;font-size:150px;color:#fff">L'AI a tutti i livelli.</h1>
+  <h1 class="h serif" id="s4b" style="left:96px;top:330px;font-size:100px;color:var(--soft)">Tante piccole ottimizzazioni</h1>
+  <h1 class="h serif" id="s4c" style="left:96px;top:450px;font-size:100px;color:#fff">portano l'azienda nel futuro.</h1>
+  <div class="sq" id="q0" style="left:96px;top:640px"></div><div class="sq" id="q1" style="left:204px;top:640px"></div><div class="sq" id="q2" style="left:312px;top:640px"></div><div class="sq" id="q3" style="left:420px;top:640px"></div><div class="sq" id="q4" style="left:528px;top:640px"></div><div class="sq" id="q5" style="left:636px;top:640px"></div><div class="sq" id="q6" style="left:744px;top:640px"></div><div class="sq" id="q7" style="left:852px;top:640px"></div><div class="sq" id="q8" style="left:960px;top:640px"></div><div class="sq" id="q9" style="left:1068px;top:640px"></div><div class="sq" id="q10" style="left:1176px;top:640px"></div><div class="sq" id="q11" style="left:1284px;top:640px"></div><div class="sq" id="q12" style="left:1392px;top:640px"></div><div class="sq" id="q13" style="left:1500px;top:640px"></div><div class="sq" id="q14" style="left:1608px;top:640px"></div><div class="sq" id="q15" style="left:1716px;top:640px"></div><div class="sq" id="q16" style="left:96px;top:706px"></div><div class="sq" id="q17" style="left:204px;top:706px"></div><div class="sq" id="q18" style="left:312px;top:706px"></div><div class="sq" id="q19" style="left:420px;top:706px"></div><div class="sq" id="q20" style="left:528px;top:706px"></div><div class="sq" id="q21" style="left:636px;top:706px"></div><div class="sq" id="q22" style="left:744px;top:706px"></div><div class="sq" id="q23" style="left:852px;top:706px"></div><div class="sq" id="q24" style="left:960px;top:706px"></div><div class="sq" id="q25" style="left:1068px;top:706px"></div><div class="sq" id="q26" style="left:1176px;top:706px"></div><div class="sq" id="q27" style="left:1284px;top:706px"></div><div class="sq" id="q28" style="left:1392px;top:706px"></div><div class="sq" id="q29" style="left:1500px;top:706px"></div><div class="sq" id="q30" style="left:1608px;top:706px"></div><div class="sq" id="q31" style="left:1716px;top:706px"></div><div class="sq" id="q32" style="left:96px;top:772px"></div><div class="sq" id="q33" style="left:204px;top:772px"></div><div class="sq" id="q34" style="left:312px;top:772px"></div><div class="sq" id="q35" style="left:420px;top:772px"></div><div class="sq" id="q36" style="left:528px;top:772px"></div><div class="sq" id="q37" style="left:636px;top:772px"></div><div class="sq" id="q38" style="left:744px;top:772px"></div><div class="sq" id="q39" style="left:852px;top:772px"></div><div class="sq" id="q40" style="left:960px;top:772px"></div><div class="sq" id="q41" style="left:1068px;top:772px"></div><div class="sq" id="q42" style="left:1176px;top:772px"></div><div class="sq" id="q43" style="left:1284px;top:772px"></div><div class="sq" id="q44" style="left:1392px;top:772px"></div><div class="sq" id="q45" style="left:1500px;top:772px"></div><div class="sq" id="q46" style="left:1608px;top:772px"></div><div class="sq" id="q47" style="left:1716px;top:772px"></div><div class="sq" id="q48" style="left:96px;top:838px"></div><div class="sq" id="q49" style="left:204px;top:838px"></div><div class="sq" id="q50" style="left:312px;top:838px"></div><div class="sq" id="q51" style="left:420px;top:838px"></div><div class="sq" id="q52" style="left:528px;top:838px"></div><div class="sq" id="q53" style="left:636px;top:838px"></div><div class="sq" id="q54" style="left:744px;top:838px"></div><div class="sq" id="q55" style="left:852px;top:838px"></div><div class="sq" id="q56" style="left:960px;top:838px"></div><div class="sq" id="q57" style="left:1068px;top:838px"></div><div class="sq" id="q58" style="left:1176px;top:838px"></div><div class="sq" id="q59" style="left:1284px;top:838px"></div><div class="sq" id="q60" style="left:1392px;top:838px"></div><div class="sq" id="q61" style="left:1500px;top:838px"></div><div class="sq" id="q62" style="left:1608px;top:838px"></div><div class="sq" id="q63" style="left:1716px;top:838px"></div><div class="sq" id="q64" style="left:96px;top:904px"></div><div class="sq" id="q65" style="left:204px;top:904px"></div><div class="sq" id="q66" style="left:312px;top:904px"></div><div class="sq" id="q67" style="left:420px;top:904px"></div><div class="sq" id="q68" style="left:528px;top:904px"></div><div class="sq" id="q69" style="left:636px;top:904px"></div><div class="sq" id="q70" style="left:744px;top:904px"></div><div class="sq" id="q71" style="left:852px;top:904px"></div><div class="sq" id="q72" style="left:960px;top:904px"></div><div class="sq" id="q73" style="left:1068px;top:904px"></div><div class="sq" id="q74" style="left:1176px;top:904px"></div><div class="sq" id="q75" style="left:1284px;top:904px"></div><div class="sq" id="q76" style="left:1392px;top:904px"></div><div class="sq" id="q77" style="left:1500px;top:904px"></div><div class="sq" id="q78" style="left:1608px;top:904px"></div><div class="sq" id="q79" style="left:1716px;top:904px"></div><div class="sq" id="q80" style="left:96px;top:970px"></div><div class="sq" id="q81" style="left:204px;top:970px"></div><div class="sq" id="q82" style="left:312px;top:970px"></div><div class="sq" id="q83" style="left:420px;top:970px"></div><div class="sq" id="q84" style="left:528px;top:970px"></div><div class="sq" id="q85" style="left:636px;top:970px"></div><div class="sq" id="q86" style="left:744px;top:970px"></div><div class="sq" id="q87" style="left:852px;top:970px"></div><div class="sq" id="q88" style="left:960px;top:970px"></div><div class="sq" id="q89" style="left:1068px;top:970px"></div><div class="sq" id="q90" style="left:1176px;top:970px"></div><div class="sq" id="q91" style="left:1284px;top:970px"></div><div class="sq" id="q92" style="left:1392px;top:970px"></div><div class="sq" id="q93" style="left:1500px;top:970px"></div><div class="sq" id="q94" style="left:1608px;top:970px"></div><div class="sq" id="q95" style="left:1716px;top:970px"></div>
+</div></section>
+
+<!-- S5 four steps 32-52 -->
+<section id="p1" class="clip" data-start="28" data-duration="4.4"><div class="in" id="p1i">
+  <svg class="logo" viewBox="0 0 1322 793" aria-hidden="true" focusable="false"><path d="M 221.81 791.99 C186.04,789.70 157.46,782.50 130.50,768.98 C111.93,759.67 100.12,751.13 84.93,736.01 C71.20,722.34 64.61,713.99 55.03,698.07 C26.56,650.81 8.60,574.81 1.85,473.00 C-0.00,445.18 0.30,369.89 2.37,340.00 C10.76,219.27 29.23,150.40 67.05,98.93 C75.45,87.51 97.39,65.97 109.00,57.75 C120.74,49.44 141.08,39.20 155.00,34.58 C180.62,26.07 214.85,21.52 247.50,22.29 C277.58,23.00 299.27,26.84 322.74,35.61 C340.42,42.21 362.83,54.76 373.20,63.87 L 376.85 67.08 L 381.65 61.94 C391.78,51.11 409.44,39.52 426.71,32.36 C463.85,16.96 509.39,6.54 560.00,1.86 C580.30,-0.01 630.81,0.26 651.79,2.35 C708.20,7.99 755.39,21.43 782.78,39.66 C793.08,46.51 809.02,61.61 816.61,71.69 C840.77,103.78 854.15,146.88 858.95,208.00 C859.53,215.43 860.29,224.88 860.64,229.00 L 861.27 236.50 L 863.50 224.50 C883.39,117.14 938.43,49.16 1022.04,28.64 C1039.04,24.47 1051.30,22.93 1072.61,22.31 C1109.18,21.24 1145.54,26.45 1173.00,36.71 C1243.34,62.97 1288.55,128.42 1306.84,230.50 C1330.28,361.25 1326.11,522.51 1296.62,626.00 C1278.34,690.16 1252.67,729.82 1211.50,757.49 C1176.70,780.88 1134.98,792.12 1082.50,792.24 C1071.50,792.26 1057.78,791.74 1052.00,791.07 C979.64,782.68 925.83,746.59 895.55,686.12 C872.16,639.40 856.81,574.49 850.48,495.50 C848.44,470.02 846.90,417.93 847.66,400.00 C848.00,392.02 848.05,385.73 847.77,386.00 C847.49,386.27 846.00,391.00 844.47,396.50 C833.64,435.25 814.36,469.11 793.16,486.60 C785.29,493.09 772.41,499.88 761.50,503.30 C710.13,519.36 638.68,496.90 557.75,439.25 C531.46,420.52 504.11,397.88 484.97,379.00 L 474.32 368.50 L 474.35 413.50 C474.39,494.84 467.46,558.94 452.47,615.75 C433.60,687.30 406.38,730.51 361.78,759.74 C325.02,783.83 274.86,795.39 221.81,791.99 Z" fill="currentColor"/></svg>
+  <div class="bignum serif">1</div><div class="ph">Primo passaggio</div>
+  <h2 class="ttl serif" id="p1t">Vi spiego cosa fa l'AI, e cosa no.</h2>
+  <div class="row" id="p1r1" style="top:520px"><i></i>Cosa può fare davvero</div>
+  <div class="row" id="p1r2" style="top:650px"><i></i>Dove sbaglia</div>
+  <div class="row" id="p1r3" style="top:780px"><i></i>Rischi e regole<span>AI Act</span></div>
+</div></section>
+<section id="p2" class="clip" data-start="32" data-duration="4.4"><div class="in" id="p2i">
+  <svg class="logo" viewBox="0 0 1322 793" aria-hidden="true" focusable="false"><path d="M 221.81 791.99 C186.04,789.70 157.46,782.50 130.50,768.98 C111.93,759.67 100.12,751.13 84.93,736.01 C71.20,722.34 64.61,713.99 55.03,698.07 C26.56,650.81 8.60,574.81 1.85,473.00 C-0.00,445.18 0.30,369.89 2.37,340.00 C10.76,219.27 29.23,150.40 67.05,98.93 C75.45,87.51 97.39,65.97 109.00,57.75 C120.74,49.44 141.08,39.20 155.00,34.58 C180.62,26.07 214.85,21.52 247.50,22.29 C277.58,23.00 299.27,26.84 322.74,35.61 C340.42,42.21 362.83,54.76 373.20,63.87 L 376.85 67.08 L 381.65 61.94 C391.78,51.11 409.44,39.52 426.71,32.36 C463.85,16.96 509.39,6.54 560.00,1.86 C580.30,-0.01 630.81,0.26 651.79,2.35 C708.20,7.99 755.39,21.43 782.78,39.66 C793.08,46.51 809.02,61.61 816.61,71.69 C840.77,103.78 854.15,146.88 858.95,208.00 C859.53,215.43 860.29,224.88 860.64,229.00 L 861.27 236.50 L 863.50 224.50 C883.39,117.14 938.43,49.16 1022.04,28.64 C1039.04,24.47 1051.30,22.93 1072.61,22.31 C1109.18,21.24 1145.54,26.45 1173.00,36.71 C1243.34,62.97 1288.55,128.42 1306.84,230.50 C1330.28,361.25 1326.11,522.51 1296.62,626.00 C1278.34,690.16 1252.67,729.82 1211.50,757.49 C1176.70,780.88 1134.98,792.12 1082.50,792.24 C1071.50,792.26 1057.78,791.74 1052.00,791.07 C979.64,782.68 925.83,746.59 895.55,686.12 C872.16,639.40 856.81,574.49 850.48,495.50 C848.44,470.02 846.90,417.93 847.66,400.00 C848.00,392.02 848.05,385.73 847.77,386.00 C847.49,386.27 846.00,391.00 844.47,396.50 C833.64,435.25 814.36,469.11 793.16,486.60 C785.29,493.09 772.41,499.88 761.50,503.30 C710.13,519.36 638.68,496.90 557.75,439.25 C531.46,420.52 504.11,397.88 484.97,379.00 L 474.32 368.50 L 474.35 413.50 C474.39,494.84 467.46,558.94 452.47,615.75 C433.60,687.30 406.38,730.51 361.78,759.74 C325.02,783.83 274.86,795.39 221.81,791.99 Z" fill="currentColor"/></svg>
+  <div class="bignum serif">2</div><div class="ph">Secondo passaggio</div>
+  <h2 class="ttl serif" id="p2t">Guardo come lavorate.</h2>
+  <div class="lbl" id="p2l1" style="top:470px">Il report del lunedì</div><div class="bar" id="p2b1" style="top:536px;width:900px"></div>
+  <div class="lbl" id="p2l2" style="top:600px">Le stesse risposte, ogni giorno</div><div class="bar" id="p2b2" style="top:666px;width:1040px"></div>
+  <div class="lbl" id="p2l3" style="top:730px">Cercare, copiare, riversare</div><div class="bar" id="p2b3" style="top:796px;width:720px"></div>
+  <div class="stamp" id="p2s" style="left:1260px;top:880px">Accettato come normale</div>
+</div></section>
+<section id="p3" class="clip" data-start="36" data-duration="4.4"><div class="in" id="p3i">
+  <svg class="logo" viewBox="0 0 1322 793" aria-hidden="true" focusable="false"><path d="M 221.81 791.99 C186.04,789.70 157.46,782.50 130.50,768.98 C111.93,759.67 100.12,751.13 84.93,736.01 C71.20,722.34 64.61,713.99 55.03,698.07 C26.56,650.81 8.60,574.81 1.85,473.00 C-0.00,445.18 0.30,369.89 2.37,340.00 C10.76,219.27 29.23,150.40 67.05,98.93 C75.45,87.51 97.39,65.97 109.00,57.75 C120.74,49.44 141.08,39.20 155.00,34.58 C180.62,26.07 214.85,21.52 247.50,22.29 C277.58,23.00 299.27,26.84 322.74,35.61 C340.42,42.21 362.83,54.76 373.20,63.87 L 376.85 67.08 L 381.65 61.94 C391.78,51.11 409.44,39.52 426.71,32.36 C463.85,16.96 509.39,6.54 560.00,1.86 C580.30,-0.01 630.81,0.26 651.79,2.35 C708.20,7.99 755.39,21.43 782.78,39.66 C793.08,46.51 809.02,61.61 816.61,71.69 C840.77,103.78 854.15,146.88 858.95,208.00 C859.53,215.43 860.29,224.88 860.64,229.00 L 861.27 236.50 L 863.50 224.50 C883.39,117.14 938.43,49.16 1022.04,28.64 C1039.04,24.47 1051.30,22.93 1072.61,22.31 C1109.18,21.24 1145.54,26.45 1173.00,36.71 C1243.34,62.97 1288.55,128.42 1306.84,230.50 C1330.28,361.25 1326.11,522.51 1296.62,626.00 C1278.34,690.16 1252.67,729.82 1211.50,757.49 C1176.70,780.88 1134.98,792.12 1082.50,792.24 C1071.50,792.26 1057.78,791.74 1052.00,791.07 C979.64,782.68 925.83,746.59 895.55,686.12 C872.16,639.40 856.81,574.49 850.48,495.50 C848.44,470.02 846.90,417.93 847.66,400.00 C848.00,392.02 848.05,385.73 847.77,386.00 C847.49,386.27 846.00,391.00 844.47,396.50 C833.64,435.25 814.36,469.11 793.16,486.60 C785.29,493.09 772.41,499.88 761.50,503.30 C710.13,519.36 638.68,496.90 557.75,439.25 C531.46,420.52 504.11,397.88 484.97,379.00 L 474.32 368.50 L 474.35 413.50 C474.39,494.84 467.46,558.94 452.47,615.75 C433.60,687.30 406.38,730.51 361.78,759.74 C325.02,783.83 274.86,795.39 221.81,791.99 Z" fill="currentColor"/></svg>
+  <div class="bignum serif">3</div><div class="ph">Terzo passaggio</div>
+  <h2 class="ttl serif" id="p3t">Prima il problema, poi lo strumento.</h2>
+  <div class="chip" id="p3p" style="left:640px;top:520px;width:430px;background:var(--ink);color:#fff;border-color:var(--ink)">Il vostro problema</div>
+  <div class="chip" id="p3c1" style="left:1240px;top:480px;width:560px;color:var(--graphite)">L'ultimo modello</div>
+  <div class="chip" id="p3c2" style="left:1240px;top:610px;width:560px;color:var(--graphite)">Un altro abbonamento</div>
+  <div class="chip" id="p3c3" style="left:1240px;top:740px;width:560px;border-color:var(--cobalt);color:var(--cobalt)">Lo strumento giusto</div>
+  <svg style="position:absolute;left:0;top:0" width="1920" height="1080"><path id="p3ln" d="M1070 572 C1150 572 1150 792 1240 792" fill="none" stroke="#2B45D8" stroke-width="6" stroke-linecap="round"/></svg>
+</div></section>
+<section id="p4" class="clip" data-start="40" data-duration="4.4"><div class="in" id="p4i">
+  <svg class="logo" viewBox="0 0 1322 793" aria-hidden="true" focusable="false"><path d="M 221.81 791.99 C186.04,789.70 157.46,782.50 130.50,768.98 C111.93,759.67 100.12,751.13 84.93,736.01 C71.20,722.34 64.61,713.99 55.03,698.07 C26.56,650.81 8.60,574.81 1.85,473.00 C-0.00,445.18 0.30,369.89 2.37,340.00 C10.76,219.27 29.23,150.40 67.05,98.93 C75.45,87.51 97.39,65.97 109.00,57.75 C120.74,49.44 141.08,39.20 155.00,34.58 C180.62,26.07 214.85,21.52 247.50,22.29 C277.58,23.00 299.27,26.84 322.74,35.61 C340.42,42.21 362.83,54.76 373.20,63.87 L 376.85 67.08 L 381.65 61.94 C391.78,51.11 409.44,39.52 426.71,32.36 C463.85,16.96 509.39,6.54 560.00,1.86 C580.30,-0.01 630.81,0.26 651.79,2.35 C708.20,7.99 755.39,21.43 782.78,39.66 C793.08,46.51 809.02,61.61 816.61,71.69 C840.77,103.78 854.15,146.88 858.95,208.00 C859.53,215.43 860.29,224.88 860.64,229.00 L 861.27 236.50 L 863.50 224.50 C883.39,117.14 938.43,49.16 1022.04,28.64 C1039.04,24.47 1051.30,22.93 1072.61,22.31 C1109.18,21.24 1145.54,26.45 1173.00,36.71 C1243.34,62.97 1288.55,128.42 1306.84,230.50 C1330.28,361.25 1326.11,522.51 1296.62,626.00 C1278.34,690.16 1252.67,729.82 1211.50,757.49 C1176.70,780.88 1134.98,792.12 1082.50,792.24 C1071.50,792.26 1057.78,791.74 1052.00,791.07 C979.64,782.68 925.83,746.59 895.55,686.12 C872.16,639.40 856.81,574.49 850.48,495.50 C848.44,470.02 846.90,417.93 847.66,400.00 C848.00,392.02 848.05,385.73 847.77,386.00 C847.49,386.27 846.00,391.00 844.47,396.50 C833.64,435.25 814.36,469.11 793.16,486.60 C785.29,493.09 772.41,499.88 761.50,503.30 C710.13,519.36 638.68,496.90 557.75,439.25 C531.46,420.52 504.11,397.88 484.97,379.00 L 474.32 368.50 L 474.35 413.50 C474.39,494.84 467.46,558.94 452.47,615.75 C433.60,687.30 406.38,730.51 361.78,759.74 C325.02,783.83 274.86,795.39 221.81,791.99 Z" fill="currentColor"/></svg>
+  <div class="bignum serif">4</div><div class="ph">Quarto passaggio</div>
+  <h2 class="ttl serif" id="p4t">Lo mettiamo in pratica insieme.</h2>
+  <div class="chip" id="p4a" style="left:640px;top:520px;width:330px">Proviamo</div>
+  <div class="chip" id="p4b" style="left:1020px;top:520px;width:330px">Correggiamo</div>
+  <div class="chip" id="p4c" style="left:1400px;top:520px;width:400px">Scriviamo le istruzioni</div>
+  <div class="chip" id="p4d" style="left:640px;top:720px;width:1160px;height:130px;background:var(--cobalt);color:#fff;border-color:var(--cobalt);font-size:52px;font-family:'Newsreader',serif;font-weight:400">Finché funziona senza di me.</div>
+</div></section>
+
+<!-- S7 two levels 44-54 -->
+<section id="s7" class="clip" data-start="44" data-duration="10.4"><div class="in" id="s7i">
+  <svg class="logo" viewBox="0 0 1322 793" aria-hidden="true" focusable="false"><path d="M 221.81 791.99 C186.04,789.70 157.46,782.50 130.50,768.98 C111.93,759.67 100.12,751.13 84.93,736.01 C71.20,722.34 64.61,713.99 55.03,698.07 C26.56,650.81 8.60,574.81 1.85,473.00 C-0.00,445.18 0.30,369.89 2.37,340.00 C10.76,219.27 29.23,150.40 67.05,98.93 C75.45,87.51 97.39,65.97 109.00,57.75 C120.74,49.44 141.08,39.20 155.00,34.58 C180.62,26.07 214.85,21.52 247.50,22.29 C277.58,23.00 299.27,26.84 322.74,35.61 C340.42,42.21 362.83,54.76 373.20,63.87 L 376.85 67.08 L 381.65 61.94 C391.78,51.11 409.44,39.52 426.71,32.36 C463.85,16.96 509.39,6.54 560.00,1.86 C580.30,-0.01 630.81,0.26 651.79,2.35 C708.20,7.99 755.39,21.43 782.78,39.66 C793.08,46.51 809.02,61.61 816.61,71.69 C840.77,103.78 854.15,146.88 858.95,208.00 C859.53,215.43 860.29,224.88 860.64,229.00 L 861.27 236.50 L 863.50 224.50 C883.39,117.14 938.43,49.16 1022.04,28.64 C1039.04,24.47 1051.30,22.93 1072.61,22.31 C1109.18,21.24 1145.54,26.45 1173.00,36.71 C1243.34,62.97 1288.55,128.42 1306.84,230.50 C1330.28,361.25 1326.11,522.51 1296.62,626.00 C1278.34,690.16 1252.67,729.82 1211.50,757.49 C1176.70,780.88 1134.98,792.12 1082.50,792.24 C1071.50,792.26 1057.78,791.74 1052.00,791.07 C979.64,782.68 925.83,746.59 895.55,686.12 C872.16,639.40 856.81,574.49 850.48,495.50 C848.44,470.02 846.90,417.93 847.66,400.00 C848.00,392.02 848.05,385.73 847.77,386.00 C847.49,386.27 846.00,391.00 844.47,396.50 C833.64,435.25 814.36,469.11 793.16,486.60 C785.29,493.09 772.41,499.88 761.50,503.30 C710.13,519.36 638.68,496.90 557.75,439.25 C531.46,420.52 504.11,397.88 484.97,379.00 L 474.32 368.50 L 474.35 413.50 C474.39,494.84 467.46,558.94 452.47,615.75 C433.60,687.30 406.38,730.51 361.78,759.74 C325.02,783.83 274.86,795.39 221.81,791.99 Z" fill="currentColor"/></svg>
+  <h1 class="h serif" id="s7a" style="left:96px;top:130px;width:1700px;font-size:92px">Due livelli. Un percorso.</h1>
+  <div class="card a" id="s7c1" style="left:96px;top:290px;width:740px;height:640px;padding:44px">
+    <div class="num" style="font-size:110px">1</div>
+    <h3 style="font-size:64px">Formazione</h3>
+    <div class="chip" id="s7k1" style="position:absolute;left:44px;top:330px;height:76px;font-size:30px;width:650px">Mezza giornata o giornata intera</div>
+    <div class="chip" id="s7k2" style="position:absolute;left:44px;top:430px;height:76px;font-size:30px;width:650px">Dal singolo a 20 persone</div>
+    <div class="chip" id="s7k3" style="position:absolute;left:44px;top:530px;height:76px;font-size:30px;width:650px">Cosa fa l'AI, dove sbaglia, le regole</div>
+  </div>
+  <svg id="s7ar" style="position:absolute;left:0;top:0" width="1920" height="1080"><path d="M858 610 L930 610 M906 584 L932 610 L906 636" fill="none" stroke="#2B45D8" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <div class="card b" id="s7c2" style="left:960px;top:290px;width:864px;height:640px;padding:44px">
+    <div class="num" style="font-size:110px">2</div>
+    <h3 style="font-size:64px">Fractional CAIO</h3>
+    <div style="font-size:30px;color:#9DA9F5;margin-top:10px">Chief AI Officer a tempo parziale</div>
+    
+    <div id="wa0" style="position:absolute;left:44px;top:330px;width:176px;height:96px;border-radius:8px;background:#2B45D8;color:#fff;font-size:26px;font-weight:600;display:flex;align-items:center;justify-content:center;border:2px solid #5E71E2">In azienda</div>
+    <div id="wr0" style="position:absolute;left:44px;top:446px;width:176px;height:76px;border-radius:8px;background:#9DA9F5;color:#16202E;font-size:24px;font-weight:600;display:flex;align-items:center;justify-content:center">Da remoto</div>
+    <div id="wa1" style="position:absolute;left:244px;top:330px;width:176px;height:96px;border-radius:8px;background:#2B45D8;color:#fff;font-size:26px;font-weight:600;display:flex;align-items:center;justify-content:center;border:2px solid #5E71E2">In azienda</div>
+    <div id="wr1" style="position:absolute;left:244px;top:446px;width:176px;height:76px;border-radius:8px;background:#9DA9F5;color:#16202E;font-size:24px;font-weight:600;display:flex;align-items:center;justify-content:center">Da remoto</div>
+    <div id="wa2" style="position:absolute;left:444px;top:330px;width:176px;height:96px;border-radius:8px;background:#2B45D8;color:#fff;font-size:26px;font-weight:600;display:flex;align-items:center;justify-content:center;border:2px solid #5E71E2">In azienda</div>
+    <div id="wr2" style="position:absolute;left:444px;top:446px;width:176px;height:76px;border-radius:8px;background:#9DA9F5;color:#16202E;font-size:24px;font-weight:600;display:flex;align-items:center;justify-content:center">Da remoto</div>
+    <div id="wa3" style="position:absolute;left:644px;top:330px;width:176px;height:96px;border-radius:8px;background:#2B45D8;color:#fff;font-size:26px;font-weight:600;display:flex;align-items:center;justify-content:center;border:2px solid #5E71E2">In azienda</div>
+    <div id="wr3" style="position:absolute;left:644px;top:446px;width:176px;height:76px;border-radius:8px;background:#9DA9F5;color:#16202E;font-size:24px;font-weight:600;display:flex;align-items:center;justify-content:center">Da remoto</div>
+    
+    <div id="s7lg" style="position:absolute;left:44px;top:545px;font-size:26px;color:#fff;opacity:.85">■ in azienda &nbsp;&nbsp; <span style="color:#9DA9F5">■</span> da remoto, in parallelo</div>
+    <div id="s7t1" style="position:absolute;left:44px;top:450px;font-size:0"></div>
+    <div id="s7t2" style="position:absolute;left:44px;top:585px;font-size:34px;color:#fff;font-weight:600;white-space:nowrap">Da 1 a 8 sedute al mese · 3, 6 o 12 mesi</div>
+  </div>
+</div></section>
+
+<!-- S6 close 52-60 -->
+<section id="s6" class="clip" data-start="54" data-duration="6"><div class="in" id="s6i">
+  <h1 class="h serif" id="s6h" style="left:96px;top:300px;width:1728px;font-size:160px;text-align:center;white-space:normal">Il tool è la risposta,<br><span style="color:var(--cobalt)">non la domanda.</span></h1>
+  <div id="s6f" style="position:absolute;left:0;right:0;top:770px;display:flex;flex-direction:column;align-items:center;gap:26px">
+    <svg style="height:70px;width:auto;color:#2B45D8" viewBox="0 0 1322 793" aria-hidden="true" focusable="false"><path d="M 221.81 791.99 C186.04,789.70 157.46,782.50 130.50,768.98 C111.93,759.67 100.12,751.13 84.93,736.01 C71.20,722.34 64.61,713.99 55.03,698.07 C26.56,650.81 8.60,574.81 1.85,473.00 C-0.00,445.18 0.30,369.89 2.37,340.00 C10.76,219.27 29.23,150.40 67.05,98.93 C75.45,87.51 97.39,65.97 109.00,57.75 C120.74,49.44 141.08,39.20 155.00,34.58 C180.62,26.07 214.85,21.52 247.50,22.29 C277.58,23.00 299.27,26.84 322.74,35.61 C340.42,42.21 362.83,54.76 373.20,63.87 L 376.85 67.08 L 381.65 61.94 C391.78,51.11 409.44,39.52 426.71,32.36 C463.85,16.96 509.39,6.54 560.00,1.86 C580.30,-0.01 630.81,0.26 651.79,2.35 C708.20,7.99 755.39,21.43 782.78,39.66 C793.08,46.51 809.02,61.61 816.61,71.69 C840.77,103.78 854.15,146.88 858.95,208.00 C859.53,215.43 860.29,224.88 860.64,229.00 L 861.27 236.50 L 863.50 224.50 C883.39,117.14 938.43,49.16 1022.04,28.64 C1039.04,24.47 1051.30,22.93 1072.61,22.31 C1109.18,21.24 1145.54,26.45 1173.00,36.71 C1243.34,62.97 1288.55,128.42 1306.84,230.50 C1330.28,361.25 1326.11,522.51 1296.62,626.00 C1278.34,690.16 1252.67,729.82 1211.50,757.49 C1176.70,780.88 1134.98,792.12 1082.50,792.24 C1071.50,792.26 1057.78,791.74 1052.00,791.07 C979.64,782.68 925.83,746.59 895.55,686.12 C872.16,639.40 856.81,574.49 850.48,495.50 C848.44,470.02 846.90,417.93 847.66,400.00 C848.00,392.02 848.05,385.73 847.77,386.00 C847.49,386.27 846.00,391.00 844.47,396.50 C833.64,435.25 814.36,469.11 793.16,486.60 C785.29,493.09 772.41,499.88 761.50,503.30 C710.13,519.36 638.68,496.90 557.75,439.25 C531.46,420.52 504.11,397.88 484.97,379.00 L 474.32 368.50 L 474.35 413.50 C474.39,494.84 467.46,558.94 452.47,615.75 C433.60,687.30 406.38,730.51 361.78,759.74 C325.02,783.83 274.86,795.39 221.81,791.99 Z" fill="currentColor"/></svg>
+    <div style="font-size:34px;color:var(--graphite)">Mario Mele · info@mariomele.com</div>
+  </div>
+</div></section>
+
+<div id="prog" class="clip" data-start="28.2" data-duration="15.8"><div class="prog"><b><u id="pu1"></u></b><b><u id="pu2"></u></b><b><u id="pu3"></u></b><b><u id="pu4"></u></b></div></div>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+const E="power3.out", X="power2.in";
+function inn(id,t){ tl.from(id,{opacity:0,duration:.3},t); }
+function out(id,t){ tl.to(id,{opacity:0,duration:.35,ease:X},t); }
+function rev(ids,t,gap){ tl.from(ids,{y:40,opacity:0,duration:.55,ease:E,stagger:gap||.15},t); }
+
+// apertura: il logo si ingrandisce e rivela la scena
+tl.from("#ovl",{scale:.55,opacity:0,duration:.55,ease:"back.out(1.6)",transformOrigin:"50% 50%"},0.05);
+tl.to("#ovl",{scale:16,duration:.9,ease:"power3.in",transformOrigin:"50% 50%"},0.75);
+tl.to("#ovb",{opacity:0,duration:.35,ease:"power1.in"},1.15);
+tl.to("#ovl",{opacity:0,duration:.25},1.45);
+
+// S1 0
+tl.from("#s1i .logo",{opacity:0,duration:.4},1.0);
+tl.from("#s1k",{opacity:0,y:20,duration:.4,ease:E},1.1);
+tl.from("#s1a",{y:60,opacity:0,duration:.7,ease:E},1.3);
+tl.from("#s1b",{y:60,opacity:0,duration:.7,ease:E},2.4);
+["#b1","#b2"].forEach((b,i)=>tl.from(b,{scaleX:0,opacity:0,duration:.7,ease:E},3.3+i*.4));
+out("#s1i",4.95);
+
+// S2 5
+tl.from("#s2i",{opacity:0,duration:.3},5);
+tl.from("#s2i .logo",{opacity:0,duration:.4},5.2);
+tl.from("#s2a",{x:-120,opacity:0,duration:.7,ease:E},5.3);
+tl.from("#s2b",{x:-120,opacity:0,duration:.7,ease:E},6.3);
+["#n1","#n2","#n3","#n4","#n5"].forEach((n,i)=>{tl.from(n,{y:40,opacity:0,duration:.4,ease:E},7.4+i*.15);});
+["#a1","#a2","#a3","#a4"].forEach((n,i)=>{tl.from(n,{scaleX:0,transformOrigin:"left center",duration:.25,ease:"power2.out"},7.6+i*.15);});
+tl.fromTo("#scan",{x:0,opacity:0},{x:0,opacity:1,duration:.25},8.2);
+tl.to("#scan",{x:352,duration:.4,ease:"power2.inOut"},8.6);
+tl.to("#scan",{x:704,duration:.4,ease:"power2.inOut"},9.05);
+tl.to("#scan",{x:1056,duration:.4,ease:"power2.inOut"},9.5);
+tl.to("#scan",{x:1408,duration:.4,ease:"power2.inOut"},9.95);
+tl.from("#d2",{scale:0,duration:.3,ease:"back.out(2)"},9.0);
+tl.from("#d4",{scale:0,duration:.3,ease:"back.out(2)"},9.9);
+tl.from("#s2c",{y:30,opacity:0,duration:.5,ease:E},10.5);
+out("#s2i",11.95);
+
+// S3 12
+tl.from("#s3i",{opacity:0,duration:.3},12);
+tl.from("#ca",{x:-80,opacity:0,duration:.6,ease:E},12.2);
+tl.from("#pb1",{scaleX:0,duration:.6,ease:"power2.out"},13.5);
+tl.from("#pb2",{scaleX:0,duration:.6,ease:"power2.out"},14.1);
+tl.to("#pb2",{scaleX:.42,duration:.8,ease:"power2.inOut"},14.9);
+tl.from("#pbt",{opacity:0,y:20,duration:.4},15.5);
+tl.from("#cb",{x:80,opacity:0,duration:.6,ease:E},16.0);
+tl.from("#bx",{opacity:0,duration:.4},17.2);
+tl.from("#bxl",{opacity:0,duration:.4},17.3);
+["#t1","#t2","#t3"].forEach((t,i)=>tl.from(t,{opacity:0,scale:.7,duration:.3,ease:"back.out(1.6)"},17.6+i*.2));
+["#t1","#t2","#t3"].forEach((t,i)=>tl.to(t,{opacity:.35,textDecoration:"line-through",duration:.3},18.4+i*.2));
+tl.to("#bx",{backgroundColor:"#9DA9F5",borderColor:"#9DA9F5",duration:.5},19.3);
+tl.to("#bxl",{color:"#16202E",duration:.4},19.3);
+tl.to("#bxo",{opacity:1,y:-4,duration:.5},19.6);
+out("#s3i",20.9);
+
+// S4 21
+tl.from("#s4i",{opacity:0,duration:.3},21);
+tl.from("#s4a",{y:50,opacity:0,duration:.7,ease:E},21.3);
+tl.from("#s4b",{y:50,opacity:0,duration:.6,ease:E},22.4);
+tl.from("#q78",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},23.400);
+tl.from("#q66",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},23.420);
+tl.from("#q86",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},23.440);
+tl.from("#q79",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},23.460);
+tl.from("#q21",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},23.480);
+tl.from("#q44",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},23.500);
+tl.from("#q51",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},23.520);
+tl.from("#q1",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},23.540);
+tl.from("#q0",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},23.560);
+tl.from("#q87",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},23.580);
+tl.from("#q62",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},23.600);
+tl.from("#q32",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},23.620);
+tl.from("#q38",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},23.640);
+tl.from("#q48",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},23.660);
+tl.from("#q84",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},23.680);
+tl.from("#q49",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},23.700);
+tl.from("#q42",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},23.720);
+tl.from("#q77",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},23.740);
+tl.from("#q33",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},23.760);
+tl.from("#q14",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},23.780);
+tl.from("#q10",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},23.800);
+tl.from("#q95",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},23.820);
+tl.from("#q16",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},23.840);
+tl.from("#q61",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},23.860);
+tl.from("#q18",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},23.880);
+tl.from("#q2",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},23.900);
+tl.from("#q59",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},23.920);
+tl.from("#q24",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},23.940);
+tl.from("#q22",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},23.960);
+tl.from("#q65",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},23.980);
+tl.from("#q25",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.000);
+tl.from("#q71",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.020);
+tl.from("#q57",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.040);
+tl.from("#q47",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.060);
+tl.from("#q45",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.080);
+tl.from("#q29",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.100);
+tl.from("#q20",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.120);
+tl.from("#q92",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.140);
+tl.from("#q60",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.160);
+tl.from("#q31",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.180);
+tl.from("#q13",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.200);
+tl.from("#q39",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.220);
+tl.from("#q3",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.240);
+tl.from("#q89",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.260);
+tl.from("#q82",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.280);
+tl.from("#q56",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.300);
+tl.from("#q80",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.320);
+tl.from("#q23",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.340);
+tl.from("#q88",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.360);
+tl.from("#q40",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.380);
+tl.from("#q58",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.400);
+tl.from("#q63",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.420);
+tl.from("#q67",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.440);
+tl.from("#q76",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.460);
+tl.from("#q43",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.480);
+tl.from("#q52",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.500);
+tl.from("#q35",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.520);
+tl.from("#q94",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.540);
+tl.from("#q36",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.560);
+tl.from("#q69",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.580);
+tl.from("#q34",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.600);
+tl.from("#q90",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.620);
+tl.from("#q26",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.640);
+tl.from("#q37",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.660);
+tl.from("#q17",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.680);
+tl.from("#q5",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.700);
+tl.from("#q75",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.720);
+tl.from("#q91",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.740);
+tl.from("#q93",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.760);
+tl.from("#q73",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.780);
+tl.from("#q28",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.800);
+tl.from("#q15",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.820);
+tl.from("#q72",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.840);
+tl.from("#q85",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.860);
+tl.from("#q54",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.880);
+tl.from("#q70",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.900);
+tl.from("#q81",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.920);
+tl.from("#q30",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.940);
+tl.from("#q8",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.960);
+tl.from("#q53",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},24.980);
+tl.from("#q55",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},25.000);
+tl.from("#q11",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},25.020);
+tl.from("#q4",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},25.040);
+tl.from("#q27",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},25.060);
+tl.from("#q64",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},25.080);
+tl.from("#q7",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},25.100);
+tl.from("#q74",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},25.120);
+tl.from("#q46",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},25.140);
+tl.from("#q12",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},25.160);
+tl.from("#q68",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},25.180);
+tl.from("#q9",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},25.200);
+tl.from("#q6",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},25.220);
+tl.from("#q83",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},25.240);
+tl.from("#q50",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},25.260);
+tl.from("#q19",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},25.280);
+tl.from("#q41",{scale:0,opacity:0,duration:.25,ease:"back.out(2)"},25.300);
+tl.from("#s4c",{y:50,opacity:0,duration:.6,ease:E},25.4);
+out("#s4i",27.95);
+
+// P1 28
+inn("#p1i",28);
+tl.from("#p1i .bignum",{x:-80,opacity:0,duration:.7,ease:E},28.1);
+tl.from("#p1i .ph",{opacity:0,duration:.3},28.3);
+tl.from("#p1t",{y:40,opacity:0,duration:.6,ease:E},28.5);
+rev(["#p1r1","#p1r2","#p1r3"],29.3,.4);
+out("#p1i",31.95);
+// P2 32
+inn("#p2i",32);
+tl.from("#p2i .bignum",{x:-80,opacity:0,duration:.7,ease:E},32.1);
+tl.from("#p2i .ph",{opacity:0,duration:.3},32.3);
+tl.from("#p2t",{y:40,opacity:0,duration:.6,ease:E},32.5);
+[["#p2l1","#p2b1",33.3],["#p2l2","#p2b2",33.65],["#p2l3","#p2b3",34.0]].forEach(a=>{tl.from(a[0],{opacity:0,x:-30,duration:.35,ease:E},a[2]);tl.from(a[1],{scaleX:0,duration:.7,ease:"power2.out"},a[2]+.1);});
+tl.from("#p2s",{scale:2.2,opacity:0,duration:.3,ease:"back.out(1.6)"},35.0);
+out("#p2i",35.95);
+// P3 36
+inn("#p3i",36);
+tl.from("#p3i .bignum",{x:-80,opacity:0,duration:.7,ease:E},36.1);
+tl.from("#p3i .ph",{opacity:0,duration:.3},36.3);
+tl.from("#p3t",{y:40,opacity:0,duration:.6,ease:E},36.5);
+tl.from("#p3p",{x:-40,opacity:0,duration:.4,ease:E},37.2);
+tl.from(["#p3c1","#p3c2","#p3c3"],{x:40,opacity:0,duration:.4,ease:E,stagger:.15},37.35);
+tl.to(["#p3c1","#p3c2"],{opacity:.3,duration:.3},38.1);
+tl.fromTo("#p3ln",{strokeDasharray:600,strokeDashoffset:600},{strokeDashoffset:0,duration:.7,ease:"power2.inOut"},38.2);
+tl.to("#p3c3",{backgroundColor:"#2B45D8",color:"#ffffff",duration:.35},38.9);
+out("#p3i",39.95);
+// P4 40
+inn("#p4i",40);
+tl.from("#p4i .bignum",{x:-80,opacity:0,duration:.7,ease:E},40.1);
+tl.from("#p4i .ph",{opacity:0,duration:.3},40.3);
+tl.from("#p4t",{y:40,opacity:0,duration:.6,ease:E},40.5);
+rev(["#p4a","#p4b","#p4c"],41.2,.3);
+tl.from("#p4d",{y:40,opacity:0,duration:.6,ease:E},42.4);
+out("#p4i",43.95);
+
+// S7 due livelli 44
+tl.from("#s7i",{opacity:0,duration:.3},44);
+tl.from("#s7a",{y:50,opacity:0,duration:.7,ease:E},44.3);
+tl.from("#s7c1",{x:-80,opacity:0,duration:.6,ease:E},45.0);
+rev(["#s7k1","#s7k2","#s7k3"],45.6,.3);
+tl.fromTo("#s7ar",{opacity:0},{opacity:1,duration:.4},47.0);
+tl.from("#s7c2",{x:80,opacity:0,duration:.6,ease:E},47.4);
+[0,1,2,3].forEach(i=>{tl.from("#wa"+i,{y:30,opacity:0,duration:.35,ease:E},48.4+i*.3);tl.from("#wr"+i,{y:30,opacity:0,duration:.35,ease:E},48.55+i*.3);});
+tl.from("#s7lg",{opacity:0,duration:.4},49.8);
+tl.from("#s7t2",{opacity:0,y:20,duration:.5,ease:E},50.4);
+out("#s7i",54.0);
+
+// S6 54
+tl.from("#s6h",{y:60,opacity:0,duration:.9,ease:E},54.3);
+tl.from("#s6f",{y:30,opacity:0,duration:.6,ease:E},56.0);
+
+// progress
+[["#pu1",28.3],["#pu2",32.3],["#pu3",36.3],["#pu4",40.3]].forEach(a=>tl.to(a[0],{scaleX:1,duration:3.6,ease:"none"},a[1]));
+tl.to("#prog",{opacity:0,duration:.3},43.7);
+
+window.__timelines["metodo"] = tl;
+</script>
+</body>
+</html>

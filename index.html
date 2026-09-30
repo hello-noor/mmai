@@ -1,15 +1,30 @@
-<!DOCTYPE html>
-<html lang="it">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Mario Mele, consulenza e formazione sull'intelligenza artificiale</title>
-<meta name="description" content="Consulenza, formazione e Chief AI Officer frazionale per PMI e studi professionali. Quattro livelli, prezzi chiari, preventivo immediato.">
+<meta name="theme-color" content="#2B45D8">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="media/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="media/favicon-32.png">
+<link rel="apple-touch-icon" href="media/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mario Mele">
+<meta property="og:locale" content="it_IT">
+<meta property="og:title" content="Mario Mele: consulenza e formazione sull'intelligenza artificiale">
+<meta property="og:description" content="Non una lezione sull'AI, ma un affiancamento che cambia il lavoro. Rispondi a poche domande e ricevi il percorso e il preventivo su misura.">
+<meta property="og:image" content="media/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Mario Mele: non una lezione sull'AI, un affiancamento che cambia il lavoro">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mario Mele: consulenza e formazione sull'intelligenza artificiale">
+<meta name="twitter:description" content="Non una lezione sull'AI, ma un affiancamento che cambia il lavoro. Rispondi a poche domande e ricevi il percorso e il preventivo su misura.">
+<meta name="twitter:image" content="media/og.jpg">
+<title>Mario Mele: consulenza e formazione sull'intelligenza artificiale</title>
+<meta name="description" content="Consulenza, formazione e Chief AI Officer frazionale per PMI, studi professionali e professionisti. Rispondete a poche domande e ottenete il percorso e il preventivo su misura.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
+<style>:root{
   --paper:#EEF0EB; --paper-2:#E3E6DF; --card:#F7F8F5;
   --ink:#16202E; --graphite:#566070; --rule:#C6CBC2;
   --cobalt:#2B45D8; --cobalt-ink:#FFFFFF;
@@ -223,6 +238,8 @@ input[type=text],input[type=number]{font:500 16px var(--sans);color:var(--ink);b
 .tot .l.g .v{font-family:var(--serif);font-size:34px;font-weight:500}
 .tot .iva{font-size:12.5px;color:var(--graphite);margin:4px 0 16px}
 .acts{display:grid;gap:8px}
+.val2{display:grid;grid-template-columns:1fr 1.25fr;gap:48px;align-items:center}
+@media (max-width:900px){.val2{grid-template-columns:1fr;gap:32px}}
 .acts .two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .toast{font-size:13.5px;color:var(--cobalt);min-height:18px;margin:8px 0 0}
 
@@ -283,69 +300,187 @@ dialog h3{font-family:var(--serif);font-weight:400;font-size:26px}
   .printhead{display:block!important}
 }
 .printhead{display:none;margin-bottom:18px;font-size:13px}
+/* ===== percorso guidato ===== */
+#calcola{padding:48px 0 84px;background:var(--paper-2)}
+.stage{display:none;animation:stin .45s cubic-bezier(.2,.7,.2,1) both}
+.stage.on{display:block}
+@keyframes stin{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+body[data-stage="calc"] .mbar{display:flex}
+@media (max-width:980px){body:not([data-stage="calc"]) .mbar{display:none}body:not([data-stage="calc"]){padding-bottom:0}}
+.linkbtn{font:500 15px var(--sans);color:var(--graphite);background:none;border:0;padding:6px 0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.linkbtn:hover{color:var(--ink)}
+.btn.big{padding:17px 26px;font-size:17px}
+.h-intro{padding-top:64px;padding-bottom:40px;display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:center}
+.h-intro h1{font-family:var(--serif);font-weight:400;font-size:clamp(38px,5vw,66px);line-height:1.03;letter-spacing:-.025em;margin:0 0 24px}
+.h-intro .lead{font-family:var(--serif);font-size:21px;line-height:1.5;margin:0 0 30px;max-width:30em}
+.h-intro .ctas{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.vid{margin:0;position:relative;border:1px solid var(--ink);border-radius:8px;overflow:hidden;background:var(--paper-2)}
+.vid video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:var(--paper-2)}
+.vid figcaption{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;font-size:14px;color:var(--graphite);border-top:1px solid var(--rule);background:var(--card)}
+.vid .linkbtn{padding:0}
+@media (max-width:900px){.h-intro{grid-template-columns:1fr;padding-top:36px;gap:32px}}
+.mini{padding-top:12px;padding-bottom:72px}
+.mini h2{font-size:clamp(26px,3vw,34px);margin:0 0 18px}
+.quiz{max-width:908px;margin:0 auto;padding-top:40px;padding-bottom:72px}
+.qtop{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:34px;font-size:14px;color:var(--graphite)}
+.nodes{display:flex;gap:6px;flex:1;max-width:220px}
+.nodes i{flex:1;height:6px;border-radius:3px;background:var(--rule);transition:background .3s}
+.nodes i.d{background:var(--cobalt)}.nodes i.c{background:var(--s3)}
+.quiz h1{font-family:var(--serif);font-weight:400;font-size:clamp(32px,4.4vw,52px);line-height:1.05;letter-spacing:-.02em;margin:0 0 10px;outline:0}
+.quiz .qh{font-size:18px;color:var(--graphite);margin:0 0 30px;max-width:34em}
+.opts{display:grid;gap:12px}
+.opts.c2{grid-template-columns:1fr 1fr}
+@media (max-width:640px){.opts.c2{grid-template-columns:1fr}}
+.opt{display:flex;align-items:flex-start;gap:16px;text-align:left;font:inherit;color:var(--ink);background:var(--card);border:1.5px solid var(--rule);border-radius:8px;padding:18px 20px;cursor:pointer;transition:transform .15s,border-color .15s,background .15s}
+.opt:hover{border-color:var(--ink);transform:translateY(-2px)}
+.opt.sel{border-color:var(--cobalt);background:var(--s1)}
+:root[data-theme="dark"] .opt.sel{background:var(--s1)}
+.opt .key{flex:none;width:28px;height:28px;border-radius:6px;border:1.5px solid var(--rule);display:grid;place-items:center;font-size:14px;font-weight:600;color:var(--graphite);margin-top:1px}
+.opt.sel .key{background:var(--cobalt);color:var(--cobalt-ink);border-color:var(--cobalt)}
+.opt b{display:block;font-size:18px;font-weight:600;line-height:1.3}
+.opt small{display:block;font-size:14.5px;color:var(--graphite);margin-top:3px}
+.qfoot{display:flex;justify-content:space-between;align-items:center;margin-top:30px;gap:16px;flex-wrap:wrap}
+.meter{display:flex;gap:5px;align-items:flex-end;height:30px}
+.meter i{width:16px;background:var(--rule);border-radius:2px;transition:background .3s}
+.meter i:nth-child(1){height:45%}.meter i:nth-child(2){height:100%}
+.meter i.on{background:var(--cobalt)}
+.mwrap{display:flex;align-items:center;gap:12px;font-size:13.5px;color:var(--graphite)}
+.res{padding-top:56px;padding-bottom:80px}
+.res-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:start}
+@media (max-width:900px){.res-grid{grid-template-columns:1fr}}
+.res .kick{font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--cobalt);font-weight:600;margin:0 0 10px}
+.res h1{font-family:var(--serif);font-weight:400;font-size:clamp(34px,4.6vw,58px);line-height:1.04;letter-spacing:-.02em;margin:0 0 22px;outline:0}
+.res ul.why{margin:0 0 28px;padding-left:20px;font-size:18px}
+.res ul.why li{margin-bottom:12px;max-width:36em}
+.res .bands .band{cursor:default;grid-template-columns:auto 1fr auto;transition:opacity .3s}
+.res .bands .band:hover{transform:none}
+.res .bands .band.off{opacity:.3}
+.pricecard{background:var(--card);border:1px solid var(--ink);border-radius:8px;padding:26px}
+.pricecard .amt{font-family:var(--serif);font-size:54px;line-height:1.05}
+.pricecard .u{font-size:14px;color:var(--graphite)}
+.pricecard .u b{color:var(--ink);font-size:16px}
+.pricecard .amt .per{font-family:var(--sans);font-size:20px;color:var(--graphite)}
+.sedctl{display:flex;justify-content:space-between;align-items:center;gap:14px;margin:18px 0 0;padding:14px 0 0;border-top:1px solid var(--rule)}
+.sedctl .lb{font-size:15px}.sedctl .lb small{display:block;color:var(--graphite);font-size:13px;margin-top:3px}
+select{font:500 15px var(--sans);color:var(--ink);background:var(--card);border:1px solid var(--rule);border-radius:6px;padding:10px 12px;max-width:100%}
+.upsell{display:none;width:100%;text-align:left;margin:14px 0 0;padding:12px 14px;border:1.5px dashed var(--cobalt);border-radius:8px;background:transparent;color:var(--ink);font:inherit;cursor:pointer}
+.upsell:hover{background:var(--s1)}
+.upsell.promo{border-style:solid;background:var(--s1)}
+.upsell.promo:hover{background:var(--s2)}
+.upsell .badge{font-style:normal;display:inline-block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;background:var(--cobalt);color:var(--cobalt-ink);padding:2px 8px;border-radius:999px;margin-bottom:6px}
+.upsell b{display:block;font-size:15px;color:var(--cobalt)}
+.upsell span{display:block;font-size:13.5px;color:var(--graphite);margin-top:2px}
+.inc{margin:18px 0 0;padding-top:16px;border-top:1px solid var(--rule)}
+.inc h3{font-size:15px;letter-spacing:.04em;text-transform:uppercase;color:var(--graphite);margin:0 0 10px}
+.inc ul{margin:0;padding-left:18px;font-size:15px}
+.inc li{margin-bottom:8px}
+.inc .tot-days{font-size:15px;margin:10px 0 0;padding-top:10px;border-top:1px dashed var(--rule)}
+.scope{font-size:12.5px;line-height:1.45;color:var(--graphite);margin:8px 0 14px;padding:9px 11px;border-left:3px solid var(--cobalt);background:var(--paper-2);border-radius:0 4px 4px 0}
+.tot .tp{font-size:13.5px;color:var(--graphite);margin:2px 0 4px}
+.tot .tp b{font-size:15px;color:var(--ink);font-weight:600}
+.pricecard .acts{margin-top:22px}
+.pricecard .hint{margin-top:14px}
+.recap{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+.recap span{font-size:13.5px;border:1px solid var(--rule);background:var(--card);border-radius:999px;padding:5px 12px;color:var(--graphite)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:8px 0 34px}
+.two>div{border:1px solid var(--rule);border-radius:8px;padding:26px;background:var(--card)}
+.two>div.inv{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.two .k{font-family:var(--serif);font-size:64px;line-height:.9;color:var(--cobalt);display:block;margin-bottom:12px}
+.two .inv .k{color:var(--s2)}
+.two h3{font-family:var(--serif);font-weight:400;font-size:30px;line-height:1.1;letter-spacing:-.01em;margin:0 0 10px}
+.two p{margin:0 0 8px;font-size:17px}
+.two .acr{font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--s2);font-weight:600;margin:-4px 0 12px}
+.claim{font-family:var(--serif);font-size:clamp(24px,3vw,34px);line-height:1.2;letter-spacing:-.01em;margin:0 0 48px;max-width:26em;color:var(--cobalt)}
+.lvgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:40px}
+.lvgrid p{font-size:15.5px;color:var(--graphite);margin:0}
+@media (max-width:900px){.two{grid-template-columns:1fr}.lvgrid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.lvgrid{grid-template-columns:1fr}}
+.h-intro{display:block;padding-top:44px;padding-bottom:64px}
+.hi-top{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:end;margin-bottom:40px}
+.hi-top .h1,.hi-top h1{margin-bottom:0}
+.hi-top .lead{margin-bottom:22px}
+.vbig{box-shadow:0 18px 50px -24px rgba(22,32,46,.45)}
+@media (max-width:900px){.h-intro{padding-top:32px}.hi-top{grid-template-columns:1fr;gap:22px;margin-bottom:28px}}
+.mk{position:absolute;pointer-events:none;fill:currentColor;height:auto}
+.h-intro{position:relative}
+.hero-mk{top:-28px;right:-110px;width:600px;color:var(--s1);opacity:.8;z-index:0;animation:mkfloat 14s ease-in-out infinite alternate}
+.hi-top,.vbig{position:relative;z-index:1}
+@keyframes mkfloat{from{transform:translateY(0) rotate(-2deg)}to{transform:translateY(18px) rotate(2deg)}}
+#st-quiz,#st-result{position:relative;overflow:hidden}
+.quiz{position:relative}
+.quiz>*:not(.mk){position:relative;z-index:1}
+.quiz-mk{right:-120px;bottom:-80px;width:520px;color:var(--s1);opacity:.65;z-index:0}
+.res{position:relative}
+.res-grid{position:relative;z-index:1}
+.res-mk{left:-140px;bottom:-90px;width:560px;color:var(--s1);opacity:.5;z-index:0}
+.pricecard{position:relative}
+.pc-mk{right:22px;top:22px;width:56px;color:var(--cobalt);animation:mkpop .7s cubic-bezier(.2,.9,.3,1.4) both}
+@keyframes mkpop{from{transform:scale(.3) rotate(-12deg);opacity:0}to{transform:none;opacity:1}}
+footer{position:relative;overflow:hidden}
+footer .wrap{position:relative;z-index:1}
+.ft-mk{right:-70px;bottom:-110px;width:560px;color:var(--s1);opacity:.6}
+#st-intro section h2::before{content:"";display:inline-block;width:.6em;height:.36em;margin-right:.3em;background:var(--cobalt);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1322 793'%3E%3Cpath d='M 221.81 791.99 C186.04%2C789.70 157.46%2C782.50 130.50%2C768.98 C111.93%2C759.67 100.12%2C751.13 84.93%2C736.01 C71.20%2C722.34 64.61%2C713.99 55.03%2C698.07 C26.56%2C650.81 8.60%2C574.81 1.85%2C473.00 C-0.00%2C445.18 0.30%2C369.89 2.37%2C340.00 C10.76%2C219.27 29.23%2C150.40 67.05%2C98.93 C75.45%2C87.51 97.39%2C65.97 109.00%2C57.75 C120.74%2C49.44 141.08%2C39.20 155.00%2C34.58 C180.62%2C26.07 214.85%2C21.52 247.50%2C22.29 C277.58%2C23.00 299.27%2C26.84 322.74%2C35.61 C340.42%2C42.21 362.83%2C54.76 373.20%2C63.87 L 376.85 67.08 L 381.65 61.94 C391.78%2C51.11 409.44%2C39.52 426.71%2C32.36 C463.85%2C16.96 509.39%2C6.54 560.00%2C1.86 C580.30%2C-0.01 630.81%2C0.26 651.79%2C2.35 C708.20%2C7.99 755.39%2C21.43 782.78%2C39.66 C793.08%2C46.51 809.02%2C61.61 816.61%2C71.69 C840.77%2C103.78 854.15%2C146.88 858.95%2C208.00 C859.53%2C215.43 860.29%2C224.88 860.64%2C229.00 L 861.27 236.50 L 863.50 224.50 C883.39%2C117.14 938.43%2C49.16 1022.04%2C28.64 C1039.04%2C24.47 1051.30%2C22.93 1072.61%2C22.31 C1109.18%2C21.24 1145.54%2C26.45 1173.00%2C36.71 C1243.34%2C62.97 1288.55%2C128.42 1306.84%2C230.50 C1330.28%2C361.25 1326.11%2C522.51 1296.62%2C626.00 C1278.34%2C690.16 1252.67%2C729.82 1211.50%2C757.49 C1176.70%2C780.88 1134.98%2C792.12 1082.50%2C792.24 C1071.50%2C792.26 1057.78%2C791.74 1052.00%2C791.07 C979.64%2C782.68 925.83%2C746.59 895.55%2C686.12 C872.16%2C639.40 856.81%2C574.49 850.48%2C495.50 C848.44%2C470.02 846.90%2C417.93 847.66%2C400.00 C848.00%2C392.02 848.05%2C385.73 847.77%2C386.00 C847.49%2C386.27 846.00%2C391.00 844.47%2C396.50 C833.64%2C435.25 814.36%2C469.11 793.16%2C486.60 C785.29%2C493.09 772.41%2C499.88 761.50%2C503.30 C710.13%2C519.36 638.68%2C496.90 557.75%2C439.25 C531.46%2C420.52 504.11%2C397.88 484.97%2C379.00 L 474.32 368.50 L 474.35 413.50 C474.39%2C494.84 467.46%2C558.94 452.47%2C615.75 C433.60%2C687.30 406.38%2C730.51 361.78%2C759.74 C325.02%2C783.83 274.86%2C795.39 221.81%2C791.99 Z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1322 793'%3E%3Cpath d='M 221.81 791.99 C186.04%2C789.70 157.46%2C782.50 130.50%2C768.98 C111.93%2C759.67 100.12%2C751.13 84.93%2C736.01 C71.20%2C722.34 64.61%2C713.99 55.03%2C698.07 C26.56%2C650.81 8.60%2C574.81 1.85%2C473.00 C-0.00%2C445.18 0.30%2C369.89 2.37%2C340.00 C10.76%2C219.27 29.23%2C150.40 67.05%2C98.93 C75.45%2C87.51 97.39%2C65.97 109.00%2C57.75 C120.74%2C49.44 141.08%2C39.20 155.00%2C34.58 C180.62%2C26.07 214.85%2C21.52 247.50%2C22.29 C277.58%2C23.00 299.27%2C26.84 322.74%2C35.61 C340.42%2C42.21 362.83%2C54.76 373.20%2C63.87 L 376.85 67.08 L 381.65 61.94 C391.78%2C51.11 409.44%2C39.52 426.71%2C32.36 C463.85%2C16.96 509.39%2C6.54 560.00%2C1.86 C580.30%2C-0.01 630.81%2C0.26 651.79%2C2.35 C708.20%2C7.99 755.39%2C21.43 782.78%2C39.66 C793.08%2C46.51 809.02%2C61.61 816.61%2C71.69 C840.77%2C103.78 854.15%2C146.88 858.95%2C208.00 C859.53%2C215.43 860.29%2C224.88 860.64%2C229.00 L 861.27 236.50 L 863.50 224.50 C883.39%2C117.14 938.43%2C49.16 1022.04%2C28.64 C1039.04%2C24.47 1051.30%2C22.93 1072.61%2C22.31 C1109.18%2C21.24 1145.54%2C26.45 1173.00%2C36.71 C1243.34%2C62.97 1288.55%2C128.42 1306.84%2C230.50 C1330.28%2C361.25 1326.11%2C522.51 1296.62%2C626.00 C1278.34%2C690.16 1252.67%2C729.82 1211.50%2C757.49 C1176.70%2C780.88 1134.98%2C792.12 1082.50%2C792.24 C1071.50%2C792.26 1057.78%2C791.74 1052.00%2C791.07 C979.64%2C782.68 925.83%2C746.59 895.55%2C686.12 C872.16%2C639.40 856.81%2C574.49 850.48%2C495.50 C848.44%2C470.02 846.90%2C417.93 847.66%2C400.00 C848.00%2C392.02 848.05%2C385.73 847.77%2C386.00 C847.49%2C386.27 846.00%2C391.00 844.47%2C396.50 C833.64%2C435.25 814.36%2C469.11 793.16%2C486.60 C785.29%2C493.09 772.41%2C499.88 761.50%2C503.30 C710.13%2C519.36 638.68%2C496.90 557.75%2C439.25 C531.46%2C420.52 504.11%2C397.88 484.97%2C379.00 L 474.32 368.50 L 474.35 413.50 C474.39%2C494.84 467.46%2C558.94 452.47%2C615.75 C433.60%2C687.30 406.38%2C730.51 361.78%2C759.74 C325.02%2C783.83 274.86%2C795.39 221.81%2C791.99 Z'/%3E%3C/svg%3E") center/contain no-repeat;vertical-align:.04em}
+.brand .logo{height:30px}
+@media print{.stage:not(#st-calc){display:none!important}.recap,#calcola .linkbtn{display:none!important}}
+
 </style>
 </head>
-<body>
+<body data-stage="intro">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="mm" viewBox="0 0 1322 793"><path d="M 221.81 791.99 C186.04,789.70 157.46,782.50 130.50,768.98 C111.93,759.67 100.12,751.13 84.93,736.01 C71.20,722.34 64.61,713.99 55.03,698.07 C26.56,650.81 8.60,574.81 1.85,473.00 C-0.00,445.18 0.30,369.89 2.37,340.00 C10.76,219.27 29.23,150.40 67.05,98.93 C75.45,87.51 97.39,65.97 109.00,57.75 C120.74,49.44 141.08,39.20 155.00,34.58 C180.62,26.07 214.85,21.52 247.50,22.29 C277.58,23.00 299.27,26.84 322.74,35.61 C340.42,42.21 362.83,54.76 373.20,63.87 L 376.85 67.08 L 381.65 61.94 C391.78,51.11 409.44,39.52 426.71,32.36 C463.85,16.96 509.39,6.54 560.00,1.86 C580.30,-0.01 630.81,0.26 651.79,2.35 C708.20,7.99 755.39,21.43 782.78,39.66 C793.08,46.51 809.02,61.61 816.61,71.69 C840.77,103.78 854.15,146.88 858.95,208.00 C859.53,215.43 860.29,224.88 860.64,229.00 L 861.27 236.50 L 863.50 224.50 C883.39,117.14 938.43,49.16 1022.04,28.64 C1039.04,24.47 1051.30,22.93 1072.61,22.31 C1109.18,21.24 1145.54,26.45 1173.00,36.71 C1243.34,62.97 1288.55,128.42 1306.84,230.50 C1330.28,361.25 1326.11,522.51 1296.62,626.00 C1278.34,690.16 1252.67,729.82 1211.50,757.49 C1176.70,780.88 1134.98,792.12 1082.50,792.24 C1071.50,792.26 1057.78,791.74 1052.00,791.07 C979.64,782.68 925.83,746.59 895.55,686.12 C872.16,639.40 856.81,574.49 850.48,495.50 C848.44,470.02 846.90,417.93 847.66,400.00 C848.00,392.02 848.05,385.73 847.77,386.00 C847.49,386.27 846.00,391.00 844.47,396.50 C833.64,435.25 814.36,469.11 793.16,486.60 C785.29,493.09 772.41,499.88 761.50,503.30 C710.13,519.36 638.68,496.90 557.75,439.25 C531.46,420.52 504.11,397.88 484.97,379.00 L 474.32 368.50 L 474.35 413.50 C474.39,494.84 467.46,558.94 452.47,615.75 C433.60,687.30 406.38,730.51 361.78,759.74 C325.02,783.83 274.86,795.39 221.81,791.99 Z"/></symbol></svg>
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Mario Mele, torna all'inizio"><svg class="logo" viewBox="0 0 1322 793" aria-hidden="true" focusable="false"><path d="M 221.81 791.99 C186.04,789.70 157.46,782.50 130.50,768.98 C111.93,759.67 100.12,751.13 84.93,736.01 C71.20,722.34 64.61,713.99 55.03,698.07 C26.56,650.81 8.60,574.81 1.85,473.00 C-0.00,445.18 0.30,369.89 2.37,340.00 C10.76,219.27 29.23,150.40 67.05,98.93 C75.45,87.51 97.39,65.97 109.00,57.75 C120.74,49.44 141.08,39.20 155.00,34.58 C180.62,26.07 214.85,21.52 247.50,22.29 C277.58,23.00 299.27,26.84 322.74,35.61 C340.42,42.21 362.83,54.76 373.20,63.87 L 376.85 67.08 L 381.65 61.94 C391.78,51.11 409.44,39.52 426.71,32.36 C463.85,16.96 509.39,6.54 560.00,1.86 C580.30,-0.01 630.81,0.26 651.79,2.35 C708.20,7.99 755.39,21.43 782.78,39.66 C793.08,46.51 809.02,61.61 816.61,71.69 C840.77,103.78 854.15,146.88 858.95,208.00 C859.53,215.43 860.29,224.88 860.64,229.00 L 861.27 236.50 L 863.50 224.50 C883.39,117.14 938.43,49.16 1022.04,28.64 C1039.04,24.47 1051.30,22.93 1072.61,22.31 C1109.18,21.24 1145.54,26.45 1173.00,36.71 C1243.34,62.97 1288.55,128.42 1306.84,230.50 C1330.28,361.25 1326.11,522.51 1296.62,626.00 C1278.34,690.16 1252.67,729.82 1211.50,757.49 C1176.70,780.88 1134.98,792.12 1082.50,792.24 C1071.50,792.26 1057.78,791.74 1052.00,791.07 C979.64,782.68 925.83,746.59 895.55,686.12 C872.16,639.40 856.81,574.49 850.48,495.50 C848.44,470.02 846.90,417.93 847.66,400.00 C848.00,392.02 848.05,385.73 847.77,386.00 C847.49,386.27 846.00,391.00 844.47,396.50 C833.64,435.25 814.36,469.11 793.16,486.60 C785.29,493.09 772.41,499.88 761.50,503.30 C710.13,519.36 638.68,496.90 557.75,439.25 C531.46,420.52 504.11,397.88 484.97,379.00 L 474.32 368.50 L 474.35 413.50 C474.39,494.84 467.46,558.94 452.47,615.75 C433.60,687.30 406.38,730.51 361.78,759.74 C325.02,783.83 274.86,795.39 221.81,791.99 Z" fill="currentColor"/></svg><span>Mario Mele</span></a>
+    <a class="brand" href="index.html" aria-label="Mario Mele, torna all'inizio"><svg class="logo" viewBox="0 0 1322 793" aria-hidden="true" focusable="false"><path d="M 221.81 791.99 C186.04,789.70 157.46,782.50 130.50,768.98 C111.93,759.67 100.12,751.13 84.93,736.01 C71.20,722.34 64.61,713.99 55.03,698.07 C26.56,650.81 8.60,574.81 1.85,473.00 C-0.00,445.18 0.30,369.89 2.37,340.00 C10.76,219.27 29.23,150.40 67.05,98.93 C75.45,87.51 97.39,65.97 109.00,57.75 C120.74,49.44 141.08,39.20 155.00,34.58 C180.62,26.07 214.85,21.52 247.50,22.29 C277.58,23.00 299.27,26.84 322.74,35.61 C340.42,42.21 362.83,54.76 373.20,63.87 L 376.85 67.08 L 381.65 61.94 C391.78,51.11 409.44,39.52 426.71,32.36 C463.85,16.96 509.39,6.54 560.00,1.86 C580.30,-0.01 630.81,0.26 651.79,2.35 C708.20,7.99 755.39,21.43 782.78,39.66 C793.08,46.51 809.02,61.61 816.61,71.69 C840.77,103.78 854.15,146.88 858.95,208.00 C859.53,215.43 860.29,224.88 860.64,229.00 L 861.27 236.50 L 863.50 224.50 C883.39,117.14 938.43,49.16 1022.04,28.64 C1039.04,24.47 1051.30,22.93 1072.61,22.31 C1109.18,21.24 1145.54,26.45 1173.00,36.71 C1243.34,62.97 1288.55,128.42 1306.84,230.50 C1330.28,361.25 1326.11,522.51 1296.62,626.00 C1278.34,690.16 1252.67,729.82 1211.50,757.49 C1176.70,780.88 1134.98,792.12 1082.50,792.24 C1071.50,792.26 1057.78,791.74 1052.00,791.07 C979.64,782.68 925.83,746.59 895.55,686.12 C872.16,639.40 856.81,574.49 850.48,495.50 C848.44,470.02 846.90,417.93 847.66,400.00 C848.00,392.02 848.05,385.73 847.77,386.00 C847.49,386.27 846.00,391.00 844.47,396.50 C833.64,435.25 814.36,469.11 793.16,486.60 C785.29,493.09 772.41,499.88 761.50,503.30 C710.13,519.36 638.68,496.90 557.75,439.25 C531.46,420.52 504.11,397.88 484.97,379.00 L 474.32 368.50 L 474.35 413.50 C474.39,494.84 467.46,558.94 452.47,615.75 C433.60,687.30 406.38,730.51 361.78,759.74 C325.02,783.83 274.86,795.39 221.81,791.99 Z" fill="currentColor"/></svg><span>Mario Mele</span></a>
     <nav class="links" aria-label="Sezioni">
-      <a href="#valore">Perché</a>
-      <a href="#metodo">Metodo</a>
-      <a href="#livelli">Livelli</a>
-      <a href="#come">Come si calcola</a>
-      <a href="#chi">Chi sono</a>
-      <a class="btn small" href="#calcola">Componi il preventivo</a>
+      <a href="#metodo" data-anchor="metodo">Metodo</a>
+      <a href="#livelli" data-anchor="livelli">Livelli</a>
+      <a href="#chi" data-anchor="chi">Chi sono</a>
+      <a href="#come" data-anchor="come">FAQ</a>
+      <a class="btn small" href="#preventivo" data-skip>Vai al preventivo</a>
     </nav>
   </div>
 </header>
 
 <main id="top">
-  <div class="wrap hero">
-    <div>
-      <p class="who">Consulenza e formazione sull'intelligenza artificiale per PMI, studi professionali e direzioni aziendali</p>
-      <h1>Non una lezione sull'AI. Un affiancamento che cambia il lavoro.</h1>
-      <p class="lead">Lavoro accanto al vostro team, sulle attività di ogni giorno, finché i nuovi modi di lavorare funzionano davvero. Il valore non arriva da un grande progetto: arriva da tante piccole ottimizzazioni, a ogni livello dell'azienda, che sommate la spostano in avanti.</p>
-      <div class="ctas">
-        <a class="btn" href="#calcola">Componi il preventivo</a>
-        <a class="btn ghost" href="#metodo">Come lavoro</a>
+
+<!-- PASSO 1: introduzione -->
+<div class="stage on" id="st-intro">
+  <div class="wrap h-intro">
+    <svg class="mk hero-mk" viewBox="0 0 1322 793" aria-hidden="true" focusable="false"><use href="#mm"/></svg>
+    <div class="hi-top">
+      <div>
+        <p class="who">Consulenza e formazione sull'intelligenza artificiale per aziende, studi professionali, scuole e professionisti</p>
+        <h1 data-focus tabindex="-1">Non una lezione sull'AI. Un affiancamento che cambia il lavoro.</h1>
+      </div>
+      <div>
+        <p class="lead">Sono Mario Mele. Studio l'intelligenza artificiale da più di vent'anni, da quando era filosofia della mente e scienze cognitive. Oggi lavoro accanto alle persone, sul loro lavoro vero, finché i nuovi modi di lavorare funzionano da soli.</p>
+        <div class="ctas">
+          <button class="btn big" type="button" data-start-quiz>Cominciamo →</button>
+          <span class="muted" style="font-size:15px">Poche domande, due minuti. Nessun impegno.</span>
+        </div>
+        <p style="margin:20px 0 0;font-size:15px"><button class="linkbtn" type="button" data-skip>Preferisco andare direttamente al preventivo</button></p>
       </div>
     </div>
-    <figure class="strata" style="margin:0">
-      <div class="axis" aria-hidden="true"><span class="t">in superficie</span><span class="b">in profondità</span></div>
-      <button class="band b1" style="--i:0" data-go="1"><span class="n">1</span><span><span class="nm">Fondamenta</span><span class="vb">capire cosa fa l'AI e dove sbaglia</span></span><span class="pr num" data-from="1"></span></button>
-      <button class="band b2" style="--i:1" data-go="2"><span class="n">2</span><span><span class="nm">Competenze</span><span class="vb">usarla bene, area per area</span></span><span class="pr num" data-from="2"></span></button>
-      <button class="band b3" style="--i:2" data-go="3"><span class="n">3</span><span><span class="nm">Riprogettazione</span><span class="vb">cambiare il modo in cui si lavora</span></span><span class="pr num" data-from="3"></span></button>
-      <button class="band b4" style="--i:3" data-go="4"><span class="n">4</span><span><span class="nm">Chief AI Officer frazionale</span><span class="vb">fare cose che oggi non si fanno</span></span><span class="pr num" data-from="4"></span></button>
-      <figcaption>Quattro livelli. I primi due sono formazione: servono a partire. Gli ultimi due sono affiancamento: lì avviene la trasformazione. Toccate un livello per aggiungerlo al preventivo.</figcaption>
+    <figure class="vid vbig">
+      <video id="mv" src="media/metodo.mp4" poster="media/metodo.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Il metodo in breve: ti affianco, studio i processi, e trovo la soluzione migliore"></video>
+      <figcaption><span>Il metodo in 60 secondi</span><button class="linkbtn" type="button" id="vToggle">Pausa</button></figcaption>
     </figure>
   </div>
-
-  <section id="valore">
-    <div class="wrap">
-      <div class="val">
-        <div>
-          <h2>Il valore sta nelle piccole cose, moltiplicate.</h2>
-          <p class="intro" style="margin-bottom:22px">Una mail scritta in metà tempo, un report che si compila da solo, una ricerca che prima richiedeva un pomeriggio. Presa da sola, ogni ottimizzazione è piccola. Applicata a ogni persona, ogni settimana, diventa una quantità di tempo che cambia cosa l'azienda riesce a fare.</p>
-          <p class="muted" style="font-size:15px">Provate con i vostri numeri. È un esempio, non una promessa: il tempo reale lo misuriamo prima e dopo, alle verifiche del livello 3.</p>
-        </div>
-        <div class="gain" aria-live="polite">
-          <div class="row"><span class="lb">Persone coinvolte</span><span class="step"><button type="button" data-g="p" data-d="-1" aria-label="Meno persone">−</button><output id="gP"></output><button type="button" data-g="p" data-d="1" aria-label="Più persone">+</button></span></div>
-          <div class="row"><span class="lb">Minuti recuperati al giorno, a testa</span><span class="step"><button type="button" data-g="m" data-d="-5" aria-label="Meno minuti">−</button><output id="gM"></output><button type="button" data-g="m" data-d="5" aria-label="Più minuti">+</button></span></div>
-          <div class="grid" id="gGrid" aria-hidden="true"></div><p class="muted" style="font-size:13px;margin:-8px 0 14px">Ogni quadrato è una persona.</p>
-          <p class="res"><b class="num" id="gH"></b> ore l'anno</p>
-          <p class="muted" style="margin:4px 0 0;font-size:15px" id="gE"></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="metodo">
+  
+<section id="metodo">
     <div class="wrap">
       <h2>Come lavoro.</h2>
-      <p class="intro">Un corso vi spiega l'AI e poi vi lascia soli davanti al lavoro di sempre. Io resto accanto al team finché il lavoro è cambiato.</p>
-      <div class="vs">
+      <p class="intro">Vi affianco e studio i processi, per trovare la soluzione migliore in due direzioni.</p>
+      <figure class="vid" style="margin:0 0 40px">
+        <video id="mv3" src="media/direzioni.mp4" poster="media/direzioni.jpg" muted loop playsinline preload="metadata" aria-label="Le due direzioni del metodo: migliorare il presente e trovare soluzioni inesplorate"></video>
+        <figcaption><span>Le due direzioni del metodo</span><button class="linkbtn" type="button" id="vToggle3">Riproduci</button></figcaption>
+      </figure>
+      <div class="two">
+        <div><span class="k">1</span><h3>Migliorare e ottimizzare il presente</h3><p>Guardo come si lavora oggi e tolgo attrito: passaggi inutili, attività ripetute, tempi morti. Stesso lavoro, meno fatica.</p></div>
+        <div class="inv"><span class="k">2</span><h3>Trovare soluzioni inesplorate</h3><p>Fare le cose che avreste voluto fare ma sembravano irraggiungibili per tempi, costi o risorse. Con l'AI, molte oggi non lo sono più.</p></div>
+      </div>
+      <p class="claim">L'AI a tutti i livelli dell'azienda: tante piccole ottimizzazioni che, sommate, portano l'azienda nel futuro.</p>
+      <div class="vs" style="margin-top:8px">
         <div><h3>Un corso tradizionale</h3><ul><li>Parte dagli strumenti e cerca dove usarli</li><li>Esempi generici, uguali per tutti</li><li>Finisce quando finisce la lezione</li><li>Dopo qualche settimana, è facile tornare a lavorare come prima</li></ul></div>
         <div class="me"><h3>Un affiancamento</h3><ul><li>Parte da dove il vostro lavoro si inceppa</li><li>Lavora sui vostri documenti, dati e processi</li><li>Finisce quando il nuovo flusso regge da solo</li><li>Si verifica a uno e a tre mesi, misurando il tempo recuperato</li></ul></div>
       </div>
@@ -358,134 +493,173 @@ dialog h3{font-family:var(--serif);font-weight:400;font-size:26px}
       </div>
       <div class="principle">
         <blockquote>Il tool è la risposta, non la domanda.</blockquote>
-        <p class="muted">Per questo l'affiancamento non si paga a ore d'aula ma a persone affiancate e giornate di lavoro, in azienda e da remoto. Un processo non si può stimare prima di averlo visto; si può stimare quanto tempo serve per osservarlo, ripensarlo e metterlo alla prova con chi lo svolge.</p>
+        <p class="muted">Per questo l'affiancamento non è un corso: è un lavoro continuativo accanto alle persone, sui processi veri, finché il nuovo modo di lavorare regge da solo. Un processo non si giudica prima di averlo visto: si osserva, si prova, si verifica.</p>
       </div>
     </div>
   </section>
-
-  <section id="livelli">
+<section id="valore">
     <div class="wrap">
-      <h2>Formazione per partire, affiancamento per trasformare.</h2>
-      <p class="intro">I livelli 1 e 2 danno a tutti una base comune. I livelli 3 e 4 portano l'AI dentro il lavoro di ogni giorno, persona per persona. Si combinano: chi passa al 3 o al 4 entro 60 giorni dal workshop recupera metà del suo costo.</p>
-
-      <article class="level" id="l1">
-        <div class="tag"><span class="big">1</span><span class="nm">Fondamenta</span><span class="for">Per tutta l'azienda, o per chi deve decidere se e come partire</span></div>
-        <div class="body">
-          <p>Una o due giornate in azienda per costruire un linguaggio comune: cosa sa fare l'AI, dove sbaglia, quali rischi comporta, cosa dice l'AI Act. Poi esercitazioni su casi presi dal vostro lavoro.</p>
-          <ul>
-            <li>Fino a 20 partecipanti per edizione</li>
-            <li>Materiali e prompt riutilizzabili</li>
-            <li>Alla fine, una mappa delle opportunità emerse in aula: il punto di partenza per i livelli 3 e 4</li>
-          </ul>
+      <div class="val2">
+        <div>
+          <h2>Il valore sta nelle piccole cose, moltiplicate.</h2>
+          <p class="intro" style="margin-bottom:0">Una mail scritta in metà tempo, un report che si compila da solo, una ricerca che prima richiedeva un pomeriggio. Presa da sola, ogni ottimizzazione è piccola. Applicata a ogni persona, ogni settimana, diventa una quantità di tempo che cambia cosa l'azienda riesce a fare.</p>
         </div>
-        <div class="price"><div class="u">A giornata in azienda</div><div class="v num" data-rate="on"></div><p class="d">Con preparazione su casi aziendali raccolti prima dell'incontro, mezza giornata di lavoro da remoto in più.</p></div>
-      </article>
-
-      <article class="level" id="l2">
-        <div class="tag"><span class="big">2</span><span class="nm">Competenze</span><span class="for">Per aree e livelli diversi: direzione, amministrazione, commerciale, marketing, HR</span></div>
-        <div class="body">
-          <p>Moduli distinti per gruppo, costruiti sulle attività di ciascuno. La direzione lavora su governance, decisioni e rischi; le aree operative sugli strumenti e sui flussi che usano davvero.</p>
-          <ul>
-            <li>Una giornata da remoto per progettare il percorso con voi</li>
-            <li>Moduli da mezza giornata o da giornata intera, per gruppo</li>
-            <li>Esercitazioni sui documenti e sui dati di ciascuna area</li>
-          </ul>
+        <figure class="vid" style="margin:0">
+          <video id="mv2" src="media/ottimizzazioni.mp4" poster="media/ottimizzazioni.jpg" muted loop playsinline preload="metadata" aria-label="Come tante piccole ottimizzazioni di processo portano l'azienda nel futuro"></video>
+          <figcaption><span>Tante piccole ottimizzazioni, un'azienda nel futuro</span><button class="linkbtn" type="button" id="vToggle2">Riproduci</button></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+<section id="livelli">
+    <div class="wrap">
+      <h2>Due livelli: formazione per partire, affiancamento per trasformare.</h2>
+      <p class="intro">La formazione dà a tutti la stessa base. Il Fractional CAIO porta l'AI dentro il lavoro di ogni giorno, processo per processo. Si combinano: il workshop è il modo migliore per cominciare.</p>
+      <figure class="strata" style="margin:0 0 8px">
+        <div class="axis" aria-hidden="true"><span class="t">in superficie</span><span class="b">in profondità</span></div>
+        <div class="band b2" style="--i:0"><span class="n">1</span><span><span class="nm">Formazione</span><span class="vb">capire cosa fa l'AI, dove sbaglia, quali regole ci sono</span></span><span class="pr"></span></div>
+        <div class="band b4" style="--i:2"><span class="n">2</span><span><span class="nm">Fractional CAIO</span><span class="vb">Chief AI Officer a tempo parziale, per cambiare il modo di lavorare</span></span><span class="pr"></span></div>
+      </figure>
+      <div class="two" style="margin-top:34px">
+        <div><span class="k">1</span><h3>Formazione</h3><p>Un workshop in azienda, di mezza giornata o di una giornata intera, in un formato che si adatta a voi: individuale (C-level o ruolo intermedio), gruppo di 2–3 o di 4–6 persone a livelli diversi, workshop fino a 20 persone. Cosa sa fare l'AI, dove sbaglia, quali rischi e regole, AI Act compreso. Poi esercitazioni sui casi di ciascuna area: direzione, amministrazione, commerciale, marketing, risorse umane.</p></div>
+        <div class="inv"><span class="k">2</span><h3>Fractional CAIO</h3><p class="acr">Chief AI Officer a tempo parziale</p><p><b>CAIO</b> sta per <i>Chief AI Officer</i>: il responsabile dell'intelligenza artificiale di un'azienda, la figura che decide come e dove usarla. <i>Fractional</i> significa a tempo parziale: avete quella funzione per poche giornate al mese, senza assumere un dirigente.</p><p style="margin-top:12px">Ogni mese da una a otto sedute in azienda, con altrettante giornate di analisi da remoto in parallelo: vi affianco, studio i processi, troviamo la soluzione migliore e verifichiamo che regga. Per 3, 6 o 12 mesi.</p></div>
+      </div>
+      <p class="muted" style="font-size:15.5px;max-width:48em;margin:0 0 22px">Consulenza e sviluppo sono due cose separate. Se servono un chatbot, un sistema RAG (un assistente che risponde sui vostri documenti), un'automazione o un'altra soluzione su misura, possiamo realizzarla insieme, con un preventivo dedicato.</p>
+      <p style="margin-top:10px"><button class="btn big" type="button" data-start-quiz>Scoprite quale fa per voi →</button></p>
+    </div>
+  </section>
+<section id="chi">
+    <div class="wrap about">
+      <div>
+        <h2>Chi sono.</h2>
+        <p>Studio l'intelligenza artificiale da oltre vent'anni, da quando era materia di filosofia della mente e scienze cognitive più che di prodotti. Mi interessava capire come funziona il pensiero per costruire strumenti che lo aumentino, non che lo sostituiscano.</p>
+        <p>Faccio formazione nelle aziende e lavoro molto nel mondo dell'educazione: porto l'AI a docenti e alunni, dalla scuola dell'infanzia alle superiori. Spiegare la stessa idea a un bambino, a un'insegnante e a una direzione mi ha insegnato una cosa: il linguaggio cambia, il metodo no.</p>
+        <p>Il metodo nasce da qui. Non parto dagli strumenti: parto dal punto in cui il lavoro si inceppa. Prima una base comune, poi osservo come si lavora, scelgo lo strumento per ogni problema e lo metto in pratica insieme alle persone, finché funziona senza di me. Lo stesso percorso vale per una classe, un ufficio o una direzione.</p>
+        <p>Scrivo <a href="https://mariomele.substack.com">ExMachina</a>, dove ragiono di AI, filosofia, educazione e politica, senza tecno-ottimismo e senza fatalismo.</p>
+      </div>
+      <div class="facts2">
+        <div><b class="num">20+</b><span>anni di studio sull'intelligenza artificiale</span></div>
+        <div><b>0–18</b><span>formazione a docenti e alunni, dalla scuola dell'infanzia alle superiori</span></div>
+        <div><b>Aziende</b><span>PMI e studi professionali: liberare ore da compiti ripetitivi e sbloccare i colli di bottiglia storici</span></div>
+        <div><b>Fondi e C-level</b><span>Due diligence tecnologica, governance e flussi di lavoro nelle società partecipate</span></div>
+      </div>
+    </div>
+  </section>
+<section id="come">
+    <div class="wrap">
+      <h2>Domande frequenti.</h2>
+      <div class="twocol" style="grid-template-columns:minmax(0,760px)">
+        <div>
+          <details open><summary>Come si lavora su un processo?</summary><p>Un processo non si può giudicare prima di averlo visto: quello che sembra un passaggio semplice può nasconderne dieci. Si parte dall'osservazione di una persona o di un gruppo mentre lavora, si mappa il flusso, si prova una soluzione sui vostri documenti e dati, si corregge sui feedback e si verifica a uno e a tre mesi che regga.</p></details>
+          <details><summary>Cosa succede in una seduta in azienda?</summary><p>Vi affianco mentre lavorate: guardo i flussi, provo soluzioni con il team, scrivo con voi le istruzioni. Le giornate da remoto in parallelo servono a analizzare e preparare: prototipi, test, verifiche online. Ogni seduta in azienda ha la sua giornata di lavoro da remoto.</p></details>
+          <details><summary>Cos'è un Fractional CAIO?</summary><p>CAIO sta per Chief AI Officer: il responsabile dell'intelligenza artificiale di un'azienda, cioè la persona che decide come e dove usarla, con quali regole e con quali priorità. Fractional vuol dire a tempo parziale: avete quella funzione, con la stessa responsabilità di un dirigente interno, senza assumerlo. Ha sedute fisse in azienda, risponde alla direzione e tiene insieme strategia, governance e lavoro operativo.</p></details>
+          <details><summary>Quante sedute al mese servono?</summary><p>Dipende da quante persone e quanti processi sono coinvolti. Una al mese per un presidio leggero, due per un gruppo che lavora su un processo, da tre a otto quando la trasformazione tocca più aree o più reparti. Si può cambiare a ogni rinnovo.</p></details>
+          <details><summary>Quante persone può avere la formazione?</summary><p>Dipende dal formato: un percorso individuale (per un C-level o per un ruolo intermedio), un piccolo gruppo di 2–3 persone, un gruppo di 4–6 a livelli diversi, oppure un workshop fino a 20 persone. Oltre le 20, si ripete per un altro gruppo: meglio più gruppi piccoli che una sala troppo grande per fare esercitazioni vere.</p></details>
+          <details><summary>Sviluppate anche chatbot o sistemi su misura?</summary><p>Sì, quando serve: per esempio un chatbot, un sistema RAG che risponde sui vostri documenti o un'automazione. Sono lavori separati dalla consulenza, con un preventivo a parte, e nascono di solito da quello che emerge negli incontri.</p></details>
+          <details><summary>Ci sono spese di viaggio?</summary><p>Entro 100 km (andata e ritorno) non cambia nulla. Oltre, le spese di viaggio non sono incluse: si concordano a parte, prima di cominciare, così non ci sono sorprese.</p></details>
+          <details><summary>Cosa sono i token e perché possono essere richiesti?</summary><p>Alcune attività, per esempio analisi di grandi archivi o automazioni che elaborano molti documenti, consumano molte risorse di calcolo. In quei casi si può concordare prima un contributo dedicato. Non è mai un costo a sorpresa.</p></details>
+          <details><summary>Come trattate i dati aziendali?</summary><p>Si lavora con strumenti in versione professionale, con le impostazioni di riservatezza attive, e si decide insieme quali dati possono entrare in un sistema di AI e quali no. Su richiesta firmo un accordo di riservatezza prima di iniziare.</p></details>
         </div>
-        <div class="price"><div class="u">A modulo in azienda</div><div class="v num"><span data-rate="half"></span> <span class="muted" style="font-size:18px">mezza giornata</span></div><p class="d">Giornata intera <span class="num" data-rate="on"></span>. Progettazione del percorso <span class="num" data-rate="off"></span>, una volta sola.</p></div>
-      </article>
-
-      <article class="level" id="l3">
-        <div class="tag"><span class="big">3</span><span class="nm">Riprogettazione</span><span class="for">Per le persone e i team che vogliono lavorare in modo diverso, non solo saperne di più</span></div>
-        <div class="body">
-          <p>Il metodo completo, applicato al lavoro di una persona o di un gruppo. Vi affianco mentre lavorate, mappo il flusso attuale, torno con una proposta di integrazione su misura, la proviamo, la rifiniamo sui vostri feedback. Si chiude con un nuovo flusso di lavoro e con due verifiche, a uno e a tre mesi.</p>
-          <div class="unitcmp">
-            <div><b>Una figura</b><span>Una persona e il suo ruolo. <span class="num" data-u="fig"></span>.</span></div>
-            <div><b>Un'area</b><span>Un gruppo fino a 6 persone che condivide un processo. <span class="num" data-u="area"></span>.</span></div>
-          </div>
-          <div class="timeline" aria-label="Fasi di un ciclo per una figura">
-            <div class="st"><span class="w">settimana 1</span><span><b>Affiancamento e mappatura</b> <span class="dd">1 giornata in azienda</span></span></div>
-            <div class="st"><span class="w">settimane 2-3</span><span><b>Analisi e proposta</b> <span class="dd">1,5 giornate da remoto</span></span></div>
-            <div class="st"><span class="w">settimane 3-4</span><span><b>Messa in opera e formazione sul nuovo flusso</b> <span class="dd">1 giornata in azienda</span></span></div>
-            <div class="st"><span class="w">settimane 4-6</span><span><b>Test, check-in settimanali, rifinitura e playbook</b> <span class="dd">0,5 giornate da remoto</span></span></div>
-            <div class="st"><span class="w">+1 e +3 mesi</span><span><b>Verifiche con misura del tempo recuperato</b> <span class="dd">0,5 giornate da remoto</span></span></div>
-          </div>
-          <p class="hint">Per un'area le giornate salgono a 3 in azienda e 4 da remoto. Fino a tre unità lavorano in parallelo nello stesso ciclo di sei settimane.</p>
-        </div>
-        <div class="price"><div class="u">A figura affiancata</div><div class="v num" data-price="fig"></div><p class="d">A area, fino a 6 persone: <span class="num" data-price="area"></span>.</p><p class="d">Dalla seconda unità in poi, <span class="num" data-rate="multi"></span> in meno: le visite in azienda si condividono.</p></div>
-      </article>
-
-      <article class="level" id="l4">
-        <div class="tag"><span class="big">4</span><span class="nm">Chief AI Officer frazionale</span><span class="for">Per aziende che vogliono una regia continua, senza assumere un dirigente dedicato</span></div>
-        <div class="body">
-          <p>Un responsabile dell'intelligenza artificiale a tempo parziale, con una presenza fissa in azienda. Riprogetta i flussi con il metodo del livello 3, ma fa un passo in più: progetta le attività che oggi nessuno svolge perché mancano tempo, competenze o budget, e che sarebbero utili al ruolo. Analisi della concorrenza, reportistica, contenuti, assistenza proattiva, formazione interna. È qui che l'AI smette di far risparmiare tempo e comincia a far fare cose nuove.</p>
-          <ul>
-            <li>Roadmap AI e priorità, riviste ogni mese con la direzione</li>
-            <li>Governance: policy interna d'uso, dati, adempimenti AI Act</li>
-            <li>Riprogettazione continua dei flussi, figura dopo figura</li>
-            <li>Progettazione delle nuove attività e delle automazioni che le reggono</li>
-            <li>Scelta dei fornitori, controllo delle licenze, report mensile con indicatori</li>
-          </ul>
-        </div>
-        <div class="price"><div class="u">Canone mensile</div><div class="v num" data-price="caio"></div><p class="d">Esempio con 2 giornate in azienda e 1 da remoto al mese. Voi scegliete la frequenza.</p><p class="d">Minimo 3 mesi. Con 6 mesi <span class="num" data-rate="c6"></span> in meno, con 12 mesi <span class="num" data-rate="c12"></span> in meno.</p></div>
-      </article>
+      </div>
+      <p style="margin-top:32px"><button class="btn big" type="button" data-skip>Componete il vostro preventivo →</button></p>
     </div>
   </section>
 
-  <section id="calcola">
+</div>
+
+<!-- PASSO 2: domande -->
+<div class="stage" id="st-quiz">
+  <div class="wrap quiz">
+    <svg class="mk quiz-mk" viewBox="0 0 1322 793" aria-hidden="true" focusable="false"><use href="#mm"/></svg>
+    <div class="qtop"><span id="qNum"></span><span class="nodes" id="qNodes" aria-hidden="true"></span><button class="linkbtn" type="button" data-skip>Salta al preventivo</button></div>
+    <h1 id="qT" data-focus tabindex="-1"></h1>
+    <p class="qh" id="qH"></p>
+    <div class="opts" id="qOpts" role="group" aria-labelledby="qT"></div>
+    <div class="qfoot">
+      <button class="linkbtn" type="button" id="qBack">← Indietro</button>
+      <span class="mwrap"><span class="meter" id="meter" aria-hidden="true"><i></i><i></i></span><span id="meterT"></span></span>
+    </div>
+    <p class="muted" style="font-size:13.5px;margin-top:22px">Suggerimento: potete rispondere anche con i tasti 1, 2, 3, 4.</p>
+  </div>
+</div>
+
+<!-- PASSO 3: percorso consigliato -->
+<div class="stage" id="st-result">
+  <div class="wrap res">
+    <svg class="mk res-mk" viewBox="0 0 1322 793" aria-hidden="true" focusable="false"><use href="#mm"/></svg>
+    <div class="res-grid">
+      <div>
+        <p class="kick" id="rKick"></p>
+        <h1 id="rTitle" data-focus tabindex="-1"></h1>
+        <ul class="why" id="rWhy"></ul>
+        <div class="strata bands" id="rBands" style="padding-left:0">
+          <div class="band b2" style="--i:0"><span class="n">1</span><span><span class="nm">Formazione</span><span class="vb">una base comune: cosa fa l'AI e dove sbaglia</span></span><span class="pr"></span></div>
+          <div class="band b4" style="--i:1"><span class="n">2</span><span><span class="nm">Fractional CAIO</span><span class="vb">Chief AI Officer a tempo parziale, processo per processo</span></span><span class="pr"></span></div>
+        </div>
+      </div>
+      <aside class="pricecard" aria-live="polite">
+        <svg class="mk pc-mk" viewBox="0 0 1322 793" aria-hidden="true" focusable="false"><use href="#mm"/></svg>
+        <div id="rTot"></div>
+        <div class="sedctl" id="rCtl">
+          <span class="lb"><b>Sedute in azienda al mese</b><small id="rCtlHint"></small></span>
+          <span class="step"><button type="button" data-sdec aria-label="Meno sedute">−</button><output id="rSedN"></output><button type="button" data-sinc aria-label="Più sedute">+</button></span>
+        </div>
+        <button type="button" class="upsell" id="rUp" data-sinc></button>
+        <button type="button" class="upsell promo" id="rDur"></button>
+        <div id="rInc" class="inc"></div>
+        <div class="acts">
+          <button class="btn big" type="button" id="toCalc">Vedi e regola il preventivo →</button>
+          <button class="btn ghost" type="button" id="rManual">Preferisco comporlo io, da zero</button>
+        </div>
+        <p class="hint">Nel preventivo potete aggiungere o togliere livelli, cambiare quantità e durate. Il totale si aggiorna subito.</p>
+        <p class="scope">Prezzi riferiti alla sola consulenza e formazione. Lo sviluppo di soluzioni su misura (chatbot, sistemi RAG, automazioni) non è incluso: si realizza insieme, con un preventivo a parte. Le spese di viaggio oltre i 100 km (andata e ritorno) non sono incluse.</p>
+        <p style="margin:14px 0 0"><button class="linkbtn" type="button" id="redo">Rifai il percorso</button></p>
+      </aside>
+    </div>
+  </div>
+</div>
+
+<!-- PASSO 4: preventivo -->
+<div class="stage" id="st-calc">
+  <div id="calcola">
     <div class="wrap">
-      <h2>Componete il preventivo.</h2>
-      <p class="intro">Attivate i livelli che vi interessano e regolate le quantità. Il riepilogo si aggiorna mentre scegliete e si può copiare, stampare o inviare.</p>
+      <h2>Il vostro preventivo.</h2>
+      <p class="intro">Parte dal percorso che vi ho consigliato. Cambiate quello che volete: il riepilogo si aggiorna mentre scegliete e si può inviare, copiare o stampare.</p>
+      <div class="recap" id="recap"></div>
       <div class="calc">
         <div class="inputs">
           <div class="client">
-            <label class="f">Azienda<input type="text" id="cName" placeholder="Nome dell'azienda" autocomplete="organization"></label>
+            <label class="f">Azienda o nome<input type="text" id="cName" placeholder="Nome dell'azienda" autocomplete="organization"></label>
             <label class="f">Referente<input type="text" id="cRef" placeholder="Nome e ruolo" autocomplete="name"></label>
+            <label class="f" style="grid-column:1/-1">Email per la risposta (facoltativa)<input type="text" id="cMail" placeholder="nome@azienda.it" autocomplete="email" inputmode="email"></label>
+          </div>
+
+          <div class="blk on" style="padding:4px 18px;margin-bottom:14px">
+            <div class="row"><label class="chk"><input type="checkbox" id="pro"><span>Sono un professionista o lavoro da solo<small class="muted" id="proHint" style="display:block;font-size:13.5px"></small></span></label></div>
           </div>
 
           <div class="blk" id="b1">
-            <header><span class="n">1</span><span class="t"><b>Fondamenta</b><span>Workshop in azienda</span></span><span class="sub num" id="s1"></span><label class="switch" onclick="event.stopPropagation()"><input type="checkbox" id="on1" aria-label="Includi Fondamenta"><i></i></label></header>
+            <header><span class="n">1</span><span class="t"><b>Formazione</b><span>Dal singolo al workshop aziendale</span></span><span class="sub num" id="s1"></span><label class="switch" onclick="event.stopPropagation()"><input type="checkbox" id="on1" aria-label="Includi Formazione"><i></i></label></header>
             <div class="ctl">
-              <div class="row"><span class="lb">Durata</span><span class="seg" role="radiogroup" aria-label="Durata"><label><input type="radio" name="l1d" value="1"><span>1 giornata</span></label><label><input type="radio" name="l1d" value="2"><span>2 giornate</span></label></span></div>
-              <div class="row"><span class="lb">Edizioni<small>Oltre 20 persone, il workshop si ripete per un altro gruppo</small></span><span class="step"><button type="button" data-dec="l1e" aria-label="Meno edizioni">−</button><output id="o-l1e"></output><button type="button" data-inc="l1e" aria-label="Più edizioni">+</button></span></div>
+              <div class="row"><span class="lb">Formato<small>Dal singolo al workshop aziendale</small></span><select id="l1fmt" aria-label="Formato della formazione"><option value="c">Singolo, C-level</option><option value="m">Singolo, ruolo intermedio</option><option value="3">Gruppo di 2–3 persone, livelli diversi</option><option value="6">Gruppo di 4–6 persone, livelli diversi</option><option value="w">Workshop, fino a 20 persone</option></select></div>
+              <div class="row"><span class="lb">Durata</span><span class="seg" role="radiogroup" aria-label="Durata"><label><input type="radio" name="l1f" value="half"><span>Mezza giornata</span></label><label><input type="radio" name="l1f" value="full"><span>Giornata intera</span></label></span></div>
+              <div class="row"><span class="lb"><span id="l1eLbl">Gruppi</span><small id="l1eHint"></small></span><span class="step"><button type="button" data-dec="l1e" aria-label="Meno gruppi">−</button><output id="o-l1e"></output><button type="button" data-inc="l1e" aria-label="Più gruppi">+</button></span></div>
               <div class="row"><label class="chk"><input type="checkbox" id="l1c"><span>Preparazione su casi aziendali<small class="muted" style="display:block;font-size:13.5px">Raccolgo prima materiali e problemi reali, mezza giornata da remoto</small></span></label></div>
             </div>
           </div>
 
           <div class="blk" id="b2">
-            <header><span class="n">2</span><span class="t"><b>Competenze</b><span>Moduli per area e livello</span></span><span class="sub num" id="s2"></span><label class="switch" onclick="event.stopPropagation()"><input type="checkbox" id="on2" aria-label="Includi Competenze"><i></i></label></header>
+            <header><span class="n">2</span><span class="t"><b>Fractional CAIO</b><span>Chief AI Officer a tempo parziale: sedute in azienda e analisi da remoto</span></span><span class="sub num" id="s2"></span><label class="switch" onclick="event.stopPropagation()"><input type="checkbox" id="on2" aria-label="Includi Fractional CAIO"><i></i></label></header>
             <div class="ctl">
-              <div class="row"><span class="lb">Gruppi<small>Aree o livelli diversi, ognuno con il proprio percorso</small></span><span class="step"><button type="button" data-dec="l2g" aria-label="Meno gruppi">−</button><output id="o-l2g"></output><button type="button" data-inc="l2g" aria-label="Più gruppi">+</button></span></div>
-              <div class="row"><span class="lb">Moduli per gruppo</span><span class="step"><button type="button" data-dec="l2m" aria-label="Meno moduli">−</button><output id="o-l2m"></output><button type="button" data-inc="l2m" aria-label="Più moduli">+</button></span></div>
-              <div class="row"><span class="lb">Formato dei moduli</span><span class="seg" role="radiogroup" aria-label="Formato"><label><input type="radio" name="l2f" value="half"><span>Mezza giornata</span></label><label><input type="radio" name="l2f" value="full"><span>Giornata</span></label></span></div>
-              <p class="hint">Include una giornata da remoto per progettare il percorso.</p>
-            </div>
-          </div>
-
-          <div class="blk" id="b3">
-            <header><span class="n">3</span><span class="t"><b>Riprogettazione</b><span>Affiancamento, nuovo flusso, verifiche a 1 e 3 mesi</span></span><span class="sub num" id="s3"></span><label class="switch" onclick="event.stopPropagation()"><input type="checkbox" id="on3" aria-label="Includi Riprogettazione"><i></i></label></header>
-            <div class="ctl">
-              <div class="row"><span class="lb">Figure affiancate<small>Una persona e il suo ruolo</small></span><span class="step"><button type="button" data-dec="l3f" aria-label="Meno figure">−</button><output id="o-l3f"></output><button type="button" data-inc="l3f" aria-label="Più figure">+</button></span></div>
-              <div class="row"><span class="lb">Aree<small>Un gruppo fino a 6 persone con un processo in comune</small></span><span class="step"><button type="button" data-dec="l3a" aria-label="Meno aree">−</button><output id="o-l3a"></output><button type="button" data-inc="l3a" aria-label="Più aree">+</button></span></div>
-              <p class="hint" id="l3hint"></p>
-            </div>
-          </div>
-
-          <div class="blk" id="b4">
-            <header><span class="n">4</span><span class="t"><b>Chief AI Officer frazionale</b><span>Canone mensile, presenza fissa</span></span><span class="sub num" id="s4"></span><label class="switch" onclick="event.stopPropagation()"><input type="checkbox" id="on4" aria-label="Includi Chief AI Officer frazionale"><i></i></label></header>
-            <div class="ctl">
-              <div class="presets" aria-label="Formule di partenza">
-                <button type="button" data-preset="2,1">Presidio: 2 + 1</button>
-                <button type="button" data-preset="4,2">Regia: 4 + 2</button>
-                <button type="button" data-preset="6,4">Trasformazione: 6 + 4</button>
-              </div>
-              <div class="row"><span class="lb">Giornate in azienda al mese<small id="freq"></small></span><span class="step"><button type="button" data-dec="l4on" aria-label="Meno giornate in azienda">−</button><output id="o-l4on"></output><button type="button" data-inc="l4on" aria-label="Più giornate in azienda">+</button></span></div>
-              <div class="row"><span class="lb">Giornate da remoto al mese<small>Analisi, progettazione, prototipi, sessioni online</small></span><span class="step"><button type="button" data-dec="l4off" aria-label="Meno giornate da remoto">−</button><output id="o-l4off"></output><button type="button" data-inc="l4off" aria-label="Più giornate da remoto">+</button></span></div>
-              <div class="row"><span class="lb">Durata dell'impegno</span><span class="seg" role="radiogroup" aria-label="Durata"><label><input type="radio" name="l4m" value="3"><span>3 mesi</span></label><label><input type="radio" name="l4m" value="6"><span>6 mesi</span></label><label><input type="radio" name="l4m" value="12"><span>12 mesi</span></label></span></div>
+              <div class="row"><span class="lb">Sedute in azienda al mese (da 1 a 8)<small id="sedHint"></small></span><span class="step"><button type="button" data-sdec aria-label="Meno sedute">−</button><output id="o-l2s"></output><button type="button" data-sinc aria-label="Più sedute">+</button></span></div>
+              <div class="row"><label class="chk"><input type="checkbox" id="l2r"><span>Giornata da remoto in parallelo a ogni seduta<small class="muted" id="remHint" style="display:block;font-size:13.5px"></small></span></label></div>
+              <div class="row"><span class="lb">Durata dell'impegno<small id="moHint"></small></span><span class="seg" role="radiogroup" aria-label="Durata"><label><input type="radio" name="l2m" value="3"><span>3 mesi</span></label><label><input type="radio" name="l2m" value="6"><span>6 mesi</span></label><label><input type="radio" name="l2m" value="12"><span>12 mesi</span></label></span></div>
+              <div class="row"><span class="lb">Contributo token, al mese (facoltativo)<small>Può essere richiesto per attività più impegnative, che consumano molte risorse di calcolo. Si concorda sempre prima.</small></span><input type="number" id="l2t" min="0" step="50" placeholder="0" style="width:120px" aria-label="Contributo token mensile in euro"></div>
             </div>
           </div>
 
           <div class="blk on" style="padding:4px 18px">
-            <div class="row"><label class="chk"><input type="checkbox" id="trv"><span>Sede oltre 100 km<small class="muted" style="display:block;font-size:13.5px">Forfait di viaggio per ogni giornata in azienda; vitto e alloggio a parte se serve pernottare</small></span></label></div>
+            <div class="row"><label class="chk"><input type="checkbox" id="trv"><span>Sede oltre 100 km (andata e ritorno)<small class="muted" style="display:block;font-size:13.5px">Le spese di viaggio non sono incluse nel totale: si concordano a parte, prima di cominciare</small></span></label></div>
           </div>
         </div>
 
@@ -510,73 +684,35 @@ dialog h3{font-family:var(--serif);font-weight:400;font-size:26px}
           <p class="toast" id="toast" role="status"></p>
         </aside>
       </div>
+      <details style="margin-top:26px"><summary>Condizioni</summary>
+        <ul class="cond" style="margin-top:12px">
+          <li>Prezzi IVA esclusa. La stima non è vincolante: fa fede l'offerta scritta.</li>
+          <li>Formazione: 30% alla conferma, saldo alla consegna. Formati dal singolo (C-level o ruolo intermedio) ai gruppi di 2–3 e 4–6 persone, fino al workshop di 20 persone.</li>
+          <li>Fractional CAIO: canone mensile anticipato, per 3, 6 o 12 mesi. Più lungo è l'impegno, maggiore lo sconto. Le giornate da remoto sono in parallelo alle sedute in azienda.</li>
+          <li>Tariffa dedicata ai professionisti e a chi lavora da solo: −20% su tutte le voci.</li>
+          <li>Chi ha fatto la formazione ha uno sconto del 50% sul primo incontro successivo.</li>
+          <li>Un contributo token può essere richiesto per attività più impegnative, concordato prima.</li>
+          <li>Le spese di viaggio oltre i 100 km (andata e ritorno) non sono incluse: si concordano a parte, prima di cominciare.</li>
+          <li>I prezzi riguardano solo consulenza e formazione. Sviluppo di soluzioni su misura (chatbot, sistemi RAG, automazioni), licenze, abbonamenti e API sono esclusi e si quotano a parte.</li>
+        </ul></details>
+      <p style="margin-top:30px"><button class="linkbtn" type="button" id="redo2">Rifai il percorso guidato</button> &nbsp;·&nbsp; <a href="#come" data-anchor="come" class="linkbtn">Domande frequenti</a></p>
     </div>
-  </section>
+  </div>
+</div>
 
-  <section id="come">
-    <div class="wrap">
-      <h2>Come si calcola.</h2>
-      <p class="intro">Tre tariffe reggono tutto. Il resto è quante giornate servono e dove si svolgono.</p>
-      <div class="mech">
-        <div><div class="v num" data-rate="on"></div><p>Giornata in azienda. Aula, affiancamento, messa in opera. Circa sette ore, anche divise in due mezze giornate nella stessa settimana.</p></div>
-        <div><div class="v num" data-rate="off"></div><p>Giornata da remoto. Analisi, progettazione, prototipi, check-in online e verifiche. Costa meno perché non ci sono spostamenti né tempi morti.</p></div>
-        <div><div class="v num" data-rate="half"></div><p>Mezza giornata in azienda, per i moduli brevi del livello 2. Costa più della metà perché il viaggio resta lo stesso.</p></div>
-      </div>
-      <div class="twocol">
-        <div>
-          <details open><summary>Perché i livelli 3 e 4 non si pagano a processo?</summary><p>Perché un processo non si può misurare prima di averlo visto: quello che sembra un passaggio semplice può nasconderne dieci. Si può invece stimare con precisione quanto tempo serve per affiancare una persona o un gruppo, capire come lavora e mettere alla prova un flusso nuovo. Il prezzo segue le persone, non i processi.</p></details>
-          <details><summary>Qual è la differenza tra figura e area?</summary><p>Una figura è una persona e il suo ruolo: l'amministrativa, il responsabile commerciale, il titolare. Un'area è un gruppo fino a sei persone che condivide un processo, come l'ufficio acquisti o la segreteria di uno studio. Un'area costa di più di una figura ma meno di sei figure separate, perché la mappatura è una sola.</p></details>
-          <details><summary>Cos'è un Chief AI Officer frazionale?</summary><p>È un responsabile dell'intelligenza artificiale a tempo parziale: stessa funzione di un dirigente interno, una frazione del costo e dell'impegno. Ha giornate fisse in azienda, risponde alla direzione e tiene insieme strategia, governance e lavoro operativo. Una giornata ogni due settimane basta per una piccola impresa; una o due a settimana servono quando la trasformazione tocca più reparti.</p></details>
-          <details><summary>Le licenze software sono incluse?</summary><p>No. Abbonamenti, API e piattaforme restano intestati a voi, così non dipendete da me né da un singolo fornitore. Vi aiuto a scegliere, e spesso a spendere meno di prima. Lo sviluppo di software su misura, quando serve, si quota a parte.</p></details>
-          <details><summary>La formazione si può finanziare?</summary><p>Spesso sì. I livelli 1 e 2 sono formazione e possono rientrare nei piani dei fondi interprofessionali a cui l'azienda aderisce, o in bandi regionali e camerali per la digitalizzazione. Conviene verificarlo prima di partire: vi indico come muovervi.</p></details>
-          <details><summary>Come trattate i dati aziendali?</summary><p>Si lavora con strumenti in versione professionale, con le impostazioni di riservatezza attive, e si decide insieme quali dati possono entrare in un sistema di AI e quali no. Su richiesta firmo un accordo di riservatezza prima di iniziare.</p></details>
-          <details><summary>I prezzi del calcolatore sono definitivi?</summary><p>Servono a darvi un'idea chiara mentre confrontate le opzioni, non sono un preventivo vincolante. Il prezzo definitivo è quello scritto nell'offerta o nel contratto, dopo aver verificato insieme i dettagli. In caso di differenza, anche per un errore tecnico di questa pagina, vale il documento firmato.</p></details>
-        </div>
-        <div>
-          <h3 style="margin-bottom:14px">Condizioni</h3>
-          <ul class="cond">
-            <li>Prezzi IVA esclusa.</li>
-            <li>Livelli 1, 2 e 3: 30% alla conferma, saldo alla consegna. Per percorsi oltre i tre mesi, fatturazione a stato di avanzamento.</li>
-            <li>Livello 4: canone mensile anticipato, minimo 3 mesi. Dopo il minimo, disdetta con 30 giorni di preavviso. Le giornate non usate in un mese passano al mese successivo, una volta sola.</li>
-            <li>Dalla seconda figura o area del livello 3, <span class="num" data-rate="multi"></span> in meno su ciascuna unità aggiuntiva.</li>
-            <li>Chi attiva il livello 3 o 4 entro 60 giorni dal workshop del livello 1 recupera il <span class="num" data-rate="credit"></span> del suo costo.</li>
-            <li>Trasferta inclusa entro 100 km. Oltre, forfait di <span class="num" data-rate="travel"></span> per giornata in azienda; vitto e alloggio a carico del cliente se serve pernottare.</li>
-            <li>Licenze, abbonamenti, API e sviluppo software su misura esclusi.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="chi">
-    <div class="wrap about">
-      <div>
-        <h2>Chi sono.</h2>
-        <p>Studio l'intelligenza artificiale da oltre vent'anni, da quando era materia di filosofia della mente e scienze cognitive più che di prodotti. Mi interessava capire come funziona il pensiero per costruire strumenti che lo aumentino, non che lo sostituiscano.</p>
-        <p>Nel frattempo ho passato vent'anni sui set come regista e direttore della fotografia, e ho fondato Esperia Cinema Studio, la prima scuola di cinema per bambini in Italia. Spiegare a un dodicenne perché un'inquadratura funziona obbliga a essere chiari: è lo stesso rigore che porto nelle aziende.</p>
-        <p>Scrivo <a href="https://mariomele.substack.com">Ex Machina</a>, dove ragiono di AI, filosofia, educazione e politica, senza tecno-ottimismo e senza fatalismo.</p>
-      </div>
-      <div class="facts2">
-        <div><b class="num">20+</b><span>anni di studio sull'intelligenza artificiale</span></div>
-        <div><b class="num">4</b><span>ambiti: PMI, studi professionali, fondi d'investimento, scuole</span></div>
-        <div><b>PMI</b><span>Liberare ore da compiti ripetitivi e sbloccare i colli di bottiglia storici</span></div>
-        <div><b>Fondi</b><span>Due diligence tecnologica e flussi di lavoro nelle società partecipate</span></div>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer id="contatti">
+  <svg class="mk ft-mk" viewBox="0 0 1322 793" aria-hidden="true" focusable="false"><use href="#mm"/></svg>
   <div class="wrap grid">
     <div>
-      <svg class="flogo" viewBox="0 0 1322 793" aria-hidden="true" focusable="false"><path d="M 221.81 791.99 C186.04,789.70 157.46,782.50 130.50,768.98 C111.93,759.67 100.12,751.13 84.93,736.01 C71.20,722.34 64.61,713.99 55.03,698.07 C26.56,650.81 8.60,574.81 1.85,473.00 C-0.00,445.18 0.30,369.89 2.37,340.00 C10.76,219.27 29.23,150.40 67.05,98.93 C75.45,87.51 97.39,65.97 109.00,57.75 C120.74,49.44 141.08,39.20 155.00,34.58 C180.62,26.07 214.85,21.52 247.50,22.29 C277.58,23.00 299.27,26.84 322.74,35.61 C340.42,42.21 362.83,54.76 373.20,63.87 L 376.85 67.08 L 381.65 61.94 C391.78,51.11 409.44,39.52 426.71,32.36 C463.85,16.96 509.39,6.54 560.00,1.86 C580.30,-0.01 630.81,0.26 651.79,2.35 C708.20,7.99 755.39,21.43 782.78,39.66 C793.08,46.51 809.02,61.61 816.61,71.69 C840.77,103.78 854.15,146.88 858.95,208.00 C859.53,215.43 860.29,224.88 860.64,229.00 L 861.27 236.50 L 863.50 224.50 C883.39,117.14 938.43,49.16 1022.04,28.64 C1039.04,24.47 1051.30,22.93 1072.61,22.31 C1109.18,21.24 1145.54,26.45 1173.00,36.71 C1243.34,62.97 1288.55,128.42 1306.84,230.50 C1330.28,361.25 1326.11,522.51 1296.62,626.00 C1278.34,690.16 1252.67,729.82 1211.50,757.49 C1176.70,780.88 1134.98,792.12 1082.50,792.24 C1071.50,792.26 1057.78,791.74 1052.00,791.07 C979.64,782.68 925.83,746.59 895.55,686.12 C872.16,639.40 856.81,574.49 850.48,495.50 C848.44,470.02 846.90,417.93 847.66,400.00 C848.00,392.02 848.05,385.73 847.77,386.00 C847.49,386.27 846.00,391.00 844.47,396.50 C833.64,435.25 814.36,469.11 793.16,486.60 C785.29,493.09 772.41,499.88 761.50,503.30 C710.13,519.36 638.68,496.90 557.75,439.25 C531.46,420.52 504.11,397.88 484.97,379.00 L 474.32 368.50 L 474.35 413.50 C474.39,494.84 467.46,558.94 452.47,615.75 C433.60,687.30 406.38,730.51 361.78,759.74 C325.02,783.83 274.86,795.39 221.81,791.99 Z" fill="currentColor"/></svg>
       <h2>Parliamone.</h2>
       <p class="big"><a href="mailto:info@mariomele.com">info@mariomele.com</a></p>
     </div>
     <div>
-      <p><a href="https://mariomele.com">mariomele.com</a></p>
+      <p><a href="#come" data-anchor="come">Domande frequenti</a></p>
       <p><a href="https://www.instagram.com/mariomele.ai/">Instagram @mariomele.ai</a></p>
-      <p><a href="https://mariomele.substack.com">Ex Machina su Substack</a></p>
+      <p><a href="https://mariomele.substack.com">ExMachina su Substack</a></p>
     </div>
     <div class="muted">
       <p>Mario Mele</p>
@@ -592,18 +728,29 @@ dialog h3{font-family:var(--serif);font-weight:400;font-size:26px}
   <h3 id="setT">Tariffe</h3>
   <p class="muted" style="font-size:14px;margin:0">Visibile solo aprendo la pagina con #tariffe. Le modifiche restano salvate in questo browser.</p>
   <div class="g">
-    <label class="f">Giornata in azienda (€)<input type="number" data-k="on" min="0" step="50"></label>
+    <label class="f">Singolo C-level, mezza giornata (€)<input type="number" data-k="hc" min="0" step="50"></label>
+    <label class="f">Singolo C-level, giornata (€)<input type="number" data-k="fc" min="0" step="50"></label>
+    <label class="f">Singolo intermedio, mezza giornata (€)<input type="number" data-k="hm" min="0" step="50"></label>
+    <label class="f">Singolo intermedio, giornata (€)<input type="number" data-k="fm" min="0" step="50"></label>
+    <label class="f">Gruppo 2–3, mezza giornata (€)<input type="number" data-k="h3" min="0" step="50"></label>
+    <label class="f">Gruppo 2–3, giornata (€)<input type="number" data-k="f3" min="0" step="50"></label>
+    <label class="f">Gruppo 4–6, mezza giornata (€)<input type="number" data-k="h6" min="0" step="50"></label>
+    <label class="f">Gruppo 4–6, giornata (€)<input type="number" data-k="f6" min="0" step="50"></label>
+    <label class="f">Workshop fino a 20, mezza giornata (€)<input type="number" data-k="hw" min="0" step="50"></label>
+    <label class="f">Workshop fino a 20, giornata (€)<input type="number" data-k="fw" min="0" step="50"></label>
+    <label class="f">Seduta, con 1 al mese (€)<input type="number" data-k="p1" min="0" step="10"></label>
+    <label class="f">Seduta, con 2 al mese (€)<input type="number" data-k="p2" min="0" step="10"></label>
+    <label class="f">Seduta, con 3 al mese (€)<input type="number" data-k="p3" min="0" step="10"></label>
+    <label class="f">Seduta, con 4 al mese (€)<input type="number" data-k="p4" min="0" step="10"></label>
+    <label class="f">Seduta, con 5 al mese (€)<input type="number" data-k="p5" min="0" step="10"></label>
+    <label class="f">Seduta, con 6 al mese (€)<input type="number" data-k="p6" min="0" step="10"></label>
+    <label class="f">Seduta, con 7 al mese (€)<input type="number" data-k="p7" min="0" step="10"></label>
+    <label class="f">Seduta, con 8 al mese (€)<input type="number" data-k="p8" min="0" step="10"></label>
     <label class="f">Giornata da remoto (€)<input type="number" data-k="off" min="0" step="50"></label>
-    <label class="f">Mezza giornata (€)<input type="number" data-k="half" min="0" step="50"></label>
-    <label class="f">Forfait trasferta al giorno (€)<input type="number" data-k="travel" min="0" step="10"></label>
-    <label class="f">Figura: giornate in azienda<input type="number" data-k="figOn" min="0" step="0.5"></label>
-    <label class="f">Figura: giornate da remoto<input type="number" data-k="figOff" min="0" step="0.5"></label>
-    <label class="f">Area: giornate in azienda<input type="number" data-k="areaOn" min="0" step="0.5"></label>
-    <label class="f">Area: giornate da remoto<input type="number" data-k="areaOff" min="0" step="0.5"></label>
-    <label class="f">Sconto unità aggiuntive liv. 3 (%)<input type="number" data-k="multi" min="0" max="50" step="1"></label>
-    <label class="f">Credito workshop (%)<input type="number" data-k="credit" min="0" max="100" step="5"></label>
-    <label class="f">Sconto CAIO 6 mesi (%)<input type="number" data-k="c6" min="0" max="50" step="1"></label>
-    <label class="f">Sconto CAIO 12 mesi (%)<input type="number" data-k="c12" min="0" max="50" step="1"></label>
+    <label class="f">Sconto professionisti (%)<input type="number" data-k="pro" min="0" max="90" step="5"></label>
+    <label class="f">Sconto primo incontro dopo formazione (%)<input type="number" data-k="credit" min="0" max="100" step="5"></label>
+    <label class="f">Sconto durata 6 mesi (%)<input type="number" data-k="c6" min="0" max="50" step="1"></label>
+    <label class="f">Sconto durata 12 mesi (%)<input type="number" data-k="c12" min="0" max="50" step="1"></label>
   </div>
   <div style="display:flex;gap:8px;justify-content:flex-end">
     <button class="btn ghost small" type="button" id="setReset">Ripristina</button>
@@ -613,149 +760,113 @@ dialog h3{font-family:var(--serif);font-weight:400;font-size:26px}
 
 <script>
 (function(){
-  var DEF={on:1000,off:800,half:600,travel:100,figOn:2,figOff:2.5,areaOn:3,areaOff:4,multi:15,credit:50,c6:8,c12:15};
+  var DEF={hc:600,fc:900,hm:400,fm:600,h3:600,f3:900,h6:800,f6:1200,hw:1000,fw:1500,p1:800,p2:600,p3:550,p4:500,p5:480,p6:460,p7:440,p8:420,off:300,credit:50,pro:20,c6:8,c12:15};
   var R=Object.assign({},DEF);
-  try{var sv=localStorage.getItem('mm-rates');if(sv){Object.assign(R,JSON.parse(sv));}}catch(e){}
+  try{var sv=localStorage.getItem('mm-rates2');if(sv){Object.assign(R,JSON.parse(sv));}}catch(e){}
 
   var S={
-    l1:{on:true,d:1,e:1,c:false},
-    l2:{on:false,g:2,m:2,f:'half'},
-    l3:{on:false,f:1,a:0},
-    l4:{on:false,inz:2,off:1,mo:6},
-    trv:false
+    l1:{on:true,f:'full',fmt:'w',e:1,c:false},
+    l2:{on:false,sed:2,rem:true,mo:6,tok:0},
+    trv:false,
+    pro:false
   };
-  var LIM={l1e:[1,6],l2g:[1,8],l2m:[1,6],l3f:[0,12],l3a:[0,6],l4on:[1,10],l4off:[0,10]};
-
   var nf=new Intl.NumberFormat('it-IT',{maximumFractionDigits:0});
   var nf1=new Intl.NumberFormat('it-IT',{maximumFractionDigits:1});
   function eur(v){return '€ '+nf.format(Math.round(v));}
   function days(v){return nf1.format(v);}
   function $(id){return document.getElementById(id);}
-
-  function figPrice(){return R.figOn*R.on+R.figOff*R.off;}
-  function areaPrice(){return R.areaOn*R.on+R.areaOff*R.off;}
-  function caioMonthly(on,off,mo){var g=on*R.on+off*R.off;var d=mo>=12?R.c12:mo>=6?R.c6:0;return {gross:g,disc:g*d/100,net:g*(1-d/100),pct:d};}
-
-  function paintStatic(){
-    document.querySelectorAll('[data-rate]').forEach(function(el){
-      var k=el.getAttribute('data-rate');
-      if(k==='multi'||k==='credit'||k==='c6'||k==='c12'){el.textContent=nf.format(R[k])+'%';}
-      else el.textContent=eur(R[k]);
-    });
-    document.querySelectorAll('[data-price]').forEach(function(el){
-      var k=el.getAttribute('data-price');
-      if(k==='fig')el.textContent=eur(figPrice());
-      if(k==='area')el.textContent=eur(areaPrice());
-      if(k==='caio')el.innerHTML=eur(caioMonthly(2,1,3).net)+' <span class="muted" style="font-size:18px">al mese</span>';
-    });
-    document.querySelectorAll('[data-u]').forEach(function(el){
-      var k=el.getAttribute('data-u');
-      if(k==='fig')el.textContent=days(R.figOn)+' giornate in azienda e '+days(R.figOff)+' da remoto';
-      if(k==='area')el.textContent=days(R.areaOn)+' giornate in azienda e '+days(R.areaOff)+' da remoto';
-    });
-    var from={1:'da '+eur(R.on),2:'da '+eur(R.off+R.half),3:'da '+eur(figPrice()),4:'da '+eur(caioMonthly(2,1,3).net)+' al mese'};
-    document.querySelectorAll('[data-from]').forEach(function(el){el.textContent=from[el.getAttribute('data-from')];});
-  }
-
-  function freqLabel(n){
-    if(n===1)return 'Una giornata al mese';
-    if(n<4)return 'Circa una giornata ogni '+Math.round(30/n)+' giorni';
-    var w=n/4;return 'Circa '+(w===1?'una giornata':nf1.format(w)+' giornate')+' a settimana';
+  function rate(k){return R[k]*(S.pro?(1-R.pro/100):1);}
+  function sp(n){return rate('p'+n);}
+  var FMT={c:'singolo, C-level',m:'singolo, ruolo intermedio','3':'gruppo di 2–3 persone, livelli diversi','6':'gruppo di 4–6 persone, livelli diversi',w:'workshop, fino a 20 persone'};
+  function isSolo(){return S.l1.fmt==='c'||S.l1.fmt==='m';}
+  function l1Desc(){var half=S.l1.f==='half';return (half?'mezza giornata':'giornata intera')+', '+FMT[S.l1.fmt]+(S.l1.e>1?(isSolo()?' × '+S.l1.e+' persone':' × '+S.l1.e+' gruppi'):'');}
+  function caioMonthly(sed,rem,mo){
+    var seat=sed*sp(sed),remote=rem?sed*rate('off'):0,g=seat+remote,d=mo>=12?R.c12:mo>=6?R.c6:0;
+    return {seat:seat,remote:remote,gross:g,disc:g*d/100,net:g*(1-d/100),pct:d};
   }
 
   function compute(){
-    var L=[],on=0,off=0,once=0,dur=[];
-    var sub={1:0,2:0,3:0,4:0};
-    var l1base=0;
+    var L=[],on=0,off=0,dur=[],sub={1:0,2:0};
+    var l1base=0,half=S.l1.f==='half';
     if(S.l1.on){
-      var n=S.l1.d*S.l1.e;l1base=n*R.on;on+=n;
-      L.push({t:'Fondamenta, '+(S.l1.d===1?'1 giornata':'2 giornate')+(S.l1.e>1?' per '+S.l1.e+' edizioni':''),v:l1base});
+      var per=rate((half?'h':'f')+S.l1.fmt);l1base=per*S.l1.e;on+=(half?0.5:1)*S.l1.e;
+      L.push({t:'Formazione, '+l1Desc(),v:l1base});
       sub[1]+=l1base;
-      if(S.l1.c){var c=0.5*R.off;off+=0.5;L.push({t:'Preparazione su casi aziendali',v:c,s:1});sub[1]+=c;}
+      if(S.l1.c){var c=0.5*rate('off');off+=0.5;L.push({t:'Preparazione su casi aziendali',v:c,s:1});sub[1]+=c;}
+      dur.push('Formazione: '+days((half?0.5:1)*S.l1.e)+(((half?0.5:1)*S.l1.e)===1?' giornata':' giornate'));
     }
-    if(S.l2.on){
-      var cnt=S.l2.g*S.l2.m,half=S.l2.f==='half',mp=half?R.half:R.on;
-      L.push({t:'Progettazione del percorso',v:R.off,s:1});off+=1;
-      L.push({t:'Competenze, '+S.l2.g+(S.l2.g===1?' gruppo':' gruppi')+' × '+S.l2.m+(S.l2.m===1?' modulo':' moduli')+(half?' da mezza giornata':' da una giornata'),v:cnt*mp});
-      on+=cnt*(half?0.5:1);sub[2]=R.off+cnt*mp;
-      dur.push('Competenze: circa '+Math.max(1,Math.ceil(cnt/2))+' settimane');
-    }
-    var units=S.l3.on?S.l3.f+S.l3.a:0;
-    if(S.l3.on&&units>0){
-      var gross=S.l3.a*areaPrice()+S.l3.f*figPrice();
-      var first=S.l3.a>0?areaPrice():figPrice();
-      var disc=(gross-first)*R.multi/100;
-      var parts=[];if(S.l3.f)parts.push(S.l3.f+(S.l3.f===1?' figura':' figure'));if(S.l3.a)parts.push(S.l3.a+(S.l3.a===1?' area':' aree'));
-      L.push({t:'Riprogettazione, '+parts.join(' e '),v:gross});
-      if(disc>0)L.push({t:'Unità aggiuntive, −'+nf.format(R.multi)+'%',v:-disc,neg:1});
-      on+=S.l3.f*R.figOn+S.l3.a*R.areaOn;off+=S.l3.f*R.figOff+S.l3.a*R.areaOff;
-      sub[3]=gross-disc;
-      var cycles=Math.ceil(units/3);
-      dur.push('Riprogettazione: '+(cycles*6)+' settimane, poi verifiche a 1 e 3 mesi');
-    }
-    if(l1base>0&&((S.l3.on&&units>0)||S.l4.on)){
-      var cr=l1base*R.credit/100;
-      L.push({t:'Credito workshop, '+nf.format(R.credit)+'% del livello 1',v:-cr,neg:1});
+    if(l1base>0&&S.l2.on){
+      var cr=sp(S.l2.sed)*R.credit/100;
+      L.push({t:'Dopo la formazione: primo incontro in azienda, −'+nf.format(R.credit)+'%',v:-cr,neg:1});
       sub[1]-=cr;
     }
-    var travelOnce=0;
-    if(S.trv&&on>0){travelOnce=on*R.travel;L.push({t:'Trasferta, '+days(on)+' giornate in azienda',v:travelOnce,s:1});}
-    once=sub[1]+sub[2]+sub[3]+travelOnce;
+    var once=sub[1];
 
     var cm=null,caioTot=0;
-    if(S.l4.on){
-      cm=caioMonthly(S.l4.inz,S.l4.off,S.l4.mo);
-      var trvM=S.trv?S.l4.inz*R.travel:0;
-      cm.trv=trvM;cm.month=cm.net+trvM;caioTot=cm.month*S.l4.mo;
-      sub[4]=cm.month;
-      on+=S.l4.inz*S.l4.mo;off+=S.l4.off*S.l4.mo;
-      dur.push('Chief AI Officer: '+S.l4.mo+' mesi');
+    if(S.l2.on){
+      cm=caioMonthly(S.l2.sed,S.l2.rem,S.l2.mo);
+      cm.trv=0;
+      cm.tok=Math.max(0,S.l2.tok||0);
+      cm.month=cm.net+cm.trv+cm.tok;
+      caioTot=cm.month*S.l2.mo;
+      sub[2]=cm.month;
+      on+=S.l2.sed*S.l2.mo;off+=(S.l2.rem?S.l2.sed*S.l2.mo:0);
+      dur.push('Fractional CAIO: '+S.l2.mo+' mesi');
     }
     return {L:L,on:on,off:off,once:once,cm:cm,caioTot:caioTot,sub:sub,dur:dur};
   }
 
   function render(){
     var r=compute();
-    // block states
-    [1,2,3,4].forEach(function(i){
+    [1,2].forEach(function(i){
       var on=S['l'+i].on;$('b'+i).classList.toggle('on',on);$('on'+i).checked=on;
-      $('s'+i).textContent=on?(i===4?eur(r.sub[4])+' /mese':eur(r.sub[i])):'';
+      $('s'+i).textContent=on?(i===2?eur(r.sub[2])+' /mese':eur(r.sub[1])):'';
     });
-    $('o-l1e').textContent=S.l1.e;$('o-l2g').textContent=S.l2.g;$('o-l2m').textContent=S.l2.m;
-    $('o-l3f').textContent=S.l3.f;$('o-l3a').textContent=S.l3.a;$('o-l4on').textContent=S.l4.inz;$('o-l4off').textContent=S.l4.off;
-    document.querySelector('input[name=l1d][value="'+S.l1.d+'"]').checked=true;
-    document.querySelector('input[name=l2f][value="'+S.l2.f+'"]').checked=true;
-    document.querySelector('input[name=l4m][value="'+S.l4.mo+'"]').checked=true;
-    $('l1c').checked=S.l1.c;$('trv').checked=S.trv;
-    $('freq').textContent=freqLabel(S.l4.inz);
-    var u=S.l3.f+S.l3.a;
-    $('l3hint').textContent=u===0?'Aggiungete almeno una figura o un\'area.':(u<=3?'Un ciclo di sei settimane, con le unità in parallelo.':Math.ceil(u/3)+' cicli di sei settimane, tre unità alla volta.');
+    $('o-l1e').textContent=S.l1.e;
+    $('l1fmt').value=S.l1.fmt;
+    $('l1eLbl').textContent=isSolo()?'Persone':'Gruppi';
+    $('l1eHint').textContent=isSolo()?'Ogni persona ha il suo percorso individuale':S.l1.fmt==='w'?'Ogni gruppo fino a 20 persone. Oltre, il workshop si ripete per un altro gruppo':'Ogni gruppo con persone a livelli diversi, per lavorare su casi reali';
+    document.querySelector('input[name=l1f][value="'+S.l1.f+'"]').checked=true;
+    $('o-l2s').textContent=S.l2.sed;
+    document.querySelector('input[name=l2m][value="'+S.l2.mo+'"]').checked=true;
+    $('pro').checked=S.pro;$('proHint').textContent='Tariffa dedicata: −'+nf.format(R.pro)+'% su tutte le voci';$('l1c').checked=S.l1.c;$('trv').checked=S.trv;$('l2r').checked=S.l2.rem;
+    if(document.activeElement!==$('l2t'))$('l2t').value=S.l2.tok?S.l2.tok:'';
+    $('sedHint').textContent=eur(sp(S.l2.sed))+' a seduta'+(S.l2.rem?', più una giornata da remoto a '+eur(rate('off')):'');
+    $('remHint').textContent=eur(rate('off'))+' a giornata, in parallelo a ogni seduta in azienda';
+    $('moHint').textContent=S.l2.mo>=12?'Sconto del '+nf.format(R.c12)+'% sul canone':S.l2.mo>=6?'Sconto del '+nf.format(R.c6)+'% sul canone':'Prezzo base. Promo: con 6 mesi −'+nf.format(R.c6)+'%, con 12 mesi −'+nf.format(R.c12)+'%';
 
-    // lines
     var h='';
     if(!r.L.length&&!r.cm){h='<p class="empty">Attivate almeno un livello per vedere il preventivo.</p>';}
     else{
       h='<table><tbody>';
       r.L.forEach(function(l){h+='<tr class="'+(l.s?'sub ':'')+(l.neg?'neg':'')+'"><td>'+l.t+'</td><td>'+(l.neg?'− '+eur(-l.v):eur(l.v))+'</td></tr>';});
       if(r.cm){
-        h+='<tr><td>Chief AI Officer frazionale, '+S.l4.inz+' in azienda + '+S.l4.off+' da remoto al mese</td><td>'+eur(r.cm.gross)+' /mese</td></tr>';
-        if(r.cm.disc>0)h+='<tr class="neg"><td>Impegno di '+S.l4.mo+' mesi, −'+nf.format(r.cm.pct)+'%</td><td>− '+eur(r.cm.disc)+' /mese</td></tr>';
-        if(r.cm.trv)h+='<tr class="sub"><td>Trasferta, '+S.l4.inz+' giornate al mese</td><td>'+eur(r.cm.trv)+' /mese</td></tr>';
+        var c=r.cm,n=S.l2.sed;
+        h+='<tr><td>Fractional CAIO, '+n+(n===1?' seduta':' sedute')+' in azienda al mese × '+eur(sp(n))+'</td><td>'+eur(c.seat)+' /mese</td></tr>';
+        if(c.remote)h+='<tr class="sub"><td>'+n+(n===1?' giornata':' giornate')+' da remoto in parallelo × '+eur(rate('off'))+'</td><td>'+eur(c.remote)+' /mese</td></tr>';
+        if(c.disc>0)h+='<tr class="neg"><td>Impegno di '+S.l2.mo+' mesi, −'+nf.format(c.pct)+'%</td><td>− '+eur(c.disc)+' /mese</td></tr>';
+        if(c.tok)h+='<tr class="sub"><td>Contributo token, da concordare</td><td>'+eur(c.tok)+' /mese</td></tr>';
       }
+      if(S.pro)h+='<tr class="sub"><td colspan="2">Tariffa professionisti: −'+nf.format(R.pro)+'% già inclusa nei prezzi</td></tr>';
+      if(S.trv)h+='<tr class="sub"><td colspan="2">Sede oltre 100 km A/R: spese di viaggio non incluse, da concordare a parte</td></tr>';
       h+='</tbody></table>';
     }
     $('lines').innerHTML=h;
     $('fOn').textContent=days(r.on);$('fOff').textContent=days(r.off);
-    $('fDur').textContent=r.dur.length?r.dur.join('. '):(S.l1.on?'Il workshop si svolge in '+(S.l1.d*S.l1.e)+(S.l1.d*S.l1.e===1?' giornata':' giornate'):'–');
+    $('fDur').textContent=r.dur.length?r.dur.join('. '):'–';
 
     var t='';
-    if(r.once>0)t+='<div class="l"><span>Progetto</span><span class="num">'+eur(r.once)+'</span></div>';
-    if(r.cm)t+='<div class="l"><span>Canone, '+eur(r.cm.month)+' × '+S.l4.mo+' mesi</span><span class="num">'+eur(r.caioTot)+'</span></div>';
+    if(r.once>0)t+='<div class="l"><span>Formazione</span><span class="num">'+eur(r.once)+'</span></div>';
+    if(r.cm)t+='<div class="l"><span>Canone, '+eur(r.cm.month)+' × '+S.l2.mo+' mesi</span><span class="num">'+eur(r.caioTot)+'</span></div>';
     var grand=r.once+r.caioTot;
-    t+='<div class="l g"><span>Totale</span><span class="v num">'+eur(grand)+'</span></div><p class="iva">IVA esclusa. Stima non vincolante: fa fede l\'offerta scritta.</p>';
+    if(r.cm){
+      t+='<div class="l g"><span>Al mese</span><span class="v num">'+eur(r.cm.month)+'</span></div><p class="tp">Totale del periodo: <b class="num">'+eur(grand)+'</b> ('+(S.l1.on?'formazione e ':'')+S.l2.mo+' mesi)</p><p class="iva">IVA esclusa. Stima non vincolante: fa fede l\'offerta scritta.</p><p class="scope">Prezzi riferiti alla sola consulenza e formazione. Lo sviluppo di soluzioni su misura (chatbot, sistemi RAG, automazioni) non è incluso: si realizza insieme, con un preventivo a parte. Le spese di viaggio oltre i 100 km (andata e ritorno) non sono incluse.</p>';
+    }else{
+      t+='<div class="l g"><span>Totale</span><span class="v num">'+eur(grand)+'</span></div><p class="iva">IVA esclusa. Stima non vincolante: fa fede l\'offerta scritta.</p><p class="scope">Prezzi riferiti alla sola consulenza e formazione. Lo sviluppo di soluzioni su misura (chatbot, sistemi RAG, automazioni) non è incluso: si realizza insieme, con un preventivo a parte. Le spese di viaggio oltre i 100 km (andata e ritorno) non sono incluse.</p>';
+    }
     $('tot').innerHTML=t;
-    $('mTot').textContent=eur(grand);
-    $('mSub').textContent=r.cm?'di cui '+eur(r.cm.month)+' al mese, IVA esclusa':'IVA esclusa';
+    $('mTot').textContent=r.cm?eur(r.cm.month)+' /mese':eur(grand);
+    $('mSub').textContent=r.cm?'totale del periodo '+eur(grand)+', IVA esclusa':'IVA esclusa';
 
     var nm=$('cName').value.trim(),rf=$('cRef').value.trim();
     var d=new Date().toLocaleDateString('it-IT',{day:'numeric',month:'long',year:'numeric'});
@@ -765,43 +876,53 @@ dialog h3{font-family:var(--serif);font-weight:400;font-size:26px}
   }
 
   function text(r,grand){
-    var nm=$('cName').value.trim(),rf=$('cRef').value.trim();
+    var nm=$('cName').value.trim(),rf=$('cRef').value.trim(),ml=$('cMail').value.trim();
     var out=['Preventivo indicativo, consulenza e formazione sull\'intelligenza artificiale'];
-    if(nm)out.push('Azienda: '+nm);if(rf)out.push('Referente: '+rf);
+    if(nm)out.push('Azienda: '+nm);if(rf)out.push('Referente: '+rf);if(ml)out.push('Email: '+ml);
     out.push('Data: '+new Date().toLocaleDateString('it-IT'),'');
+    if(window.__profile&&window.__profile.length){out.push('Profilo emerso dal percorso guidato:');window.__profile.forEach(function(p){out.push('  '+p);});out.push('');}
     r.L.forEach(function(l){out.push('- '+l.t+': '+(l.neg?'-'+eur(-l.v):eur(l.v)));});
     if(r.cm){
-      out.push('- Chief AI Officer frazionale, '+S.l4.inz+' giornate in azienda e '+S.l4.off+' da remoto al mese, '+S.l4.mo+' mesi: '+eur(r.cm.month)+' al mese'+(r.cm.pct?' (sconto impegno '+nf.format(r.cm.pct)+'% incluso)':''));
+      var n=S.l2.sed;
+      out.push('- Fractional CAIO, '+n+(n===1?' seduta':' sedute')+' in azienda al mese'+(S.l2.rem?' con '+n+' giornate da remoto in parallelo':'')+', '+S.l2.mo+' mesi: '+eur(r.cm.month)+' al mese'+(r.cm.pct?' (sconto di durata '+nf.format(r.cm.pct)+'% incluso)':'')+(r.cm.tok?', di cui contributo token '+eur(r.cm.tok):''));
     }
     out.push('','Giornate in azienda: '+days(r.on)+'. Giornate da remoto: '+days(r.off)+'.');
     if(r.dur.length)out.push('Tempi: '+r.dur.join('; ')+'.');
-    if(r.once>0)out.push('Progetto: '+eur(r.once));
-    if(r.cm)out.push('Canone: '+eur(r.cm.month)+' x '+S.l4.mo+' mesi = '+eur(r.caioTot));
-    out.push('TOTALE: '+eur(grand)+' IVA esclusa','','Stima non vincolante: fa fede l\'offerta scritta.','Mario Mele, info@mariomele.com');
+    if(r.once>0)out.push('Formazione: '+eur(r.once));
+    if(r.cm)out.push('Canone: '+eur(r.cm.month)+' x '+S.l2.mo+' mesi = '+eur(r.caioTot));
+    if(S.pro)out.push('Tariffa professionisti: -'+R.pro+'% già inclusa nei prezzi.');
+    if(S.trv)out.push('Sede oltre 100 km A/R: spese di viaggio non incluse, da concordare a parte.');
+    out.push('TOTALE: '+eur(grand)+' IVA esclusa','','Stima non vincolante: fa fede l\'offerta scritta.','Prezzi riferiti alla sola consulenza e formazione. Lo sviluppo di soluzioni su misura (chatbot, sistemi RAG, automazioni) non è incluso: si realizza insieme, con un preventivo a parte. Le spese di viaggio oltre i 100 km (andata e ritorno) non sono incluse.','','Mario Mele, info@mariomele.com');
     return out.join('\n');
   }
 
-  // events
-  [1,2,3,4].forEach(function(i){
+  /* ===== eventi del calcolatore ===== */
+  [1,2].forEach(function(i){
     var k='l'+i;
-    $('b'+i).querySelector('header').addEventListener('click',function(){S[k].on=!S[k].on;if(i===3&&S[k].on&&S.l3.f+S.l3.a===0)S.l3.f=1;render();});
-    $('on'+i).addEventListener('change',function(e){S[k].on=e.target.checked;if(i===3&&S[k].on&&S.l3.f+S.l3.a===0)S.l3.f=1;render();});
+    $('b'+i).querySelector('header').addEventListener('click',function(){S[k].on=!S[k].on;render();});
+    $('on'+i).addEventListener('change',function(e){S[k].on=e.target.checked;render();});
   });
-  var map={l1e:['l1','e'],l2g:['l2','g'],l2m:['l2','m'],l3f:['l3','f'],l3a:['l3','a'],l4on:['l4','inz'],l4off:['l4','off']};
   document.querySelectorAll('[data-inc],[data-dec]').forEach(function(b){
+    b.addEventListener('click',function(){var dir=b.hasAttribute('data-inc')?1:-1;S.l1.e=Math.max(1,Math.min(6,S.l1.e+dir));render();});
+  });
+  document.querySelectorAll('input[name=l1f]').forEach(function(x){x.addEventListener('change',function(){S.l1.f=x.value;render();});});
+  document.querySelectorAll('[data-sinc],[data-sdec]').forEach(function(b){
     b.addEventListener('click',function(){
-      var key=b.getAttribute('data-inc')||b.getAttribute('data-dec');var dir=b.hasAttribute('data-inc')?1:-1;
-      var m=map[key],lim=LIM[key];S[m[0]][m[1]]=Math.max(lim[0],Math.min(lim[1],S[m[0]][m[1]]+dir));render();
+      var dir=b.hasAttribute('data-sinc')?1:-1;
+      S.l2.sed=Math.max(1,Math.min(8,S.l2.sed+dir));
+      if(!S.l2.on)S.l2.on=true;
+      render();if(stage==='result')paintResult();
     });
   });
-  document.querySelectorAll('input[name=l1d]').forEach(function(x){x.addEventListener('change',function(){S.l1.d=+x.value;render();});});
-  document.querySelectorAll('input[name=l2f]').forEach(function(x){x.addEventListener('change',function(){S.l2.f=x.value;render();});});
-  document.querySelectorAll('input[name=l4m]').forEach(function(x){x.addEventListener('change',function(){S.l4.mo=+x.value;render();});});
+  document.querySelectorAll('input[name=l2m]').forEach(function(x){x.addEventListener('change',function(){S.l2.mo=+x.value;render();});});
+  $('l1fmt').addEventListener('change',function(e){S.l1.fmt=e.target.value;if(isSolo()&&S.l1.f==='full'&&false){}render();});
+  $('pro').addEventListener('change',function(e){S.pro=e.target.checked;render();if(stage==='result')paintResult();});
+  $('rDur').addEventListener('click',function(){S.l2.mo=+this.getAttribute('data-mo');render();paintResult();});
   $('l1c').addEventListener('change',function(e){S.l1.c=e.target.checked;render();});
+  $('l2r').addEventListener('change',function(e){S.l2.rem=e.target.checked;render();});
   $('trv').addEventListener('change',function(e){S.trv=e.target.checked;render();});
-  $('cName').addEventListener('input',render);$('cRef').addEventListener('input',render);
-  document.querySelectorAll('[data-preset]').forEach(function(b){b.addEventListener('click',function(){var p=b.getAttribute('data-preset').split(',');S.l4.inz=+p[0];S.l4.off=+p[1];render();});});
-  document.querySelectorAll('[data-go]').forEach(function(b){b.addEventListener('click',function(){var i=+b.getAttribute('data-go');S['l'+i].on=true;if(i===3&&S.l3.f+S.l3.a===0)S.l3.f=1;render();$('b'+i).scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});});});
+  $('l2t').addEventListener('input',function(e){var v=parseFloat(e.target.value);S.l2.tok=isNaN(v)||v<0?0:v;render();});
+  $('cName').addEventListener('input',render);$('cRef').addEventListener('input',render);$('cMail').addEventListener('input',render);
 
   function toast(m){$('toast').textContent=m;setTimeout(function(){$('toast').textContent='';},3500);}
   $('copy').addEventListener('click',function(){
@@ -811,30 +932,282 @@ dialog h3{font-family:var(--serif);font-weight:400;font-size:26px}
   });
   $('print').addEventListener('click',function(){try{window.print();}catch(e){toast('Stampa non disponibile qui: usate il comando Stampa del browser.');}});
 
-  // settings
+  /* tariffe (aprire la pagina con #tariffe) */
   var dlg=$('settings');
   function openSettings(){dlg.querySelectorAll('[data-k]').forEach(function(i){i.value=R[i.getAttribute('data-k')];});try{dlg.showModal();}catch(e){dlg.setAttribute('open','');}}
-  dlg.querySelectorAll('[data-k]').forEach(function(i){i.addEventListener('input',function(){var v=parseFloat(i.value);if(!isNaN(v)&&v>=0){R[i.getAttribute('data-k')]=v;paintStatic();render();}});});
-  $('setClose').addEventListener('click',function(){try{localStorage.setItem('mm-rates',JSON.stringify(R));}catch(e){}try{dlg.close();}catch(e){dlg.removeAttribute('open');}if(location.hash==='#tariffe')history.replaceState(null,'',location.pathname+location.search);});
-  $('setReset').addEventListener('click',function(){R=Object.assign({},DEF);try{localStorage.removeItem('mm-rates');}catch(e){}openSettings();paintStatic();render();});
+  dlg.querySelectorAll('[data-k]').forEach(function(i){i.addEventListener('input',function(){var v=parseFloat(i.value);if(!isNaN(v)&&v>=0){R[i.getAttribute('data-k')]=v;render();}});});
+  $('setClose').addEventListener('click',function(){try{localStorage.setItem('mm-rates2',JSON.stringify(R));}catch(e){}try{dlg.close();}catch(e){dlg.removeAttribute('open');}if(location.hash==='#tariffe')history.replaceState(null,'',location.pathname+location.search);});
+  $('setReset').addEventListener('click',function(){R=Object.assign({},DEF);try{localStorage.removeItem('mm-rates2');}catch(e){}openSettings();render();});
   function checkHash(){if(location.hash==='#tariffe')openSettings();}
   window.addEventListener('hashchange',checkHash);
 
 
-  var G={p:15,m:20};
-  (function(){var g=$('gGrid');for(var i=0;i<100;i++)g.appendChild(document.createElement('i'));})();
-  function renderGain(){
-    var h=G.p*G.m*220/60, d=h/8;
-    $('gP').textContent=G.p;$('gM').textContent=G.m;
-    $('gH').textContent=nf.format(Math.round(h));
-    var fte=h/1720;
-    $('gE').textContent='Circa '+nf.format(Math.round(d))+' giornate lavorative, '+(fte>=1?'pari a '+nf1.format(fte)+(fte<1.95?' persona':' persone')+' a tempo pieno.':'cioè '+Math.round(fte*100)+'% di una persona a tempo pieno.')+' Su 220 giorni lavorativi.';
-    var cells=$('gGrid').children,fill=Math.min(100,G.p);
-    for(var i=0;i<100;i++)cells[i].className=i<fill?'f':'';
+  /* ===== percorso guidato ===== */
+  var FORM_ENDPOINT=''; // es. 'https://formspree.io/f/xxxxxxx' : se vuoto, l'invio usa il client di posta (mailto)
+  var A={seg:null,start:null,goal:null,size:null};
+  var QS=[
+    {k:'seg',t:'Per chi è questo percorso?',h:'Serve a calibrare formato e linguaggio.',o:[
+      ['team','Un\'azienda, uno studio o un ente','Un team da coinvolgere'],
+      ['solo','Un professionista, una persona','Per cambiare il proprio modo di lavorare'],
+      ['exec','Una direzione, un fondo, un ruolo C-level','Governance, decisioni, società partecipate']]},
+    {k:'sector',ts:{team:'In che ambito lavorate?',solo:'In che ambito lavori?',exec:'In che ambito operate?'},h:'Così parto da esempi del tuo mondo, non da esempi generici.',os:{
+      team:[['studio','Uno studio professionale','Legale, commercialista, tecnico, sanitario…'],['pmi','Un\'impresa','Commercio, servizi, produzione'],['edu','Una scuola o un ente educativo','Docenti, alunni, dall\'infanzia alle superiori'],['ente','Un ente pubblico o del terzo settore','Amministrazione, associazioni, fondazioni']],
+      solo:[['lib','Libero professionista','Consulenza, studio legale o fiscale, tecnico…'],['com','Comunicazione, creatività, marketing','Contenuti, design, video, social'],['edu','Insegnante o formatore','Scuola, corsi, formazione'],['altro','Altro lavoro autonomo','Artigiano, commerciante, agente…']],
+      exec:[['fondo','Un fondo d\'investimento','Due diligence, società partecipate'],['dir','La direzione di un\'azienda','Amministratore, direttore generale'],['cda','Un consiglio di amministrazione','Indirizzo, rischi, governance'],['ist','Un\'istituzione o un ente','Scuola, ente pubblico, fondazione']]}},
+    {k:'start',ts:{team:'A che punto è l\'AI, oggi?',solo:'A che punto sei con l\'AI?',exec:'A che punto è l\'AI nella vostra organizzazione?'},h:'Nessuna risposta è sbagliata: serve a non farvi ripartire da dove siete già.',os:{
+      team:[['zero','Quasi da zero','Qualche prova con ChatGPT, nulla di più'],['some','La usa qualcuno, ognuno a modo suo','Risultati a macchia di leopardo'],['used','La usiamo già, ma il lavoro è rimasto uguale','Più velocità, nessun cambio di metodo']],
+      solo:[['zero','Quasi da zero','Ho provato qualche volta, senza metodo'],['some','La uso ogni tanto, a tentativi','A volte funziona, a volte no'],['used','La uso già ogni giorno','Ma il mio modo di lavorare è lo stesso di prima']],
+      exec:[['zero','Non c\'è una posizione chiara','Nessuna regola, nessuna regia'],['some','Iniziative sparse tra i reparti','Ognuno va per conto suo'],['used','Ci sono già progetti avviati','Ma manca una direzione condivisa']]}},
+    {k:'goal',ts:{team:'Che cosa serve davvero?',solo:'Che cosa ti serve davvero?',exec:'Che cosa serve davvero?'},h:'Scegliete quello che si avvicina di più. Il resto lo aggiustiamo dopo.',os:{
+      team:[['1','Un\'infarinatura per tutto il team','Capire cosa fa l\'AI, dove sbaglia, quali regole ci sono'],['2','Formare un\'area o un reparto','Amministrazione, commerciale, marketing, HR, produzione…'],['3','Sistemare un processo che si inceppa','Liberare ore di lavoro, in modo misurabile'],['4','Avere una regia continuativa','Qualcuno che guidi l\'AI in azienda, mese dopo mese']],
+      solo:[['1','Capire da dove cominciare','Cosa può fare l\'AI per il mio lavoro e cosa no'],['2','Usare meglio gli strumenti che ho già','ChatGPT, Claude e gli altri, con metodo invece che a tentativi'],['3','Togliermi il lavoro ripetitivo','Automatizzare e liberare tempo per ciò che conta'],['4','Essere seguito nel tempo','Un affiancamento costante mentre cambio il modo di lavorare']],
+      exec:[['1','Capire rischi e opportunità','Una visione chiara per decidere: cosa fa l\'AI, rischi, AI Act'],['2','Preparare la squadra dirigente','Un linguaggio comune tra i responsabili di funzione'],['3','Valutare o migliorare processi e società','Due diligence tecnologica, workflow delle partecipate'],['4','Una guida strategica continuativa','Un Chief AI Officer a tempo parziale che risponde alla direzione']]}},
+    {k:'blocker',ts:{team:'Qual è l\'ostacolo principale?',solo:'Qual è il tuo ostacolo principale?',exec:'Qual è l\'ostacolo principale?'},h:'Ogni percorso parte da quello che oggi frena di più.',os:{
+      team:[['tempo','Il tempo','Non c\'è mai modo di fermarsi a farlo'],['comp','Le competenze','Non sappiamo da dove cominciare'],['rischi','I rischi','Privacy, dati, regole, AI Act'],['persone','Le persone','Resistenze o timori nel team']],
+      solo:[['tempo','Il tempo','Non riesco a fermarmi a imparare'],['comp','Le competenze','Non so da dove cominciare'],['rischi','I rischi','Privacy, dati dei clienti, regole'],['cost','La costanza','Comincio e poi mollo']],
+      exec:[['tempo','Le priorità','Troppe cose, nessun tempo dedicato'],['comp','Le competenze interne','Nessuno sa guidare il tema'],['rischi','I rischi','Governance, dati, AI Act'],['persone','Le resistenze','Timori o scetticismo nell\'organizzazione']]}},
+    {k:'size',t:'Quante persone sono coinvolte?',h:'Per dimensionare il lavoro.',o:[
+      ['1','Una persona',''],
+      ['2-3','Da 2 a 3 persone','Un piccolo gruppo, a livelli diversi'],
+      ['4-6','Da 4 a 6 persone','Un gruppo con un processo in comune, a livelli diversi'],
+      ['7-20','Da 7 a 20 persone','Più aree o un\'intera piccola impresa'],
+      ['20+','Più di 20 persone','Più sedi, più reparti']]},
+    {k:'groups',t:'Come sono organizzate le persone?',h:'Più gruppi in parallelo hanno ciascuno le proprie sedute.',o:[
+      ['1','Un unico gruppo','Tutti lavorano sugli stessi processi'],
+      ['2','Due gruppi in parallelo','Per esempio marketing e vendite'],
+      ['3','Tre o più gruppi in parallelo','Più aree o reparti, ognuno con i suoi processi']]},
+    {k:'lvl',ts:{team:'Come vi collocate?',solo:'Come ti collochi?',exec:'Come vi collocate?'},h:'Serve a scegliere il formato giusto per una persona sola.',o:[
+      ['c','Titolare o direzione (C-level)','Decisioni, governance, priorità'],
+      ['m','Ruolo intermedio o professionista','Il lavoro operativo di ogni giorno']]}
+  ];
+  function qK(k){return QS.filter(function(x){return x.k===k;})[0];}
+  function qo(q){return q.o||q.os[A.seg||'team'];}
+  function qt(q){return q.ts?q.ts[A.seg||'team']:q.t;}
+  var qi=0, stage='intro';
+  function steps(){
+    var st=[qK('seg'),qK('sector'),qK('start'),qK('goal'),qK('blocker')];
+    if(A.seg!=='solo')st.push(qK('size'));
+    if(A.seg!=='solo'&&A.size&&A.size!=='1')st.push(qK('groups'));
+    if(A.seg==='solo'||(A.seg==='team'&&A.size==='1'))st.push(qK('lvl'));
+    return st;
   }
-  document.querySelectorAll('[data-g]').forEach(function(b){b.addEventListener('click',function(){var k=b.getAttribute('data-g'),d=+b.getAttribute('data-d');G[k]=Math.max(k==='p'?1:5,Math.min(k==='p'?500:120,G[k]+d));renderGain();});});
-  renderGain();
-  paintStatic();render();checkHash();
+  function labelOf(k){var q=QS.filter(function(x){return x.k===k;})[0];if(!q)return '';var v=A[k];var o=qo(q).filter(function(x){return x[0]===v;})[0];return o?o[1]:'';}
+
+  function go(name,opts){
+    opts=opts||{};stage=name;
+    ['intro','quiz','result','calc'].forEach(function(s){$('st-'+s).classList.toggle('on',s===name);});
+    document.body.setAttribute('data-stage',name);
+    if(!opts.pop)history.pushState({s:name,q:qi},'');
+    if(!opts.keepScroll)window.scrollTo({top:0,behavior:'instant'});
+    var h=document.querySelector('#st-'+name+' [data-focus]');if(h&&!opts.noFocus){try{h.focus({preventScroll:true});}catch(e){}}
+  }
+  function showQ(i,opts){
+    var st=steps();qi=Math.max(0,Math.min(i,st.length-1));var q=st[qi];
+    $('qNum').textContent='Domanda '+(qi+1)+' di '+st.length;
+    $('qT').textContent=qt(q);$('qH').textContent=q.h;
+    var n='';st.forEach(function(_,j){n+='<i class="'+(j<qi?'d':j===qi?'c':'')+'"></i>';});$('qNodes').innerHTML=n;
+    var h='';qo(q).forEach(function(o,j){h+='<button type="button" class="opt'+(A[q.k]===o[0]?' sel':'')+'" data-v="'+o[0]+'"><span class="key">'+(j+1)+'</span><span><b>'+o[1]+'</b>'+(o[2]?'<small>'+o[2]+'</small>':'')+'</span></button>';});
+    $('qOpts').innerHTML=h;
+    $('qBack').style.visibility=qi===0?'hidden':'visible';
+    lean();go('quiz',opts);
+  }
+  function answer(v){
+    var st=steps(),q=st[qi];A[q.k]=v;
+    if(q.k==='seg'){A.sector=A.start=A.goal=A.blocker=A.size=A.groups=A.lvl=null;A[q.k]=v;}
+    if(A.seg==='solo')A.size='1';
+    var btns=$('qOpts').children;for(var j=0;j<btns.length;j++)btns[j].classList.toggle('sel',btns[j].getAttribute('data-v')===v);
+    lean();
+    setTimeout(function(){var st2=steps();if(qi<st2.length-1)showQ(qi+1);else buildResult();},260);
+  }
+  $('qOpts').addEventListener('click',function(e){var b=e.target.closest('.opt');if(b)answer(b.getAttribute('data-v'));});
+  $('qBack').addEventListener('click',function(){history.back();});
+  document.addEventListener('keydown',function(e){
+    if(stage!=='quiz'||e.metaKey||e.ctrlKey||e.altKey)return;
+    var t=e.target&&e.target.tagName;if(t==='INPUT'||t==='TEXTAREA')return;
+    var n=parseInt(e.key,10);var q=steps()[qi];
+    if(n>=1&&n<=qo(q).length)answer(qo(q)[n-1][0]);
+  });
+
+  /* indicatore: formazione o affiancamento */
+  function lean(){
+    var lv=0;
+    if(A.goal==='1'||A.goal==='2')lv=1;
+    if(A.goal==='3'||A.goal==='4'||A.seg==='exec'||(A.goal&&A.start==='used'))lv=2;
+    var rows=$('meter').children;
+    for(var i=0;i<rows.length;i++){rows[i].classList.toggle('on',lv>0&&i<lv);}
+    $('meterT').textContent=lv===2?'Si delinea un affiancamento':lv===1?'Si delinea una formazione':'Il percorso si forma con le vostre risposte';
+  }
+
+  /* motore di raccomandazione: la formazione è la base solo se serve, l'affiancamento è la destinazione */
+  function plan(){
+    var seg=A.seg,st=A.start,g=A.goal,n=A.size||'1';
+    var c={l1:{on:false,f:'full',fmt:'w',e:1,c:false},l2:{on:false,sed:2,rem:true,mo:6,tok:0}};
+    var why=[],tail=[];
+    var REP={'1':1,'2-3':3,'4-6':5,'7-20':12,'20+':30};
+    function bucket(x){return x<=1?'1':x<=3?'2-3':x<=6?'4-6':x<=20?'7-20':'20+';}
+    var G=(seg==='solo'||n==='1')?1:(+A.groups||1);
+    var per=bucket(Math.ceil(REP[n]/G));
+    function sed(){var base={'1':2,'2-3':2,'4-6':3,'7-20':5,'20+':8}[per];c.l2.sed=Math.min(8,base*G);c.l2.on=true;}
+    function fmtOf(){if(per==='1')return (A.lvl==='c'||seg==='exec')?'c':'m';if(per==='2-3')return '3';if(per==='4-6')return '6';return 'w';}
+    function form(){c.l1.on=true;c.l1.fmt=fmtOf();c.l1.e=Math.min(6,G*(per==='20+'?2:1));c.l1.f=(c.l1.fmt==='w'||c.l1.fmt==='6')?'full':'half';c.l1.c=(seg==='team'&&(c.l1.fmt==='w'||c.l1.fmt==='6'||c.l1.fmt==='3'));}
+    var ex=false;
+    if(seg==='exec'&&(g==='1'||g==='2')){g='4';ex=true;}
+
+    if(g==='1'){
+      if(st==='used'){sed();why.push('Se l\'AI si usa già, un\'infarinatura è tempo perso: serve portarla dentro i processi, dove il lavoro cambia davvero.');}
+      else{form();sed();why.push((n==='1'?'La formazione vi dà una base solida':'La formazione dà a tutti la stessa base')+': cosa fa l\'AI, dove sbaglia, quali regole ci sono.');why.push('Da sola, però, informa senza cambiare il lavoro: per questo la affianco a un primo periodo con il Fractional CAIO (un Chief AI Officer a tempo parziale), dove studiamo i vostri processi.');}
+    }else if(g==='2'){
+      form();c.l1.f='half';c.l1.e=Math.min(6,G*(c.l1.fmt==='w'?2:(c.l1.fmt==='c'||c.l1.fmt==='m')?1:1));sed();
+      why.push(seg==='solo'?'Un percorso costruito sul tuo lavoro, con i tuoi strumenti e i tuoi documenti.':'Moduli costruiti sul lavoro vero di ogni area, non esempi generici.');
+      why.push('La formazione da sola si spegne in poche settimane. Con il Fractional CAIO lavoriamo sugli stessi processi e quello che si è imparato diventa un nuovo modo di lavorare.');
+    }else if(g==='3'){
+      sed();if(st==='zero'){form();why.push(n==='1'?'Partendo da zero, una formazione iniziale evita di procedere a tentoni.':'Partendo da zero, una formazione iniziale evita che ognuno usi l\'AI a modo suo.');}
+      why.push('È il cuore del metodo: vi affianco, studio i processi e troviamo la soluzione migliore, anche per ciò che sembrava irraggiungibile.');
+    }else{
+      sed();if(st==='zero'||(ex&&st!=='used')){form();why.push(n==='1'?'Si comincia con una formazione per avere una base solida.':'Si comincia con una formazione per portare tutti sulla stessa base.');}
+      why.push('Una presenza costante, a cadenza mensile: il ruolo di un responsabile AI interno, a tempo parziale.');
+    }
+    if(c.l2.on){c.l2.mo=c.l1.on?3:6;}
+    var BL={tempo:'Il tempo è l\'ostacolo più comune: le sedute sono a calendario fisso e le giornate da remoto in parallelo lavorano mentre voi lavorate.',comp:'Non serve saperne già: si parte dai vostri casi, non dalla teoria.',rischi:'Privacy, dati e AI Act si affrontano all\'inizio, con regole scritte insieme. Su richiesta firmo un accordo di riservatezza.',persone:'Le resistenze si sciolgono lavorando sui problemi reali delle persone, non su demo.',cost:'Le sedute sono a calendario fisso: è la struttura che tiene in piedi il cambiamento.'};
+    if(A.blocker&&BL[A.blocker])tail.push(BL[A.blocker]);
+    if(A.sector==='edu'||(A.sector==='ist'&&seg==='exec'))tail.push('Lavoro da anni con docenti e alunni, dall\'infanzia alle superiori: i casi partono dalla vostra classe o dalla vostra scuola.');
+    if(c.l1.on&&c.l2.on)tail.push('Chi ha fatto la formazione ha uno sconto del '+R.credit+'% sul primo incontro successivo.');
+    var names=[];if(c.l1.on)names.push('Formazione');if(c.l2.on)names.push('Fractional CAIO');
+    return {c:c,why:why,tail:tail,names:names,top:c.l2.on?2:1,groups:G};
+  }
+  var CUR=null;
+  function apply(c){S.l1=Object.assign({},c.l1);S.l2=Object.assign({},c.l2);S.trv=false;S.pro=(A.seg==='solo');}
+  function setProfile(){
+    var p=[];
+    if(A.seg)p.push('Per chi: '+labelOf('seg'));
+    if(A.sector)p.push('Ambito: '+labelOf('sector'));
+    if(A.start)p.push('Punto di partenza: '+labelOf('start'));
+    if(A.goal)p.push('Esigenza: '+labelOf('goal'));
+    if(A.blocker)p.push('Ostacolo principale: '+labelOf('blocker'));
+    if(A.size)p.push('Persone: '+labelOf('size'));
+    if(A.groups&&A.size!=='1'&&A.seg!=='solo')p.push('Organizzazione: '+labelOf('groups'));
+    if(A.lvl)p.push('Ruolo: '+labelOf('lvl'));
+    window.__profile=p;
+    $('recap').innerHTML=p.map(function(x){return '<span>'+x+'</span>';}).join('');
+    $('recap').style.display=p.length?'flex':'none';
+  }
+  function paintResult(){
+    var r=compute(),grand=r.once+r.caioTot;
+    function pl(n,a,b){return n===1?a:b;}
+    var names=[];if(S.l1.on)names.push('Formazione');if(S.l2.on)names.push('Fractional CAIO');
+    $('rTitle').textContent=names.join(' + ')||'Il vostro percorso';
+    $('rKick').textContent=S.l2.on?'Il vostro percorso, verso l\'affiancamento':'Il vostro percorso';
+    var why=CUR.why.slice();
+    if(S.l2.on)why.push(S.l2.sed+' '+pl(S.l2.sed,'seduta','sedute')+' al mese in azienda'+(CUR.groups>1?', distribuite su '+CUR.groups+(CUR.groups>=3?' o più':'')+' gruppi in parallelo':'')+(S.l2.rem?', con una giornata di analisi da remoto in parallelo a ciascuna.':'.'));
+    why=why.concat(CUR.tail||[]);
+    $('rWhy').innerHTML=why.map(function(x){return '<li>'+x+'</li>';}).join('');
+    var bands=$('rBands').children,inc=[S.l1.on,S.l2.on];
+    for(var i=0;i<2;i++){bands[i].classList.toggle('off',!inc[i]);bands[i].querySelector('.pr').textContent=inc[i]?'incluso':'';}
+    var t;
+    if(r.cm){
+      t='<div class="amt num">'+eur(r.cm.month)+' <span class="per">al mese</span></div><div class="u" style="margin-top:8px">Totale del periodo: <b class="num">'+eur(grand)+'</b> ('+(S.l1.on?'formazione e ':'')+S.l2.mo+' mesi), IVA esclusa</div>';
+    }else{
+      t='<div class="amt num">'+eur(grand)+'</div><div class="u">stima di partenza, IVA esclusa</div>';
+    }
+    if(S.pro)t+='<div class="u" style="margin-top:8px">Tariffa professionisti: −'+nf.format(R.pro)+'% già inclusa</div>';
+    $('rTot').innerHTML=t;
+    $('rCtl').style.display=S.l2.on?'flex':'none';
+    var up=$('rUp');
+    if(S.l2.on&&S.l2.sed<8){
+      var cur=caioMonthly(S.l2.sed,S.l2.rem,S.l2.mo).net,nxt=caioMonthly(S.l2.sed+1,S.l2.rem,S.l2.mo).net;
+      up.style.display='block';
+      up.innerHTML='<b>+ Aggiungi una seduta al mese</b><span>Solo '+eur(nxt-cur)+' in più al mese: con '+(S.l2.sed+1)+' sedute ogni seduta costa '+eur(sp(S.l2.sed+1))+' invece di '+eur(sp(S.l2.sed))+'.</span>';
+    }else{up.style.display='none';}
+    $('rSedN').textContent=S.l2.sed;
+    var du=$('rDur');
+    if(S.l2.on&&S.l2.mo<12){
+      var nm=S.l2.mo<6?6:12,pc=nm>=12?R.c12:R.c6;
+      var c0=caioMonthly(S.l2.sed,S.l2.rem,S.l2.mo),c1=caioMonthly(S.l2.sed,S.l2.rem,nm);
+      du.style.display='block';du.setAttribute('data-mo',nm);
+      du.innerHTML='<i class="badge">Promo</i><b>Allunga a '+nm+' mesi: −'+nf.format(pc)+'% sul canone</b><span>Il canone scende a '+eur(c1.net)+' al mese, '+eur(c0.net-c1.net)+' in meno ogni mese rispetto a '+S.l2.mo+' mesi'+(nm<12?'. Con 12 mesi lo sconto sale al '+nf.format(R.c12)+'%.':'.')+'</span>';
+    }else{du.style.display='none';}
+    $('rCtlHint').textContent=eur(sp(S.l2.sed))+' a seduta'+(S.l2.rem?', più una giornata da remoto a '+eur(rate('off')):'')+'. Da 1 a 8 al mese.';
+    var incl='<h3>Cosa è incluso</h3><ul>';
+    if(S.l1.on){
+      var half=S.l1.f==='half';
+      incl+='<li><b>Formazione:</b> '+l1Desc()+' in presenza'+(S.l1.c?', più una mezza giornata di preparazione da remoto':'')+'.</li>';
+    }
+    if(S.l2.on){
+      var n=S.l2.sed,m=S.l2.mo;
+      incl+='<li><b>Fractional CAIO:</b> '+n+' '+pl(n,'seduta','sedute')+' in azienda al mese per '+m+' mesi, cioè <b>'+(n*m)+' '+pl(n*m,'seduta','sedute')+' in totale</b>.</li>';
+      if(S.l2.rem)incl+='<li><b>Lavoro da remoto:</b> '+n+' '+pl(n,'giornata','giornate')+' al mese in parallelo alle sedute, cioè <b>'+(n*m)+' '+pl(n*m,'giornata','giornate')+' in totale</b>, per analisi, prototipi, test e verifiche.</li>';
+    }
+    incl+='</ul><p class="tot-days">In tutto: <b class="num">'+days(r.on)+'</b> '+pl(r.on,'giornata','giornate')+' in azienda e <b class="num">'+days(r.off)+'</b> '+pl(r.off,'giornata','giornate')+' di lavoro da remoto.</p>';
+    $('rInc').innerHTML=incl;
+  }
+  function buildResult(opts){
+    CUR=plan();apply(CUR.c);setProfile();
+    paintResult();
+    go('result',opts);
+  }
+  function openCalc(opts){
+    if(!CUR&&!A.goal){
+      apply({l1:{on:true,f:'full',fmt:'w',e:1,c:false},l2:{on:true,sed:2,rem:true,mo:6,tok:0}});
+      window.__profile=[];$('recap').style.display='none';
+    }
+    render();go('calc',opts);
+  }
+  function route(){
+    if(location.hash==='#preventivo'){openCalc({pop:true,keepScroll:true,noFocus:true});history.replaceState({s:'calc',q:0},'');}
+    else history.replaceState({s:'intro',q:0},'');
+  }
+  window.addEventListener('popstate',function(e){
+    var s=e.state&&e.state.s||'intro';
+    if(s==='quiz'){showQ(e.state.q||0,{pop:true});}
+    else if(s==='result'){if(A.goal&&(A.size||A.seg==='solo'))buildResult({pop:true});else go('intro',{pop:true});}
+    else if(s==='calc')openCalc({pop:true});
+    else go('intro',{pop:true});
+  });
+  function restart(){A={seg:null,start:null,goal:null,size:null};CUR=null;showQ(0);}
+  document.querySelectorAll('[data-start-quiz]').forEach(function(b){b.addEventListener('click',restart);});
+  document.querySelectorAll('[data-skip]').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();openCalc();});});
+  $('toCalc').addEventListener('click',function(){openCalc();});
+  $('redo').addEventListener('click',restart);
+  $('redo2').addEventListener('click',restart);
+  $('rManual').addEventListener('click',function(){apply({l1:{on:false,f:'full',fmt:'w',e:1,c:false},l2:{on:false,sed:2,rem:true,mo:6,tok:0}});window.__profile=[];render();go('calc');});
+
+  /* video: pausa manuale e riproduzione solo quando visibile */
+  function wireVideo(v,btn){
+    btn.addEventListener('click',function(){if(v.paused){v.play();}else{v.pause();}});
+    v.addEventListener('play',function(){btn.textContent='Pausa';});
+    v.addEventListener('pause',function(){btn.textContent='Riproduci';});
+    if(v.paused)btn.textContent='Riproduci';
+  }
+  wireVideo($('mv'),$('vToggle'));
+  [['mv2','vToggle2'],['mv3','vToggle3']].forEach(function(p){
+    var v=$(p[0]),btn=$(p[1]);if(!v||!btn)return;
+    wireVideo(v,btn);
+    if('IntersectionObserver' in window){
+      var manual=false;btn.addEventListener('click',function(){manual=true;});
+      new IntersectionObserver(function(en){en.forEach(function(x){if(manual)return;if(x.isIntersecting){var pr=v.play();if(pr&&pr.catch)pr.catch(function(){});}else v.pause();});},{threshold:.35}).observe(v);
+    }
+  });
+
+  /* invio: modulo se configurato, altrimenti mail */
+  $('send').addEventListener('click',function(e){
+    if(!FORM_ENDPOINT)return;
+    e.preventDefault();
+    var r=compute(),grand=r.once+r.caioTot;
+    var body={azienda:$('cName').value,referente:$('cRef').value,email:$('cMail').value,totale:eur(grand),preventivo:text(r,grand)};
+    toast('Invio in corso…');
+    fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(body)})
+      .then(function(x){if(!x.ok)throw 0;toast('Richiesta inviata. Vi rispondo io, di persona.');})
+      .catch(function(){toast('Invio non riuscito: scrivete a info@mariomele.com.');});
+  });
+
+  document.querySelectorAll('[data-anchor]').forEach(function(a){a.addEventListener('click',function(e){
+    e.preventDefault();var id=a.getAttribute('data-anchor');
+    function sc(){var el=$(id);if(el)el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});}
+    if(stage!=='intro'){go('intro',{keepScroll:true,noFocus:true});setTimeout(sc,80);}else sc();
+  });});
+
+  lean();
+  render();checkHash();route();
 })();
 </script>
 </body>
