@@ -452,6 +452,9 @@ textarea{resize:vertical;min-height:84px}
 .thanks.on{display:block}
 .thanks a{font-weight:600}
 .res-grid>*{min-width:0}
+@media (min-width:1101px){.phases.p5{grid-template-columns:repeat(5,1fr)}.phases.p5 .phase{padding-right:16px}}
+@media (min-width:901px) and (max-width:1100px){.phases.p5{grid-template-columns:1fr 1fr 1fr}.phases.p5 .phase:nth-child(3){border-right:0}.phases.p5 .phase:nth-child(4){padding-left:0;border-top:1px solid var(--rule)}.phases.p5 .phase:nth-child(5){border-top:1px solid var(--rule)}}
+@media (max-width:900px){.phases.p5 .phase:nth-child(4){border-right:0}}
 </style>
 </head>
 <body data-stage="intro">
@@ -462,7 +465,7 @@ textarea{resize:vertical;min-height:84px}
     <a class="brand" href="index.html" aria-label="Mario Mele, torna all'inizio"><svg class="logo" viewBox="0 0 1322 793" aria-hidden="true" focusable="false"><path d="M 221.81 791.99 C186.04,789.70 157.46,782.50 130.50,768.98 C111.93,759.67 100.12,751.13 84.93,736.01 C71.20,722.34 64.61,713.99 55.03,698.07 C26.56,650.81 8.60,574.81 1.85,473.00 C-0.00,445.18 0.30,369.89 2.37,340.00 C10.76,219.27 29.23,150.40 67.05,98.93 C75.45,87.51 97.39,65.97 109.00,57.75 C120.74,49.44 141.08,39.20 155.00,34.58 C180.62,26.07 214.85,21.52 247.50,22.29 C277.58,23.00 299.27,26.84 322.74,35.61 C340.42,42.21 362.83,54.76 373.20,63.87 L 376.85 67.08 L 381.65 61.94 C391.78,51.11 409.44,39.52 426.71,32.36 C463.85,16.96 509.39,6.54 560.00,1.86 C580.30,-0.01 630.81,0.26 651.79,2.35 C708.20,7.99 755.39,21.43 782.78,39.66 C793.08,46.51 809.02,61.61 816.61,71.69 C840.77,103.78 854.15,146.88 858.95,208.00 C859.53,215.43 860.29,224.88 860.64,229.00 L 861.27 236.50 L 863.50 224.50 C883.39,117.14 938.43,49.16 1022.04,28.64 C1039.04,24.47 1051.30,22.93 1072.61,22.31 C1109.18,21.24 1145.54,26.45 1173.00,36.71 C1243.34,62.97 1288.55,128.42 1306.84,230.50 C1330.28,361.25 1326.11,522.51 1296.62,626.00 C1278.34,690.16 1252.67,729.82 1211.50,757.49 C1176.70,780.88 1134.98,792.12 1082.50,792.24 C1071.50,792.26 1057.78,791.74 1052.00,791.07 C979.64,782.68 925.83,746.59 895.55,686.12 C872.16,639.40 856.81,574.49 850.48,495.50 C848.44,470.02 846.90,417.93 847.66,400.00 C848.00,392.02 848.05,385.73 847.77,386.00 C847.49,386.27 846.00,391.00 844.47,396.50 C833.64,435.25 814.36,469.11 793.16,486.60 C785.29,493.09 772.41,499.88 761.50,503.30 C710.13,519.36 638.68,496.90 557.75,439.25 C531.46,420.52 504.11,397.88 484.97,379.00 L 474.32 368.50 L 474.35 413.50 C474.39,494.84 467.46,558.94 452.47,615.75 C433.60,687.30 406.38,730.51 361.78,759.74 C325.02,783.83 274.86,795.39 221.81,791.99 Z" fill="currentColor"/></svg><span>Mario Mele</span></a>
     <nav class="links" aria-label="Sezioni">
       <a href="#metodo" data-anchor="metodo">Metodo</a>
-      <a href="#livelli" data-anchor="livelli">Livelli</a>
+      <a href="#ruolo" data-anchor="ruolo">Fractional CAIO</a>
       <a href="#chi" data-anchor="chi">Chi sono</a>
       <a href="#come" data-anchor="come">FAQ</a>
       <button class="btn small" type="button" data-start-quiz>Parliamone</button>
@@ -499,8 +502,8 @@ textarea{resize:vertical;min-height:84px}
       </div>
     </div>
     <figure class="vid vbig">
-      <video id="mv" src="media/metodo.mp4" poster="media/metodo.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Il metodo in breve: ti affianco, studio i processi, e trovo la soluzione migliore"></video>
-      <figcaption><span>Il metodo in 60 secondi</span><button class="linkbtn" type="button" id="vToggle">Pausa</button></figcaption>
+      <video id="mv" src="media/metodo.mp4" poster="media/metodo.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Il metodo in cinque passi: ascolto, guardo, scelgo, lo facciamo insieme, misuro"></video>
+      <figcaption><span>Il metodo in 40 secondi</span><button class="linkbtn" type="button" id="vToggle">Pausa</button></figcaption>
     </figure>
   </div>
   
@@ -508,6 +511,10 @@ textarea{resize:vertical;min-height:84px}
     <div class="wrap">
       <h2>Come cominciamo.</h2>
       <p class="intro">Qui non c'è un listino. Ogni azienda e ogni professionista hanno processi, persone e tempi diversi: prima capisco il tuo caso, poi ne parliamo.</p>
+      <figure class="vid" style="margin:0 0 40px">
+        <video id="mv4" src="media/inizio.mp4" poster="media/inizio.jpg" muted loop playsinline preload="metadata" aria-label="Come cominciamo: due chiacchiere online, una call conoscitiva di 30 minuti, una proposta letta insieme"></video>
+        <figcaption><span>Come cominciamo, in 25 secondi</span><button class="linkbtn" type="button" id="vToggle4">Riproduci</button></figcaption>
+      </figure>
       <div class="mech">
         <div><span class="v">1</span><h3>Due chiacchiere online</h3><p>Rispondi a qualche domanda sul tuo lavoro: dove si inceppa, chi è coinvolto, cosa vorresti che cambiasse. Anche se non sai ancora qual è il problema. Ci vogliono tre minuti.</p></div>
         <div><span class="v">2</span><h3>Una call conoscitiva</h3><p>30 minuti: 25 per parlare di te e del tuo lavoro, 5 per una proposta. Ci arrivo già con quello che mi hai raccontato, così non perdiamo tempo.</p></div>
@@ -518,32 +525,38 @@ textarea{resize:vertical;min-height:84px}
   </section>
 <section id="metodo">
     <div class="wrap">
-      <h2>Come lavoro.</h2>
-      <p class="intro">Vi affianco e studio i processi, per trovare la soluzione migliore in due direzioni.</p>
+      <h2>Il metodo, in cinque passi.</h2>
+      <p class="intro">Sono sempre gli stessi, per un ufficio, uno studio o una classe: cambia il linguaggio, non il metodo. E si comincia sempre ascoltando.</p>
+      <div class="phases p5">
+        <div class="phase"><span class="k">1</span><h3>Ascolto</h3><p>Una conversazione online e una call: dove si inceppa il lavoro, chi è coinvolto, chi è scettico, cosa cambierebbe per te.</p></div>
+        <div class="phase"><span class="k">2</span><h3>Guardo</h3><p>Ti affianco sulle attività vere: dove si perde tempo, dove ci si blocca, cosa è stato accettato come normale.</p></div>
+        <div class="phase"><span class="k">3</span><h3>Scelgo</h3><p>Prima il problema, poi lo strumento. Niente pacchetti uguali per tutti, niente abbonamenti inutili.</p></div>
+        <div class="phase"><span class="k">4</span><h3>Lo facciamo insieme</h3><p>Proviamo, correggiamo sui tuoi feedback, scriviamo le istruzioni. Finché funziona senza di me.</p></div>
+        <div class="phase"><span class="k">5</span><h3>Misuro</h3><p>A uno e a tre mesi verifico il tempo recuperato. Se qualcosa non regge, si corregge.</p></div>
+      </div>
+      <div class="vs" style="margin-top:48px">
+        <div><h3>Un corso tradizionale</h3><ul><li>Parte dagli strumenti e cerca dove usarli</li><li>Esempi generici, uguali per tutti</li><li>Finisce quando finisce la lezione</li><li>Dopo qualche settimana, è facile tornare a lavorare come prima</li></ul></div>
+        <div class="me"><h3>Un affiancamento</h3><ul><li>Parte dall'ascolto, da dove il tuo lavoro si inceppa</li><li>Lavora sui tuoi documenti, dati e processi</li><li>Finisce quando il nuovo flusso regge da solo</li><li>Si verifica a uno e a tre mesi, misurando il tempo recuperato</li></ul></div>
+      </div>
+      <div class="principle">
+        <blockquote>Il tool è la risposta, non la domanda.</blockquote>
+        <p class="muted">Per questo non è un corso: è un lavoro accanto a te, sui processi veri, finché il nuovo modo di lavorare regge da solo. Un processo non si giudica prima di averlo visto: si ascolta, si osserva, si prova, si verifica.</p>
+      </div>
+    </div>
+  </section>
+<section id="direzioni">
+    <div class="wrap">
+      <h2>Cosa cerco quando ascolto.</h2>
+      <p class="intro">Due cose, in due direzioni: dove il tuo lavoro si può alleggerire già oggi, e cosa non hai mai provato perché sembrava irraggiungibile.</p>
       <figure class="vid" style="margin:0 0 40px">
         <video id="mv3" src="media/direzioni.mp4" poster="media/direzioni.jpg" muted loop playsinline preload="metadata" aria-label="Le due direzioni del metodo: migliorare il presente e trovare soluzioni inesplorate"></video>
         <figcaption><span>Le due direzioni del metodo</span><button class="linkbtn" type="button" id="vToggle3">Riproduci</button></figcaption>
       </figure>
       <div class="two">
         <div><span class="k">1</span><h3>Migliorare e ottimizzare il presente</h3><p>Guardo come si lavora oggi e tolgo attrito: passaggi inutili, attività ripetute, tempi morti. Stesso lavoro, meno fatica.</p></div>
-        <div class="inv"><span class="k">2</span><h3>Trovare soluzioni inesplorate</h3><p>Fare le cose che avreste voluto fare ma sembravano irraggiungibili per tempi, costi o risorse. Con l'AI, molte oggi non lo sono più.</p></div>
+        <div class="inv"><span class="k">2</span><h3>Trovare soluzioni inesplorate</h3><p>Fare le cose che avresti voluto fare ma sembravano irraggiungibili per tempi, costi o risorse. Con l'AI, molte oggi non lo sono più.</p></div>
       </div>
-      <p class="claim">L'AI a tutti i livelli dell'azienda: tante piccole ottimizzazioni che, sommate, portano l'azienda nel futuro.</p>
-      <div class="vs" style="margin-top:8px">
-        <div><h3>Un corso tradizionale</h3><ul><li>Parte dagli strumenti e cerca dove usarli</li><li>Esempi generici, uguali per tutti</li><li>Finisce quando finisce la lezione</li><li>Dopo qualche settimana, è facile tornare a lavorare come prima</li></ul></div>
-        <div class="me"><h3>Un affiancamento</h3><ul><li>Parte da dove il vostro lavoro si inceppa</li><li>Lavora sui vostri documenti, dati e processi</li><li>Finisce quando il nuovo flusso regge da solo</li><li>Si verifica a uno e a tre mesi, misurando il tempo recuperato</li></ul></div>
-      </div>
-      <h3 style="margin:56px 0 18px;font-family:var(--serif);font-weight:400;font-size:28px">Quattro passaggi, sempre gli stessi.</h3>
-      <div class="phases">
-        <div class="phase"><span class="k">1</span><h3>Vi spiego cosa fa l'AI, e cosa no</h3><p>Possibilità reali, errori tipici, rischi, regole. Così tutti partono dalla stessa base.</p></div>
-        <div class="phase"><span class="k">2</span><h3>Guardo come lavorate</h3><p>Accanto alle persone, sulle attività vere: dove si perde tempo, dove ci si blocca, cosa è stato accettato come normale.</p></div>
-        <div class="phase"><span class="k">3</span><h3>Scelgo lo strumento per ogni problema</h3><p>Prima il problema, poi lo strumento. Niente pacchetti uguali per tutti, niente abbonamenti inutili.</p></div>
-        <div class="phase"><span class="k">4</span><h3>Lo mettiamo in pratica insieme</h3><p>Proviamo, correggiamo sui vostri feedback, scriviamo le istruzioni. Finché funziona senza di me.</p></div>
-      </div>
-      <div class="principle">
-        <blockquote>Il tool è la risposta, non la domanda.</blockquote>
-        <p class="muted">Per questo l'affiancamento non è un corso: è un lavoro continuativo accanto alle persone, sui processi veri, finché il nuovo modo di lavorare regge da solo. Un processo non si giudica prima di averlo visto: si osserva, si prova, si verifica.</p>
-      </div>
+      <p class="claim" style="margin-bottom:0">L'AI a tutti i livelli dell'azienda: tante piccole ottimizzazioni che, sommate, portano l'azienda nel futuro.</p>
     </div>
   </section>
 <section id="valore">
@@ -560,22 +573,23 @@ textarea{resize:vertical;min-height:84px}
       </div>
     </div>
   </section>
-<section id="livelli">
+<section id="ruolo">
     <div class="wrap">
-      <h2>Due livelli: formazione per partire, affiancamento per trasformare.</h2>
-      <p class="intro">La formazione dà a tutti la stessa base. Il Fractional CAIO porta l'AI dentro il lavoro di ogni giorno, processo per processo. Si combinano: il workshop è il modo migliore per cominciare.</p>
+      <h2>Una figura sola, che ti affianca al livello che serve.</h2>
+      <p class="intro">Non devi scegliere tra un corso e una consulenza. Il Fractional CAIO è il responsabile dell'AI che non hai in azienda: decide con te come e dove usarla, e ti accompagna dalla prima spiegazione fino al lavoro di ogni giorno. Quanto a fondo andare dipende da te.</p>
       <figure class="strata" style="margin:0 0 8px">
         <div class="axis" aria-hidden="true"><span class="t">in superficie</span><span class="b">in profondità</span></div>
-        <div class="band b2" style="--i:0"><span class="n">1</span><span><span class="nm">Formazione</span><span class="vb">capire cosa fa l'AI, dove sbaglia, quali regole ci sono</span></span><span class="pr"></span></div>
-        <div class="band b4" style="--i:2"><span class="n">2</span><span><span class="nm">Fractional CAIO</span><span class="vb">Chief AI Officer a tempo parziale, per cambiare il modo di lavorare</span></span><span class="pr"></span></div>
+        <div class="band b1" style="--i:0"><span class="n">1</span><span><span class="nm">Capire</span><span class="vb">cosa fa l'AI, dove sbaglia, quali regole ci sono (AI Act compreso)</span></span><span class="pr"></span></div>
+        <div class="band b3" style="--i:1"><span class="n">2</span><span><span class="nm">Applicare</span><span class="vb">esercitazioni sui casi di ogni area: direzione, amministrazione, commerciale, marketing, risorse umane</span></span><span class="pr"></span></div>
+        <div class="band b4" style="--i:2"><span class="n">3</span><span><span class="nm">Trasformare</span><span class="vb">sedute in azienda, mese dopo mese, processo per processo</span></span><span class="pr"></span></div>
       </figure>
       <div class="two" style="margin-top:34px">
-        <div><span class="k">1</span><h3>Formazione</h3><p>Un workshop in azienda, di mezza giornata o di una giornata intera, in un formato che si adatta a voi: individuale (C-level o ruolo intermedio), gruppo di 2–3 o di 4–6 persone a livelli diversi, workshop fino a 20 persone. Cosa sa fare l'AI, dove sbaglia, quali rischi e regole, AI Act compreso. Poi esercitazioni sui casi di ciascuna area: direzione, amministrazione, commerciale, marketing, risorse umane.</p></div>
-        <div class="inv"><span class="k">2</span><h3>Fractional CAIO</h3><p class="acr">Chief AI Officer a tempo parziale</p><p><b>CAIO</b> sta per <i>Chief AI Officer</i>: il responsabile dell'intelligenza artificiale di un'azienda, la figura che decide come e dove usarla. <i>Fractional</i> significa a tempo parziale: avete quella funzione per poche giornate al mese, senza assumere un dirigente.</p><p style="margin-top:12px">Ogni mese da una a otto sedute in azienda, con altrettante giornate di analisi da remoto in parallelo: vi affianco, studio i processi, troviamo la soluzione migliore e verifichiamo che regga. Per 3, 6 o 12 mesi.</p></div>
+        <div><h3>Un responsabile AI a tempo parziale</h3><p><b>CAIO</b> sta per <i>Chief AI Officer</i>: la figura che decide come e dove usare l'AI, con quali regole e quali priorità. <i>Fractional</i> significa a tempo parziale: hai quella funzione per poche giornate al mese, senza assumere un dirigente.</p></div>
+        <div class="inv"><h3>Dal workshop alla trasformazione</h3><p>Si può cominciare con un workshop, per una persona sola, per un gruppo da 2 a 6 persone a livelli diversi o fino a 20 persone, così tutti partono dalla stessa base. Poi da una a otto sedute al mese in azienda, con altrettante giornate di analisi da remoto, per 3, 6 o 12 mesi: ti affianco, studio i processi, troviamo la soluzione migliore e verifichiamo che regga.</p></div>
       </div>
-      <p class="muted" style="font-size:15.5px;max-width:48em;margin:0 0 22px">Consulenza e sviluppo sono due cose separate. Se servono un chatbot, un sistema RAG (un assistente che risponde sui vostri documenti), un'automazione o un'altra soluzione su misura, possiamo realizzarla insieme, con un preventivo dedicato.</p>
+      <p class="muted" style="font-size:15.5px;max-width:48em;margin:0 0 22px">Consulenza e sviluppo sono due cose separate. Se servono un chatbot, un sistema RAG (un assistente che risponde sui tuoi documenti), un'automazione o un'altra soluzione su misura, possiamo realizzarla insieme, con una proposta dedicata.</p>
       <p class="muted" style="font-size:15.5px;max-width:48em;margin:0 0 22px">Qui non trovi prezzi, perché dipendono da quante persone e quali processi sono coinvolti e da quanto a fondo si lavora. Ne parliamo nella call conoscitiva, e la proposta la leggiamo insieme prima che arrivi per iscritto.</p>
-      <p style="margin-top:10px"><button class="btn big" type="button" data-start-quiz>Scopriamo quale fa per te →</button></p>
+      <p style="margin-top:10px"><button class="btn big" type="button" data-start-quiz>Scopriamo da dove cominciare →</button></p>
     </div>
   </section>
 <section id="perchi">
@@ -594,7 +608,7 @@ textarea{resize:vertical;min-height:84px}
         <h2>Chi sono.</h2>
         <p>Studio l'intelligenza artificiale da oltre vent'anni, da quando era materia di filosofia della mente e scienze cognitive più che di prodotti. Mi interessava capire come funziona il pensiero per costruire strumenti che lo aumentino, non che lo sostituiscano.</p>
         <p>Faccio formazione nelle aziende e lavoro molto nel mondo dell'educazione: porto l'AI a docenti e alunni, dalla scuola dell'infanzia alle superiori. Spiegare la stessa idea a un bambino, a un'insegnante e a una direzione mi ha insegnato una cosa: il linguaggio cambia, il metodo no.</p>
-        <p>Il metodo nasce da qui. Non parto dagli strumenti: parto dal punto in cui il lavoro si inceppa. Prima una base comune, poi osservo come si lavora, scelgo lo strumento per ogni problema e lo metto in pratica insieme alle persone, finché funziona senza di me. Lo stesso percorso vale per una classe, un ufficio o una direzione.</p>
+        <p>Il metodo nasce da qui. Non parto dagli strumenti: parto dall'ascolto. Prima capisco dove il tuo lavoro si inceppa, chi è coinvolto e cosa vorresti che cambiasse; poi osservo come si lavora, scelgo lo strumento per ogni problema e lo metto in pratica insieme alle persone, finché funziona senza di me. Lo stesso percorso vale per una classe, un ufficio o una direzione.</p>
         <p>Scrivo <a href="https://mariomele.substack.com">ExMachina</a>, dove ragiono di AI, filosofia, educazione e politica, senza tecno-ottimismo e senza fatalismo.</p>
       </div>
       <div class="facts2">
@@ -610,18 +624,18 @@ textarea{resize:vertical;min-height:84px}
       <h2>Domande frequenti.</h2>
       <div class="twocol" style="grid-template-columns:minmax(0,760px)">
         <div>
-          <details open><summary>Come si lavora su un processo?</summary><p>Un processo non si può giudicare prima di averlo visto: quello che sembra un passaggio semplice può nasconderne dieci. Si parte dall'osservazione di una persona o di un gruppo mentre lavora, si mappa il flusso, si prova una soluzione sui vostri documenti e dati, si corregge sui feedback e si verifica a uno e a tre mesi che regga.</p></details>
+          <details open><summary>Come si lavora su un processo?</summary><p>Un processo non si può giudicare prima di averlo visto: quello che sembra un passaggio semplice può nasconderne dieci. Si parte dall'ascolto e dall'osservazione di te o del tuo gruppo mentre lavora, si mappa il flusso, si prova una soluzione sui tuoi documenti e dati, si corregge sui feedback e si verifica a uno e a tre mesi che regga.</p></details>
           <details><summary>Quanto costa?</summary><p>Dipende da quante persone e quali processi sono coinvolti, e da quanto a fondo si lavora: per questo non c'è un listino. Ne parliamo nella call conoscitiva e la proposta la leggiamo insieme prima che arrivi per iscritto, così non ci sono sorprese.</p></details>
           <details><summary>E se in azienda c'è chi è contrario all'AI?</summary><p>È normale, e spesso utile: chi è scettico di solito ha ragioni valide (il lavoro, i dati, la qualità). Le ascolto per prime e le porto dentro il lavoro: si lavora sui problemi reali delle persone, non su demo. Chi ha dubbi vale la pena incontrarlo presto, non alla fine.</p></details>
           <details><summary>Devo parlarne prima con la direzione?</summary><p>Non per forza. Possiamo cominciare con una call conoscitiva di 30 minuti: se ha senso, puoi invitare anche chi decide, oppure dopo ti lascio una sintesi chiara da portargli, e se serve partecipo anch'io a quell'incontro.</p></details>
-          <details><summary>Cosa succede in una seduta in azienda?</summary><p>Vi affianco mentre lavorate: guardo i flussi, provo soluzioni con il team, scrivo con voi le istruzioni. Le giornate da remoto in parallelo servono a analizzare e preparare: prototipi, test, verifiche online. Ogni seduta in azienda ha la sua giornata di lavoro da remoto.</p></details>
-          <details><summary>Cos'è un Fractional CAIO?</summary><p>CAIO sta per Chief AI Officer: il responsabile dell'intelligenza artificiale di un'azienda, cioè la persona che decide come e dove usarla, con quali regole e con quali priorità. Fractional vuol dire a tempo parziale: avete quella funzione, con la stessa responsabilità di un dirigente interno, senza assumerlo. Ha sedute fisse in azienda, risponde alla direzione e tiene insieme strategia, governance e lavoro operativo.</p></details>
+          <details><summary>Cos'è un Fractional CAIO?</summary><p>CAIO sta per Chief AI Officer: il responsabile dell'intelligenza artificiale di un'azienda, cioè la persona che decide come e dove usarla, con quali regole e con quali priorità. Fractional vuol dire a tempo parziale: hai quella funzione, con la stessa responsabilità di un dirigente interno, senza assumerlo. Ha sedute fisse in azienda, risponde alla direzione e tiene insieme strategia, governance e lavoro operativo. Può lavorare a livelli diversi: dalla formazione di base fino alla trasformazione dei processi.</p></details>
+          <details><summary>Cosa succede in una seduta in azienda?</summary><p>Ti affianco mentre lavori: guardo i flussi, provo soluzioni con il team, scrivo con voi le istruzioni. Le giornate da remoto in parallelo servono ad analizzare e preparare: prototipi, test, verifiche online. Ogni seduta in azienda ha la sua giornata di lavoro da remoto.</p></details>
           <details><summary>Quante sedute al mese servono?</summary><p>Dipende da quante persone e quanti processi sono coinvolti. Una al mese per un presidio leggero, due per un gruppo che lavora su un processo, da tre a otto quando la trasformazione tocca più aree o più reparti. Si può cambiare a ogni rinnovo.</p></details>
-          <details><summary>Quante persone può avere la formazione?</summary><p>Dipende dal formato: un percorso individuale (per un C-level o per un ruolo intermedio), un piccolo gruppo di 2–3 persone, un gruppo di 4–6 a livelli diversi, oppure un workshop fino a 20 persone. Oltre le 20, si ripete per un altro gruppo: meglio più gruppi piccoli che una sala troppo grande per fare esercitazioni vere.</p></details>
-          <details><summary>Sviluppate anche chatbot o sistemi su misura?</summary><p>Sì, quando serve: per esempio un chatbot, un sistema RAG che risponde sui vostri documenti o un'automazione. Sono lavori separati dalla consulenza, con un preventivo a parte, e nascono di solito da quello che emerge negli incontri.</p></details>
+          <details><summary>Quante persone possono partecipare a un workshop?</summary><p>Dipende dal formato: un percorso individuale (per un C-level o per un ruolo intermedio), un piccolo gruppo di 2–3 persone, un gruppo di 4–6 a livelli diversi, oppure un workshop fino a 20 persone. Oltre le 20, si ripete per un altro gruppo: meglio più gruppi piccoli che una sala troppo grande per fare esercitazioni vere.</p></details>
+          <details><summary>Sviluppi anche chatbot o sistemi su misura?</summary><p>Sì, quando serve: per esempio un chatbot, un sistema RAG che risponde sui tuoi documenti o un'automazione. Sono lavori separati dalla consulenza, con una proposta a parte, e nascono di solito da quello che emerge negli incontri.</p></details>
           <details><summary>Ci sono spese di viaggio?</summary><p>Entro 100 km (andata e ritorno) non cambia nulla. Oltre, le spese di viaggio non sono incluse: si concordano a parte, prima di cominciare, così non ci sono sorprese.</p></details>
           <details><summary>Cosa sono i token e perché possono essere richiesti?</summary><p>Alcune attività, per esempio analisi di grandi archivi o automazioni che elaborano molti documenti, consumano molte risorse di calcolo. In quei casi si può concordare prima un contributo dedicato. Non è mai un costo a sorpresa.</p></details>
-          <details><summary>Come trattate i dati aziendali?</summary><p>Si lavora con strumenti in versione professionale, con le impostazioni di riservatezza attive, e si decide insieme quali dati possono entrare in un sistema di AI e quali no. Su richiesta firmo un accordo di riservatezza prima di iniziare.</p></details>
+          <details><summary>Come tratti i dati aziendali?</summary><p>Si lavora con strumenti in versione professionale, con le impostazioni di riservatezza attive, e si decide insieme quali dati possono entrare in un sistema di AI e quali no. Su richiesta firmo un accordo di riservatezza prima di iniziare.</p></details>
         </div>
       </div>
       <p style="margin-top:32px"><button class="btn big" type="button" data-start-quiz>Facciamo due chiacchiere →</button></p>
@@ -661,8 +675,9 @@ textarea{resize:vertical;min-height:84px}
           <p class="pn" id="rNames"></p>
           <ul class="why" id="rWhy"></ul>
           <div class="strata bands" id="rBands" style="padding-left:0">
-            <div class="band b2" style="--i:0"><span class="n">1</span><span><span class="nm">Formazione</span><span class="vb">una base comune: cosa fa l'AI e dove sbaglia</span></span><span class="pr"></span></div>
-            <div class="band b4" style="--i:1"><span class="n">2</span><span><span class="nm">Fractional CAIO</span><span class="vb">Chief AI Officer a tempo parziale, processo per processo</span></span><span class="pr"></span></div>
+            <div class="band b1" style="--i:0"><span class="n">1</span><span><span class="nm">Capire</span><span class="vb">una base comune: cosa fa l'AI, dove sbaglia, quali regole ci sono</span></span><span class="pr"></span></div>
+            <div class="band b3" style="--i:1"><span class="n">2</span><span><span class="nm">Applicare</span><span class="vb">esercitazioni sui casi di ogni area</span></span><span class="pr"></span></div>
+            <div class="band b4" style="--i:2"><span class="n">3</span><span><span class="nm">Trasformare</span><span class="vb">sedute in azienda, processo per processo</span></span><span class="pr"></span></div>
           </div>
         </div>
         <h2 class="h2s">Cosa succede ora</h2>
@@ -895,8 +910,9 @@ textarea{resize:vertical;min-height:84px}
     else if(e.key==='Enter'&&q.multi){e.preventDefault();next();}
   });
 
-  /* ===== cosa propongo (la formazione è la base solo se serve, l'affiancamento è la destinazione) ===== */
+  /* ===== da dove partirei: una figura sola, che lavora a livelli diversi ===== */
   var FMT={c:'singolo, C-level',m:'singolo, ruolo intermedio','3':'gruppo di 2–3 persone, livelli diversi','6':'gruppo di 4–6 persone, livelli diversi',w:'workshop, fino a 20 persone'};
+  var LV=['Capire','Applicare','Trasformare'];
   function plan(){
     var seg=solo()?'solo':(A.sector==='fondo'?'exec':'team');
     var st=A.start==='failed'?'used':(A.start||'some');
@@ -913,19 +929,21 @@ textarea{resize:vertical;min-height:84px}
     function sed(){var base={'1':2,'2-3':2,'4-6':3,'7-20':5,'20+':8}[per];c.l2.sed=Math.min(8,base*G);c.l2.on=true;}
     function fmtOf(){if(per==='1')return (lvl==='c'||seg==='exec')?'c':'m';if(per==='2-3')return '3';if(per==='4-6')return '6';return 'w';}
     function form(){c.l1.on=true;c.l1.fmt=fmtOf();c.l1.e=Math.min(6,G*(per==='20+'?2:1));c.l1.f=(c.l1.fmt==='w'||c.l1.fmt==='6')?'full':'half';c.l1.c=(seg!=='solo'&&(c.l1.fmt==='w'||c.l1.fmt==='6'||c.l1.fmt==='3'));}
-
+    var levels;
     if(g==='0'){
-      form();c.l1.f='half';c.l1.c=false;
-      why.push('Per cominciare non serve altro: una base comune su cosa fa l\'AI, dove sbaglia e quali regole ci sono. Poi decidi con calma se e dove usarla.');
+      form();c.l1.f='half';c.l1.c=false;levels=[true,false,false];
+      why.push('Per cominciare basta il primo livello: una base comune su cosa fa l\'AI, dove sbaglia e quali regole ci sono. Poi decidi con calma se e dove andare più a fondo.');
     }else if(g==='1'){
-      form();sed();
-      why.push((n==='1'?'La formazione ti dà una base solida':'La formazione dà a tutti la stessa base')+': cosa fa l\'AI, dove sbaglia, quali regole ci sono.');
-      why.push('Da sola, però, informa senza cambiare il lavoro: per questo la affianco a un primo periodo con il Fractional CAIO (un Chief AI Officer a tempo parziale), dove studiamo i processi veri.');
+      form();sed();levels=[true,true,true];
+      why.push('Partendo da zero conviene cominciare dalla base, così tutti usano l\'AI nello stesso modo, e poi portarla dentro i processi veri.');
+      why.push('Da sola, la base informa senza cambiare il lavoro: per questo va insieme a un periodo di sedute mensili, dove studiamo i tuoi processi.');
     }else if(g==='3'){
-      sed();
+      sed();levels=st==='some'?[true,false,true]:[false,false,true];
       why.push('È il cuore del metodo: ti affianco, studio i processi e troviamo la soluzione migliore, anche per ciò che sembrava irraggiungibile.');
+      if(st==='some')why.push('Se oggi ognuno la usa a modo suo, conviene prima allineare tutti sulla stessa base.');
+      if(st==='some'){form();c.l1.f='half';c.l1.c=false;}
     }else{
-      sed();
+      sed();levels=[false,true,true];
       why.push('Quando le persone sono tante e a livelli diversi, serve una presenza costante, a cadenza mensile: il ruolo di un responsabile AI interno, a tempo parziale.');
     }
     if(c.l2.on)c.l2.mo=c.l1.on?3:6;
@@ -936,15 +954,15 @@ textarea{resize:vertical;min-height:84px}
     if(A.start==='failed')tail.push('Se le prove fatte finora non hanno retto, partiamo da lì: da cosa è andato storto.');
     if(A.when==='1m')tail.push('Per vedere risultati entro un mese si parte da un processo piccolo e ben scelto, non da tutta l\'organizzazione.');
     if(A.sector==='edu')tail.push('Lavoro da anni con docenti e alunni, dall\'infanzia alle superiori: i casi partono dalla tua classe o dalla tua scuola.');
-    var names=[];if(c.l1.on)names.push('Formazione');if(c.l2.on)names.push('Fractional CAIO');
-    return {c:c,why:why,tail:tail,names:names};
+    var lv=LV.filter(function(_,i){return levels[i];});
+    return {c:c,why:why,tail:tail,levels:levels,names:['Fractional CAIO ('+lv.join(' + ').toLowerCase()+')']};
   }
   function formDesc(c){var half=c.l1.f==='half';return (half?'mezza giornata':'giornata intera')+', '+FMT[c.l1.fmt]+(c.l1.e>1?(c.l1.fmt==='c'||c.l1.fmt==='m'?' × '+c.l1.e+' persone':' × '+c.l1.e+' gruppi'):'');}
   function pl(n,a,b){return n===1?a:b;}
   function whyList(){
     var c=CUR.c,w=CUR.why.slice();
-    if(c.l1.on)w.push('Formazione: '+formDesc(c)+'.');
-    if(c.l2.on)w.push('Ritmo di partenza che immagino: '+c.l2.sed+' '+pl(c.l2.sed,'seduta','sedute')+' in azienda al mese per '+c.l2.mo+' mesi, ciascuna con una giornata di analisi da remoto in parallelo. Lo mettiamo a punto insieme nella conversazione.');
+    if(c.l1.on)w.push('Si comincia con un workshop: '+formDesc(c)+'.');
+    if(c.l2.on)w.push('Ritmo di partenza che immagino: '+c.l2.sed+' '+pl(c.l2.sed,'seduta','sedute')+' in azienda al mese per '+c.l2.mo+' mesi, ciascuna con una giornata di analisi da remoto in parallelo. Lo mettiamo a punto insieme nella call.');
     return w.concat(CUR.tail);
   }
 
@@ -981,10 +999,10 @@ textarea{resize:vertical;min-height:84px}
     $('cPriv').checked=false;$('fNote').textContent=FORM_ENDPOINT?'Prima ricevo i tuoi dati, poi scegli l\'orario: così, anche se non completi la prenotazione, posso scriverti io.':'';
     $('thanks').className='thanks';$('thanks').innerHTML='';$('toast').textContent='';
     if(direct)return;
-    $('rNames').textContent=CUR.names.join(' + ');
+    $('rNames').textContent='Il Fractional CAIO, al livello che serve a te';
     $('rWhy').innerHTML=whyList().map(function(x){return '<li>'+esc(x)+'</li>';}).join('');
-    var bands=$('rBands').children,inc=[CUR.c.l1.on,CUR.c.l2.on];
-    for(var i=0;i<2;i++){bands[i].classList.toggle('off',!inc[i]);bands[i].querySelector('.pr').textContent=inc[i]?'consigliato':'';}
+    var bands=$('rBands').children;
+    for(var i=0;i<3;i++){bands[i].classList.toggle('off',!CUR.levels[i]);bands[i].querySelector('.pr').textContent=CUR.levels[i]?'consigliato':'';}
   }
   function buildResult(opts){busy=false;direct=false;CUR=plan();paintResult();go('result',opts);}
   function openContact(opts){direct=true;CUR=null;paintResult();go('result',opts);}
@@ -1074,7 +1092,7 @@ textarea{resize:vertical;min-height:84px}
     if(v.paused)btn.textContent='Riproduci';
   }
   wireVideo($('mv'),$('vToggle'));
-  [['mv2','vToggle2'],['mv3','vToggle3']].forEach(function(p){
+  [['mv2','vToggle2'],['mv3','vToggle3'],['mv4','vToggle4']].forEach(function(p){
     var v=$(p[0]),btn=$(p[1]);if(!v||!btn)return;
     wireVideo(v,btn);
     if('IntersectionObserver' in window){
