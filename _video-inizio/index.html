@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<title>Come cominciamo</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+@font-face{font-family:"Newsreader";src:url("fonts/newsreader.woff2") format("woff2");font-weight:400 600;font-style:normal}
+@font-face{font-family:"Schibsted Grotesk";src:url("fonts/sg500.woff2") format("woff2");font-weight:400 700;font-style:normal}
+:root{--paper:#EEF0EB;--ink:#16202E;--graphite:#566070;--rule:#C6CBC2;--cobalt:#2B45D8;--soft:#9DA9F5}
+body{margin:0;background:var(--paper);font-family:"Schibsted Grotesk",sans-serif;color:var(--ink)}
+#root{position:relative;width:100%;height:100%;overflow:hidden;background:var(--paper)}
+.clip{position:absolute;inset:0}.in{position:absolute;inset:0}.bg{position:absolute;inset:0}
+.cob{background:var(--cobalt)}.dk{background:var(--ink)}
+.serif{font-family:"Newsreader",serif;font-weight:400;letter-spacing:-.02em}
+.logo{position:absolute;left:96px;top:64px;height:44px;width:auto;color:var(--cobalt)}
+.w .logo{color:#fff}
+.h{position:absolute;margin:0;line-height:1.04;white-space:nowrap}
+.num{position:absolute;font-family:"Newsreader",serif;line-height:.85}
+.cap{position:absolute;margin:0}
+.stp{position:absolute;right:96px;top:76px;font-size:28px;color:var(--graphite);font-weight:600;margin:0}
+.w .stp{color:#9AA3B2}
+.bub{position:absolute;box-sizing:border-box;padding:24px 38px;border-radius:44px;font-size:40px;font-weight:600;line-height:1.2;border:4px solid var(--ink);color:var(--ink)}
+.bub.c{background:var(--cobalt);border-color:var(--cobalt);color:#fff}
+.bx{position:absolute;box-sizing:border-box;width:300px;height:150px;border-radius:14px;border:4px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:600;background:var(--paper)}
+.tl{position:absolute;box-sizing:border-box;border-radius:14px;border:4px dashed #9AA3B2;color:#fff;font-size:38px;font-weight:600;display:flex;align-items:center;padding:0 34px;line-height:1.15}
+.pill{position:absolute;box-sizing:border-box;height:88px;border-radius:44px;border:4px solid var(--ink);display:flex;align-items:center;padding:0 36px;font-size:36px;font-weight:600}
+.chip{position:absolute;box-sizing:border-box;height:96px;border-radius:48px;border:4px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:34px;font-weight:600;gap:14px}
+.chip b{font-family:"Newsreader",serif;font-weight:400;font-size:46px;color:var(--cobalt)}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="inizio" data-start="0" data-width="1920" data-height="1080" data-duration="24.5">
+
+<section id="s0" class="clip" data-start="0" data-duration="3.6"><div class="in" id="s0i">
+  <svg class="logo" viewBox="0 0 1322 793" aria-hidden="true" focusable="false"><path d="M 221.81 791.99 C186.04,789.70 157.46,782.50 130.50,768.98 C111.93,759.67 100.12,751.13 84.93,736.01 C71.20,722.34 64.61,713.99 55.03,698.07 C26.56,650.81 8.60,574.81 1.85,473.00 C-0.00,445.18 0.30,369.89 2.37,340.00 C10.76,219.27 29.23,150.40 67.05,98.93 C75.45,87.51 97.39,65.97 109.00,57.75 C120.74,49.44 141.08,39.20 155.00,34.58 C180.62,26.07 214.85,21.52 247.50,22.29 C277.58,23.00 299.27,26.84 322.74,35.61 C340.42,42.21 362.83,54.76 373.20,63.87 L 376.85 67.08 L 381.65 61.94 C391.78,51.11 409.44,39.52 426.71,32.36 C463.85,16.96 509.39,6.54 560.00,1.86 C580.30,-0.01 630.81,0.26 651.79,2.35 C708.20,7.99 755.39,21.43 782.78,39.66 C793.08,46.51 809.02,61.61 816.61,71.69 C840.77,103.78 854.15,146.88 858.95,208.00 C859.53,215.43 860.29,224.88 860.64,229.00 L 861.27 236.50 L 863.50 224.50 C883.39,117.14 938.43,49.16 1022.04,28.64 C1039.04,24.47 1051.30,22.93 1072.61,22.31 C1109.18,21.24 1145.54,26.45 1173.00,36.71 C1243.34,62.97 1288.55,128.42 1306.84,230.50 C1330.28,361.25 1326.11,522.51 1296.62,626.00 C1278.34,690.16 1252.67,729.82 1211.50,757.49 C1176.70,780.88 1134.98,792.12 1082.50,792.24 C1071.50,792.26 1057.78,791.74 1052.00,791.07 C979.64,782.68 925.83,746.59 895.55,686.12 C872.16,639.40 856.81,574.49 850.48,495.50 C848.44,470.02 846.90,417.93 847.66,400.00 C848.00,392.02 848.05,385.73 847.77,386.00 C847.49,386.27 846.00,391.00 844.47,396.50 C833.64,435.25 814.36,469.11 793.16,486.60 C785.29,493.09 772.41,499.88 761.50,503.30 C710.13,519.36 638.68,496.90 557.75,439.25 C531.46,420.52 504.11,397.88 484.97,379.00 L 474.32 368.50 L 474.35 413.50 C474.39,494.84 467.46,558.94 452.47,615.75 C433.60,687.30 406.38,730.51 361.78,759.74 C325.02,783.83 274.86,795.39 221.81,791.99 Z" fill="currentColor"/></svg>
+  <p class="cap" id="s0k" style="left:96px;top:150px;font-size:28px;color:var(--graphite)">Come cominciamo</p>
+  <h1 class="h serif" id="s0a" style="left:96px;top:330px;font-size:150px">Tre passi.</h1>
+  <h1 class="h serif" id="s0b" style="left:96px;top:520px;font-size:150px;color:var(--cobalt)">Nessun listino.</h1>
+</div></section>
+
+<section id="s1" class="clip" data-start="3.2" data-duration="5.6"><div class="in" id="s1i">
+  <svg class="logo" viewBox="0 0 1322 793" aria-hidden="true" focusable="false"><path d="M 221.81 791.99 C186.04,789.70 157.46,782.50 130.50,768.98 C111.93,759.67 100.12,751.13 84.93,736.01 C71.20,722.34 64.61,713.99 55.03,698.07 C26.56,650.81 8.60,574.81 1.85,473.00 C-0.00,445.18 0.30,369.89 2.37,340.00 C10.76,219.27 29.23,150.40 67.05,98.93 C75.45,87.51 97.39,65.97 109.00,57.75 C120.74,49.44 141.08,39.20 155.00,34.58 C180.62,26.07 214.85,21.52 247.50,22.29 C277.58,23.00 299.27,26.84 322.74,35.61 C340.42,42.21 362.83,54.76 373.20,63.87 L 376.85 67.08 L 381.65 61.94 C391.78,51.11 409.44,39.52 426.71,32.36 C463.85,16.96 509.39,6.54 560.00,1.86 C580.30,-0.01 630.81,0.26 651.79,2.35 C708.20,7.99 755.39,21.43 782.78,39.66 C793.08,46.51 809.02,61.61 816.61,71.69 C840.77,103.78 854.15,146.88 858.95,208.00 C859.53,215.43 860.29,224.88 860.64,229.00 L 861.27 236.50 L 863.50 224.50 C883.39,117.14 938.43,49.16 1022.04,28.64 C1039.04,24.47 1051.30,22.93 1072.61,22.31 C1109.18,21.24 1145.54,26.45 1173.00,36.71 C1243.34,62.97 1288.55,128.42 1306.84,230.50 C1330.28,361.25 1326.11,522.51 1296.62,626.00 C1278.34,690.16 1252.67,729.82 1211.50,757.49 C1176.70,780.88 1134.98,792.12 1082.50,792.24 C1071.50,792.26 1057.78,791.74 1052.00,791.07 C979.64,782.68 925.83,746.59 895.55,686.12 C872.16,639.40 856.81,574.49 850.48,495.50 C848.44,470.02 846.90,417.93 847.66,400.00 C848.00,392.02 848.05,385.73 847.77,386.00 C847.49,386.27 846.00,391.00 844.47,396.50 C833.64,435.25 814.36,469.11 793.16,486.60 C785.29,493.09 772.41,499.88 761.50,503.30 C710.13,519.36 638.68,496.90 557.75,439.25 C531.46,420.52 504.11,397.88 484.97,379.00 L 474.32 368.50 L 474.35 413.50 C474.39,494.84 467.46,558.94 452.47,615.75 C433.60,687.30 406.38,730.51 361.78,759.74 C325.02,783.83 274.86,795.39 221.81,791.99 Z" fill="currentColor"/></svg>
+  <p class="stp" id="s1c">1 / 3</p>
+  <div class="num" id="s1n" style="left:96px;top:150px;font-size:260px;color:var(--cobalt)">1</div>
+  <h2 class="h serif" id="s1t" style="left:400px;top:170px;font-size:96px;white-space:normal;width:1400px;">Due chiacchiere online.</h2>
+  <p class="cap" id="s1p" style="left:400px;top:300px;font-size:34px;font-weight:600;color:var(--graphite);">Qualche domanda sul tuo lavoro, una alla volta.</p>
+  <div id="qc" style="position:absolute;left:96px;top:560px;width:1080px;height:470px;border-radius:20px;border:4px solid var(--ink);box-sizing:border-box;background:var(--paper)"></div>
+  <p class="cap" id="qn" style="left:140px;top:618px;font-size:28px;color:var(--graphite);font-weight:600">Domanda 4 / 13</p>
+  <p class="cap serif" id="qq" style="left:140px;top:668px;font-size:60px">Dove senti che il lavoro si inceppa?</p>
+  <div class="pill" id="o0" style="left:140px;top:810px;width:420px">Attività ripetitive</div>
+  <div class="pill" id="o1" style="left:580px;top:810px;width:460px">Cercare informazioni</div>
+  <div class="pill" id="o2" style="left:140px;top:925px;width:420px">Non lo so ancora</div>
+  <div id="dots" style="position:absolute;left:140px;top:588px"></div>
+  <div class="num" id="tm" style="left:1300px;top:560px;font-size:300px;color:var(--cobalt)">3</div>
+  <p class="cap serif" id="tml" style="left:1300px;top:850px;font-size:64px">minuti.</p>
+  <p class="cap" id="tms" style="left:1300px;top:940px;font-size:28px;color:var(--graphite);font-weight:600">Anche se non sai ancora qual è il problema.</p>
+</div></section>
+
+<section id="s2" class="clip" data-start="8.9" data-duration="6.1"><div class="in" id="s2i">
+  <svg class="logo" viewBox="0 0 1322 793" aria-hidden="true" focusable="false"><path d="M 221.81 791.99 C186.04,789.70 157.46,782.50 130.50,768.98 C111.93,759.67 100.12,751.13 84.93,736.01 C71.20,722.34 64.61,713.99 55.03,698.07 C26.56,650.81 8.60,574.81 1.85,473.00 C-0.00,445.18 0.30,369.89 2.37,340.00 C10.76,219.27 29.23,150.40 67.05,98.93 C75.45,87.51 97.39,65.97 109.00,57.75 C120.74,49.44 141.08,39.20 155.00,34.58 C180.62,26.07 214.85,21.52 247.50,22.29 C277.58,23.00 299.27,26.84 322.74,35.61 C340.42,42.21 362.83,54.76 373.20,63.87 L 376.85 67.08 L 381.65 61.94 C391.78,51.11 409.44,39.52 426.71,32.36 C463.85,16.96 509.39,6.54 560.00,1.86 C580.30,-0.01 630.81,0.26 651.79,2.35 C708.20,7.99 755.39,21.43 782.78,39.66 C793.08,46.51 809.02,61.61 816.61,71.69 C840.77,103.78 854.15,146.88 858.95,208.00 C859.53,215.43 860.29,224.88 860.64,229.00 L 861.27 236.50 L 863.50 224.50 C883.39,117.14 938.43,49.16 1022.04,28.64 C1039.04,24.47 1051.30,22.93 1072.61,22.31 C1109.18,21.24 1145.54,26.45 1173.00,36.71 C1243.34,62.97 1288.55,128.42 1306.84,230.50 C1330.28,361.25 1326.11,522.51 1296.62,626.00 C1278.34,690.16 1252.67,729.82 1211.50,757.49 C1176.70,780.88 1134.98,792.12 1082.50,792.24 C1071.50,792.26 1057.78,791.74 1052.00,791.07 C979.64,782.68 925.83,746.59 895.55,686.12 C872.16,639.40 856.81,574.49 850.48,495.50 C848.44,470.02 846.90,417.93 847.66,400.00 C848.00,392.02 848.05,385.73 847.77,386.00 C847.49,386.27 846.00,391.00 844.47,396.50 C833.64,435.25 814.36,469.11 793.16,486.60 C785.29,493.09 772.41,499.88 761.50,503.30 C710.13,519.36 638.68,496.90 557.75,439.25 C531.46,420.52 504.11,397.88 484.97,379.00 L 474.32 368.50 L 474.35 413.50 C474.39,494.84 467.46,558.94 452.47,615.75 C433.60,687.30 406.38,730.51 361.78,759.74 C325.02,783.83 274.86,795.39 221.81,791.99 Z" fill="currentColor"/></svg>
+  <p class="stp" id="s2c">2 / 3</p>
+  <div class="num" id="s2n" style="left:96px;top:150px;font-size:260px;color:var(--cobalt)">2</div>
+  <h2 class="h serif" id="s2t" style="left:400px;top:170px;font-size:96px;white-space:normal;width:1400px;">Una call conoscitiva.</h2>
+  <p class="cap" id="s2p" style="left:400px;top:300px;font-size:34px;font-weight:600;color:var(--graphite);">Dal vivo o in videocall, come tra due persone.</p>
+  <div id="b25" style="position:absolute;left:96px;top:620px;width:1440px;height:120px;border-radius:14px 0 0 14px;background:#2B45D8;transform-origin:left center"></div>
+  <div id="b5" style="position:absolute;left:1536px;top:620px;width:288px;height:120px;border-radius:0 14px 14px 0;background:#16202E;transform-origin:left center"></div>
+  <p class="cap serif" id="l25" style="left:96px;top:770px;font-size:56px;color:var(--cobalt)">25 minuti</p>
+  <p class="cap" id="l25b" style="left:96px;top:850px;font-size:34px;font-weight:600;color:var(--graphite)">per parlare di te e del tuo lavoro</p>
+  <p class="cap serif" id="l5" style="left:1280px;top:770px;font-size:56px;width:544px;text-align:right">5 minuti</p>
+  <p class="cap" id="l5b" style="left:1280px;top:850px;font-size:34px;font-weight:600;color:var(--graphite);width:544px;text-align:right">per una proposta</p>
+  <p class="cap" id="l30" style="left:96px;top:950px;font-size:28px;color:var(--graphite)">30 minuti in tutto. Ci arrivo già con quello che mi hai raccontato.</p>
+</div></section>
+
+<section id="s3" class="clip" data-start="15.6" data-duration="5.8"><div class="in w" id="s3i">
+  <div class="bg dk"></div><svg class="logo" viewBox="0 0 1322 793" aria-hidden="true" focusable="false"><path d="M 221.81 791.99 C186.04,789.70 157.46,782.50 130.50,768.98 C111.93,759.67 100.12,751.13 84.93,736.01 C71.20,722.34 64.61,713.99 55.03,698.07 C26.56,650.81 8.60,574.81 1.85,473.00 C-0.00,445.18 0.30,369.89 2.37,340.00 C10.76,219.27 29.23,150.40 67.05,98.93 C75.45,87.51 97.39,65.97 109.00,57.75 C120.74,49.44 141.08,39.20 155.00,34.58 C180.62,26.07 214.85,21.52 247.50,22.29 C277.58,23.00 299.27,26.84 322.74,35.61 C340.42,42.21 362.83,54.76 373.20,63.87 L 376.85 67.08 L 381.65 61.94 C391.78,51.11 409.44,39.52 426.71,32.36 C463.85,16.96 509.39,6.54 560.00,1.86 C580.30,-0.01 630.81,0.26 651.79,2.35 C708.20,7.99 755.39,21.43 782.78,39.66 C793.08,46.51 809.02,61.61 816.61,71.69 C840.77,103.78 854.15,146.88 858.95,208.00 C859.53,215.43 860.29,224.88 860.64,229.00 L 861.27 236.50 L 863.50 224.50 C883.39,117.14 938.43,49.16 1022.04,28.64 C1039.04,24.47 1051.30,22.93 1072.61,22.31 C1109.18,21.24 1145.54,26.45 1173.00,36.71 C1243.34,62.97 1288.55,128.42 1306.84,230.50 C1330.28,361.25 1326.11,522.51 1296.62,626.00 C1278.34,690.16 1252.67,729.82 1211.50,757.49 C1176.70,780.88 1134.98,792.12 1082.50,792.24 C1071.50,792.26 1057.78,791.74 1052.00,791.07 C979.64,782.68 925.83,746.59 895.55,686.12 C872.16,639.40 856.81,574.49 850.48,495.50 C848.44,470.02 846.90,417.93 847.66,400.00 C848.00,392.02 848.05,385.73 847.77,386.00 C847.49,386.27 846.00,391.00 844.47,396.50 C833.64,435.25 814.36,469.11 793.16,486.60 C785.29,493.09 772.41,499.88 761.50,503.30 C710.13,519.36 638.68,496.90 557.75,439.25 C531.46,420.52 504.11,397.88 484.97,379.00 L 474.32 368.50 L 474.35 413.50 C474.39,494.84 467.46,558.94 452.47,615.75 C433.60,687.30 406.38,730.51 361.78,759.74 C325.02,783.83 274.86,795.39 221.81,791.99 Z" fill="currentColor"/></svg>
+  <p class="stp" id="s3c">3 / 3</p>
+  <div class="num" id="s3n" style="left:96px;top:150px;font-size:260px;color:#9DA9F5">3</div>
+  <h2 class="h serif" id="s3t" style="left:400px;top:170px;font-size:96px;white-space:normal;width:1400px;color:#fff;">Una proposta letta insieme.</h2>
+  <p class="cap" id="s3p" style="left:400px;top:300px;font-size:34px;font-weight:600;color:#C6CBC2;">Prima che arrivi per iscritto.</p>
+  <div id="dc" style="position:absolute;left:96px;top:600px;width:520px;height:380px;border-radius:16px;border:4px solid #9AA3B2;box-sizing:border-box;padding:40px"><div style="height:16px;border-radius:8px;background:#9AA3B2;width:70%"></div><div style="height:16px;border-radius:8px;background:#9AA3B2;width:92%;margin-top:30px"></div><div style="height:16px;border-radius:8px;background:#9AA3B2;width:84%;margin-top:30px"></div><div style="height:16px;border-radius:8px;background:#9AA3B2;width:60%;margin-top:30px"></div></div>
+  <svg id="ck" style="position:absolute;left:480px;top:870px" width="150" height="150" viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="#2B45D8"/><path d="M19 33 L28 42 L45 23" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <div class="tl" id="r0" style="left:760px;top:600px;width:1064px;height:170px;background:#2B45D8;border:4px solid #2B45D8;font-size:42px">Se ha senso: la leggiamo insieme, punto per punto.</div>
+  <div class="tl" id="r1" style="left:760px;top:810px;width:1064px;height:170px;font-size:42px">Se non sono la persona giusta: te lo dico subito.</div>
+</div></section>
+
+<section id="s4" class="clip" data-start="21.1" data-duration="3.4"><div class="in w" id="s4i">
+  <div class="bg cob"></div>
+  <h1 class="h serif" id="s4a" style="left:96px;top:330px;width:1728px;font-size:140px;color:#fff;text-align:center">Nessun listino.</h1>
+  <h1 class="h serif" id="s4b" style="left:96px;top:500px;width:1728px;font-size:140px;color:#fff;text-align:center;opacity:.8">Nessuna sorpresa.</h1>
+  <div id="s4l" style="position:absolute;left:0;right:0;top:820px;display:flex;justify-content:center"><svg style="height:80px;width:auto;color:#fff" viewBox="0 0 1322 793" aria-hidden="true" focusable="false"><path d="M 221.81 791.99 C186.04,789.70 157.46,782.50 130.50,768.98 C111.93,759.67 100.12,751.13 84.93,736.01 C71.20,722.34 64.61,713.99 55.03,698.07 C26.56,650.81 8.60,574.81 1.85,473.00 C-0.00,445.18 0.30,369.89 2.37,340.00 C10.76,219.27 29.23,150.40 67.05,98.93 C75.45,87.51 97.39,65.97 109.00,57.75 C120.74,49.44 141.08,39.20 155.00,34.58 C180.62,26.07 214.85,21.52 247.50,22.29 C277.58,23.00 299.27,26.84 322.74,35.61 C340.42,42.21 362.83,54.76 373.20,63.87 L 376.85 67.08 L 381.65 61.94 C391.78,51.11 409.44,39.52 426.71,32.36 C463.85,16.96 509.39,6.54 560.00,1.86 C580.30,-0.01 630.81,0.26 651.79,2.35 C708.20,7.99 755.39,21.43 782.78,39.66 C793.08,46.51 809.02,61.61 816.61,71.69 C840.77,103.78 854.15,146.88 858.95,208.00 C859.53,215.43 860.29,224.88 860.64,229.00 L 861.27 236.50 L 863.50 224.50 C883.39,117.14 938.43,49.16 1022.04,28.64 C1039.04,24.47 1051.30,22.93 1072.61,22.31 C1109.18,21.24 1145.54,26.45 1173.00,36.71 C1243.34,62.97 1288.55,128.42 1306.84,230.50 C1330.28,361.25 1326.11,522.51 1296.62,626.00 C1278.34,690.16 1252.67,729.82 1211.50,757.49 C1176.70,780.88 1134.98,792.12 1082.50,792.24 C1071.50,792.26 1057.78,791.74 1052.00,791.07 C979.64,782.68 925.83,746.59 895.55,686.12 C872.16,639.40 856.81,574.49 850.48,495.50 C848.44,470.02 846.90,417.93 847.66,400.00 C848.00,392.02 848.05,385.73 847.77,386.00 C847.49,386.27 846.00,391.00 844.47,396.50 C833.64,435.25 814.36,469.11 793.16,486.60 C785.29,493.09 772.41,499.88 761.50,503.30 C710.13,519.36 638.68,496.90 557.75,439.25 C531.46,420.52 504.11,397.88 484.97,379.00 L 474.32 368.50 L 474.35 413.50 C474.39,494.84 467.46,558.94 452.47,615.75 C433.60,687.30 406.38,730.51 361.78,759.74 C325.02,783.83 274.86,795.39 221.81,791.99 Z" fill="currentColor"/></svg></div>
+</div></section>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+const E="power3.out", X="power2.in";
+function out(id,t){ tl.to(id,{opacity:0,duration:.35,ease:X},t); }
+function head(p,t){
+  tl.from("#"+p+"i",{opacity:0,duration:.3},t);
+  tl.from("#"+p+"n",{x:-120,opacity:0,duration:.7,ease:E},t+.2);
+  tl.from("#"+p+"t",{y:40,opacity:0,duration:.7,ease:E},t+.4);
+  tl.from("#"+p+"p",{y:20,opacity:0,duration:.5,ease:E},t+1.0);
+}
+// pallini di avanzamento (13 domande, 4 completate)
+(function(){const d=document.getElementById("dots");let h="";for(let i=0;i<13;i++){h+='<i id="dt'+i+'" style="display:inline-block;width:40px;height:10px;border-radius:5px;margin-right:12px;background:'+(i<3?"#2B45D8":"#C6CBC2")+'"></i>';}d.innerHTML=h;})();
+// INTRO
+tl.from("#s0i .logo",{opacity:0,duration:.4},0.1);
+tl.from("#s0k",{opacity:0,y:20,duration:.4},0.2);
+tl.from("#s0a",{y:60,opacity:0,duration:.7,ease:E},0.5);
+tl.from("#s0b",{y:60,opacity:0,duration:.7,ease:E},1.4);
+out("#s0i",3.35);
+// 1
+head("s1",3.2);
+tl.from("#qc",{y:40,opacity:0,duration:.5,ease:E},4.3);
+tl.from("#qn",{opacity:0,duration:.3},4.6);tl.from("#dots",{opacity:0,duration:.3},4.6);
+tl.from("#qq",{opacity:0,y:20,duration:.5,ease:E},4.8);
+[0,1,2].forEach(i=>tl.from("#o"+i,{y:30,opacity:0,duration:.4,ease:E},5.3+i*.15));
+tl.to("#o2",{backgroundColor:"#2B45D8",borderColor:"#2B45D8",color:"#fff",duration:.4},6.2);
+tl.to("#dt3",{backgroundColor:"#2B45D8",duration:.3},6.6);
+tl.from("#tm",{x:80,opacity:0,duration:.7,ease:E},6.0);
+tl.from("#tml",{opacity:0,y:20,duration:.4,ease:E},6.5);
+tl.from("#tms",{opacity:0,y:20,duration:.4,ease:E},6.9);
+out("#s1i",8.75);
+// 2
+head("s2",8.9);
+tl.from("#b25",{scaleX:0,duration:1.0,ease:"power2.out"},10.1);
+tl.from("#b5",{scaleX:0,duration:.5,ease:"power2.out"},11.1);
+tl.from("#l25",{opacity:0,y:20,duration:.4,ease:E},10.6);tl.from("#l25b",{opacity:0,y:20,duration:.4,ease:E},10.8);
+tl.from("#l5",{opacity:0,y:20,duration:.4,ease:E},11.4);tl.from("#l5b",{opacity:0,y:20,duration:.4,ease:E},11.6);
+tl.from("#l30",{opacity:0,y:20,duration:.5,ease:E},12.4);
+out("#s2i",14.85);
+// 3
+head("s3",15.6);
+tl.from("#dc",{x:-60,opacity:0,duration:.6,ease:E},16.7);
+tl.from("#ck",{scale:0,opacity:0,duration:.5,ease:"back.out(2)"},17.7);
+tl.from("#r0",{x:60,opacity:0,duration:.6,ease:E},17.2);
+tl.from("#r1",{x:60,opacity:0,duration:.6,ease:E},18.1);
+out("#s3i",21.35);
+// OUTRO
+tl.from("#s4i",{opacity:0,duration:.3},21.1);
+tl.from("#s4a",{y:50,opacity:0,duration:.7,ease:E},21.3);
+tl.from("#s4b",{y:50,opacity:0,duration:.7,ease:E},22.1);
+tl.from("#s4l",{opacity:0,y:20,duration:.5,ease:E},23.0);
+
+window.__timelines["inizio"] = tl;
+</script>
+</body>
+</html>
