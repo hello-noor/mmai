@@ -423,7 +423,6 @@ footer .wrap{position:relative;z-index:1}
 .brand .logo{height:30px}
 
 /* ===== conversazione di qualificazione ===== */
-@media print{.stage:not(#st-result){display:none!important}}
 input[type=email],input[type=tel],textarea{font:500 16px var(--sans);color:var(--ink);background:var(--card);border:1px solid var(--rule);border-radius:6px;padding:11px 12px;width:100%}
 textarea{resize:vertical;min-height:84px}
 .fam{position:relative;z-index:1;margin:0 0 40px}
@@ -439,13 +438,9 @@ textarea{resize:vertical;min-height:84px}
 .opt.multi.sel .key{font-size:0}
 .opt.multi.sel .key::after{font-size:15px}
 #qNext{margin-left:auto}
+#qNum{white-space:nowrap}
 .res h2.h2s{font-family:var(--serif);font-weight:400;font-size:clamp(26px,3vw,34px);margin:40px 0 12px}
 .res .pn{font-family:var(--serif);font-size:22px;color:var(--cobalt);margin:0 0 12px}
-dl.map{margin:0 0 6px;border-top:2px solid var(--ink)}
-dl.map>div{display:grid;grid-template-columns:190px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--rule)}
-dl.map dt{font-size:14px;color:var(--graphite);padding-top:2px}
-dl.map dd{margin:0;font-weight:500}
-@media (max-width:560px){dl.map>div{grid-template-columns:1fr;gap:2px}}
 .res .mech{margin-bottom:0}
 .pricecard h3.fh{font-family:var(--serif);font-weight:400;font-size:30px;line-height:1.1;margin:0 0 8px}
 .pricecard h3.fh2{font-family:var(--serif);font-weight:400;font-size:22px;margin:26px 0 6px;padding-top:20px;border-top:1px solid var(--rule)}
@@ -456,15 +451,11 @@ dl.map dd{margin:0;font-weight:500}
 .thanks{display:none;margin-top:14px;padding:14px 16px;border-left:3px solid var(--cobalt);background:var(--s1);border-radius:0 8px 8px 0;font-size:15.5px}
 .thanks.on{display:block}
 .thanks a{font-weight:600}
-.printhead{display:none;margin-bottom:18px;font-size:13px}
-@media print{
-  body{background:#fff;color:#000;padding:0}
-  .res{padding:0}
-  .res-mk,#rForm,.noprint,.qack{display:none!important}
-  #st-result .res-grid{display:block}
-  #st-result .printhead{display:block!important}
-  .mech{break-inside:avoid}
-}
+details.pv{margin-top:16px;border:0;padding:0}
+details.pv summary{font-size:14px;font-weight:500;color:var(--graphite)}
+details.pv summary::after{content:none}
+pre#pvText{white-space:pre-wrap;font:13px/1.5 var(--sans);background:var(--paper-2);padding:12px;border-radius:6px;max-height:260px;overflow:auto;margin:8px 0 0}
+.res-grid>*{min-width:0}
 </style>
 </head>
 <body data-stage="intro">
@@ -495,16 +486,16 @@ dl.map dd{margin:0;font-weight:500}
         <h1 data-focus tabindex="-1">Non una lezione sull'AI. Un affiancamento che cambia il lavoro.</h1>
       </div>
       <div>
-        <p class="lead">Sono Mario Mele. Studio l'intelligenza artificiale da più di vent'anni, da quando era filosofia della mente e scienze cognitive. Oggi lavoro accanto alle persone, sul loro lavoro vero, finché i nuovi modi di lavorare funzionano da soli.</p>
+        <p class="lead">Sono Mario Mele. Studio l'intelligenza artificiale da più di vent'anni e oggi lavoro accanto alle persone, sul loro lavoro vero. Non ti vendo un pacchetto: prima ascolto, poi ti dico se e come posso esserti utile.</p>
         <div class="ctas">
           <button class="btn big" type="button" data-start-quiz>Facciamo due chiacchiere →</button>
-          <span class="muted" style="font-size:15px">Qualche domanda, tre minuti. Nessun impegno, nessun preventivo a sorpresa.</span>
+          <span class="muted" style="font-size:15px">Qualche domanda, tre minuti, anche se non sai ancora qual è il problema. Nessun listino, nessun preventivo a sorpresa.</span>
         </div>
         <p style="margin:20px 0 0;font-size:15px"><button class="linkbtn" type="button" data-skip>Preferisco scrivere direttamente</button> &nbsp;·&nbsp; <a class="linkbtn" data-booking target="_blank" rel="noopener">Prenota subito una call conoscitiva</a></p>
       </div>
     </div>
     <div class="fam">
-      <p class="lb">Di solito si parte da una di queste frasi.</p>
+      <p class="lb">Di solito si parte da una di queste frasi. Se ti riconosci, siamo già a buon punto.</p>
       <div class="g">
         <blockquote>«So che l'AI potrebbe farmi risparmiare ore, ma non so da dove cominciare.»</blockquote>
         <blockquote>«Qualcuno da noi la usa, ognuno a modo suo, e il lavoro è rimasto lo stesso.»</blockquote>
@@ -517,6 +508,18 @@ dl.map dd{margin:0;font-weight:500}
     </figure>
   </div>
   
+<section id="inizio">
+    <div class="wrap">
+      <h2>Come cominciamo.</h2>
+      <p class="intro">Qui non c'è un listino. Ogni azienda e ogni professionista hanno processi, persone e tempi diversi: prima capisco il tuo caso, poi ne parliamo.</p>
+      <div class="mech">
+        <div><span class="v">1</span><h3>Due chiacchiere online</h3><p>Rispondi a qualche domanda sul tuo lavoro: dove si inceppa, chi è coinvolto, cosa vorresti che cambiasse. Anche se non sai ancora qual è il problema. Ci vogliono tre minuti.</p></div>
+        <div><span class="v">2</span><h3>Una call conoscitiva</h3><p>30 minuti: 25 per parlare di te e del tuo lavoro, 5 per una proposta. Ci arrivo già con quello che mi hai raccontato, così non perdiamo tempo.</p></div>
+        <div><span class="v">3</span><h3>Una proposta letta insieme</h3><p>Se ha senso, la proposta la leggiamo insieme prima che arrivi per iscritto. Se non sono la persona giusta, te lo dico subito.</p></div>
+      </div>
+      <p style="margin-top:8px"><button class="btn big" type="button" data-start-quiz>Cominciamo dalle due chiacchiere →</button></p>
+    </div>
+  </section>
 <section id="metodo">
     <div class="wrap">
       <h2>Come lavoro.</h2>
@@ -575,7 +578,8 @@ dl.map dd{margin:0;font-weight:500}
         <div class="inv"><span class="k">2</span><h3>Fractional CAIO</h3><p class="acr">Chief AI Officer a tempo parziale</p><p><b>CAIO</b> sta per <i>Chief AI Officer</i>: il responsabile dell'intelligenza artificiale di un'azienda, la figura che decide come e dove usarla. <i>Fractional</i> significa a tempo parziale: avete quella funzione per poche giornate al mese, senza assumere un dirigente.</p><p style="margin-top:12px">Ogni mese da una a otto sedute in azienda, con altrettante giornate di analisi da remoto in parallelo: vi affianco, studio i processi, troviamo la soluzione migliore e verifichiamo che regga. Per 3, 6 o 12 mesi.</p></div>
       </div>
       <p class="muted" style="font-size:15.5px;max-width:48em;margin:0 0 22px">Consulenza e sviluppo sono due cose separate. Se servono un chatbot, un sistema RAG (un assistente che risponde sui vostri documenti), un'automazione o un'altra soluzione su misura, possiamo realizzarla insieme, con un preventivo dedicato.</p>
-      <p style="margin-top:10px"><button class="btn big" type="button" data-start-quiz>Scopriamo quale fa per voi →</button></p>
+      <p class="muted" style="font-size:15.5px;max-width:48em;margin:0 0 22px">Qui non trovi prezzi, perché dipendono da quante persone e quali processi sono coinvolti e da quanto a fondo si lavora. Ne parliamo nella call conoscitiva, e la proposta la leggiamo insieme prima che arrivi per iscritto.</p>
+      <p style="margin-top:10px"><button class="btn big" type="button" data-start-quiz>Scopriamo quale fa per te →</button></p>
     </div>
   </section>
 <section id="perchi">
@@ -611,8 +615,9 @@ dl.map dd{margin:0;font-weight:500}
       <div class="twocol" style="grid-template-columns:minmax(0,760px)">
         <div>
           <details open><summary>Come si lavora su un processo?</summary><p>Un processo non si può giudicare prima di averlo visto: quello che sembra un passaggio semplice può nasconderne dieci. Si parte dall'osservazione di una persona o di un gruppo mentre lavora, si mappa il flusso, si prova una soluzione sui vostri documenti e dati, si corregge sui feedback e si verifica a uno e a tre mesi che regga.</p></details>
+          <details><summary>Quanto costa?</summary><p>Dipende da quante persone e quali processi sono coinvolti, e da quanto a fondo si lavora: per questo non c'è un listino. Ne parliamo nella call conoscitiva e la proposta la leggiamo insieme prima che arrivi per iscritto, così non ci sono sorprese.</p></details>
           <details><summary>E se in azienda c'è chi è contrario all'AI?</summary><p>È normale, e spesso utile: chi è scettico di solito ha ragioni valide (il lavoro, i dati, la qualità). Le ascolto per prime e le porto dentro il lavoro: si lavora sui problemi reali delle persone, non su demo. Chi ha dubbi vale la pena incontrarlo presto, non alla fine.</p></details>
-          <details><summary>Devo parlarne prima con la direzione?</summary><p>Non per forza. Possiamo cominciare con una prima conversazione di 30 minuti: poi ti lascio una sintesi chiara da portare a chi decide, e se serve partecipo anch'io a quell'incontro.</p></details>
+          <details><summary>Devo parlarne prima con la direzione?</summary><p>Non per forza. Possiamo cominciare con una call conoscitiva di 30 minuti: se ha senso, puoi invitare anche chi decide, oppure dopo ti lascio una sintesi chiara da portargli, e se serve partecipo anch'io a quell'incontro.</p></details>
           <details><summary>Cosa succede in una seduta in azienda?</summary><p>Vi affianco mentre lavorate: guardo i flussi, provo soluzioni con il team, scrivo con voi le istruzioni. Le giornate da remoto in parallelo servono a analizzare e preparare: prototipi, test, verifiche online. Ogni seduta in azienda ha la sua giornata di lavoro da remoto.</p></details>
           <details><summary>Cos'è un Fractional CAIO?</summary><p>CAIO sta per Chief AI Officer: il responsabile dell'intelligenza artificiale di un'azienda, cioè la persona che decide come e dove usarla, con quali regole e con quali priorità. Fractional vuol dire a tempo parziale: avete quella funzione, con la stessa responsabilità di un dirigente interno, senza assumerlo. Ha sedute fisse in azienda, risponde alla direzione e tiene insieme strategia, governance e lavoro operativo.</p></details>
           <details><summary>Quante sedute al mese servono?</summary><p>Dipende da quante persone e quanti processi sono coinvolti. Una al mese per un presidio leggero, due per un gruppo che lavora su un processo, da tre a otto quando la trasformazione tocca più aree o più reparti. Si può cambiare a ogni rinnovo.</p></details>
@@ -638,7 +643,7 @@ dl.map dd{margin:0;font-weight:500}
     <h1 id="qT" data-focus tabindex="-1"></h1>
     <p class="qh" id="qH"></p>
     <div class="opts" id="qOpts" role="group" aria-labelledby="qT"></div>
-    <label class="f qnote" id="qNoteW" style="display:none">Se vuoi, raccontamelo con parole tue (facoltativo)<textarea id="qNote" rows="3" placeholder="Per esempio: ogni lunedì perdiamo mezza giornata a preparare lo stesso report…"></textarea></label>
+    <label class="f qnote" id="qNoteW" style="display:none">Se vuoi, raccontami un caso concreto (facoltativo)<textarea id="qNote" rows="3" placeholder="Per esempio: ogni lunedì perdiamo mezza giornata a preparare lo stesso report…"></textarea></label>
     <div class="qfoot">
       <button class="linkbtn" type="button" id="qBack">← Indietro</button>
       <button class="btn" type="button" id="qNext" style="display:none">Continua →</button>
@@ -653,12 +658,10 @@ dl.map dd{margin:0;font-weight:500}
     <svg class="mk res-mk" viewBox="0 0 1322 793" aria-hidden="true" focusable="false"><use href="#mm"/></svg>
     <div class="res-grid">
       <div id="rMain">
-        <div class="printhead"><b>Mario Mele</b>, consulenza e formazione sull'intelligenza artificiale<br>info@mariomele.com, P.IVA 04025410541</div>
         <p class="kick" id="rKick"></p>
         <h1 id="rTitle" data-focus tabindex="-1"></h1>
         <div id="rMapW">
-          <dl class="map" id="rMap"></dl>
-          <h2 class="h2s">Da dove partirei</h2>
+          <h2 class="h2s">Il percorso che immagino</h2>
           <p class="pn" id="rNames"></p>
           <ul class="why" id="rWhy"></ul>
           <div class="strata bands" id="rBands" style="padding-left:0">
@@ -668,14 +671,15 @@ dl.map dd{margin:0;font-weight:500}
         </div>
         <h2 class="h2s">Cosa succede ora</h2>
         <div class="mech">
-          <div><span class="v">1</span><p>Mi scrivi, e leggo con attenzione quello che mi hai raccontato.</p></div>
+          <div><span class="v">1</span><p>Scegli un orario, o scrivimi. Prima della call leggo con attenzione quello che mi hai raccontato.</p></div>
           <div><span class="v">2</span><p>Ci vediamo 30 minuti: 25 per parlare di te e del tuo lavoro, 5 per una proposta.</p></div>
           <div><span class="v">3</span><p>Se ha senso, la proposta la leggiamo insieme prima che arrivi per iscritto. Se non sono la persona giusta, te lo dico subito.</p></div>
         </div>
       </div>
       <aside class="pricecard" id="rForm">
-        <h3 class="fh" id="fTitle">Fissiamo 30 minuti</h3>
-        <p class="u fs">Nessun preventivo a sorpresa: parliamo prima, e se ha senso la proposta la leggiamo insieme.</p>
+        <h3 class="fh" id="fTitle">Fissiamo la call conoscitiva</h3>
+        <p class="u fs">30 minuti: 25 per parlare di te e del tuo lavoro, 5 per una proposta. Nessun preventivo a sorpresa.</p>
+        <p class="u fs" style="font-size:13.5px">Se prenoti, nome ed email sono facoltativi: li chiede Calendly, e se li scrivi qui li precompilo io.</p>
         <form id="cform" class="cf" novalidate>
           <label class="f">Come ti chiami<input type="text" id="cName" autocomplete="name" placeholder="Nome e cognome"></label>
           <label class="f">Email<input type="email" id="cMail" autocomplete="email" inputmode="email" placeholder="nome@azienda.it"></label>
@@ -684,19 +688,12 @@ dl.map dd{margin:0;font-weight:500}
           <label class="f">Chi altro dovrebbe essere in questa conversazione? (facoltativo)<input type="text" id="cWho" placeholder="Chi decide, chi userà gli strumenti, anche chi è scettico"></label>
           <label class="f">Vuoi aggiungere qualcosa? (facoltativo)<textarea id="cNote" rows="3"></textarea></label>
           <label class="chk"><input type="checkbox" id="cPriv"><span style="font-size:14.5px">Ho letto l'<a href="privacy.html" target="_blank" rel="noopener">informativa sulla privacy</a> e mi va bene che usi questi dati per risponderti.</span></label>
-          <button class="btn big" type="submit" id="send">Fissiamo 30 minuti →</button>
+          <button class="btn big" type="button" id="book">Scegli un orario →</button>
+          <button class="btn ghost" type="submit" id="send">Preferisco che mi scrivi tu</button>
         </form>
-        <p class="u fs" style="margin:14px 0 0;text-align:center" data-bookwrap>oppure <a class="linkbtn" data-booking target="_blank" rel="noopener">prenota subito una call conoscitiva</a></p>
+        <details class="pv" id="pv"><summary>Cosa mi arriva, se mi scrivi (puoi controllarlo)</summary><pre id="pvText"></pre></details>
         <p class="toast" id="toast" role="status"></p>
         <div id="thanks" class="thanks" role="status"></div>
-        <div class="noprint" id="shareBox">
-          <h3 class="fh2">Da portare alla direzione</h3>
-          <p class="u fs">Se la decisione non è solo tua, questa è la sintesi da girare a chi decide.</p>
-          <div class="two">
-            <button class="btn ghost" type="button" id="copy">Copia la sintesi</button>
-            <button class="btn ghost" type="button" id="print">Stampa o PDF</button>
-          </div>
-        </div>
         <p style="margin:14px 0 0"><button class="linkbtn" type="button" id="redo">Rifai la conversazione</button></p>
       </aside>
     </div>
@@ -741,12 +738,12 @@ dl.map dd{margin:0;font-weight:500}
 
   /* ===== la conversazione ===== */
   var QS=[
-    {k:'seg',t:'Piacere, Mario. E tu, con chi parlo?',h:'Dimmi come lavori, così parliamo la stessa lingua.',o:function(){return [
+    {k:'seg',t:'Raccontami un po\' di te: come lavori?',h:'Così capisco da dove guardi le cose.',o:function(){return [
       O('lead','Guido o possiedo un\'azienda, uno studio, un ente','Decido io, o insieme ad altri'),
       O('role','Lavoro dentro un\'organizzazione','Ho un ruolo, un team o un progetto da portare avanti'),
       O('solo','Sono un professionista o un freelance','Lavoro in proprio')];}},
 
-    {k:'sector',t:function(){return solo()?'Che lavoro fai, di preciso?':'Che tipo di realtà è?';},h:'Così parto da esempi del tuo mondo, non da esempi generici.',o:function(){return solo()?[
+    {k:'sector',t:function(){return solo()?'Che lavoro fai, di preciso?':'Di che realtà stiamo parlando?';},h:'Così parto da esempi del tuo mondo, non da esempi generici.',o:function(){return solo()?[
       O('lib','Libero professionista','Avvocato, commercialista, tecnico, sanitario…'),
       O('com','Comunicazione, creatività, marketing','Contenuti, design, video, social'),
       O('edu','Insegnante o formatore','Scuola, corsi, formazione'),
@@ -767,7 +764,7 @@ dl.map dd{margin:0;font-weight:500}
       r.push(O('curious','Sono curioso, senza un problema preciso','Voglio capire se fa per me','Benissimo: esplorare senza fretta è un buon modo di cominciare.'));
       return r;}},
 
-    {k:'pain',multi:true,note:true,t:'Dove senti che il lavoro si inceppa?',h:'Scegline quanti vuoi. Se non lo sai ancora, è una risposta valida: ci pensiamo insieme.',o:function(){return [
+    {k:'pain',multi:true,note:true,t:'Dove senti che il lavoro si inceppa?',h:'Pensa a una giornata tipo: dove si perdono più tempo ed energie? Scegline quanti vuoi. Se non lo sai ancora, va benissimo: ci pensiamo insieme.',o:function(){return [
       O('rip','Attività ripetitive','Mail, report, documenti, inserimento dati'),
       O('find','Cercare e ritrovare informazioni','Documenti, archivi, risposte che richiedono ore'),
       O('write','Scrivere e comunicare','Testi, offerte, risposte ai clienti, contenuti'),
@@ -793,20 +790,20 @@ dl.map dd{margin:0;font-weight:500}
       O('used','La usiamo già, ma il lavoro è rimasto uguale','Più velocità, nessun cambio di metodo'),
       O('failed','Ci abbiamo provato, ma non ha retto','Un esperimento che si è spento','È un\'informazione preziosa: partiamo proprio da lì.')];}},
 
-    {k:'size',skip:function(){return solo();},t:'Quante persone toccano questi processi?',h:'Anche in modo approssimativo.',o:function(){return [
-      O('1','Una persona'),O('2-3','Da 2 a 3 persone','Un piccolo gruppo'),O('4-6','Da 4 a 6 persone','Un gruppo con un processo in comune'),
-      O('7-20','Da 7 a 20 persone','Più aree o un\'intera piccola impresa'),O('20+','Più di 20 persone','Più sedi, più reparti')];}},
+    {k:'size',skip:function(){return solo();},t:'E queste attività, chi le fa?',h:'Parlo di quelle che mi hai appena indicato.',o:function(){return [
+      O('1','Solo io, o una persona sola'),O('2-3','Un paio di persone'),O('4-6','Un piccolo gruppo','Da 4 a 6 persone'),
+      O('7-20','Parecchie persone','Da 7 a 20, più aree o un\'intera piccola impresa'),O('20+','Più di venti persone','Anche in sedi o reparti diversi')];}},
 
-    {k:'spread',skip:function(){return solo()||A.size==='1';},t:'E dove si trovano, nell\'organizzazione?',h:'Nelle realtà più grandi il lavoro passa quasi sempre per più mani.',o:function(){return [
+    {k:'spread',skip:function(){return solo()||A.size==='1';},t:'E dove lavorano, queste persone?',h:'Nelle realtà più grandi il lavoro passa quasi sempre per più mani.',o:function(){return [
       O('one','Nello stesso gruppo, più o meno allo stesso livello'),
       O('levels','A più livelli','Dalla direzione agli operativi'),
       O('depts','In più reparti o sedi','Amministrazione, commerciale, marketing, HR…')];}},
 
-    {k:'decide',skip:function(){return solo();},t:'Chi decide su una cosa così?',h:'Mi serve per capire chi altro sarebbe bene incontrare.',o:function(){return [
+    {k:'decide',skip:function(){return solo();},t:'Se da voi ci fosse da muoversi su una cosa così, come si deciderebbe?',h:'Ognuno ha il suo modo: c\'è chi decide da solo, chi ne parla con qualcuno.',o:function(){return [
       O('me','Decido io'),
-      O('propose','Propongo io, decide qualcun altro','La direzione, la proprietà, un socio','Allora, a un certo punto, conviene che ci sia anche chi decide: ti aiuto a prepararlo.'),
-      O('group','Si decide in più persone','Un comitato, più responsabili'),
-      O('unk','Non lo so ancora')];}},
+      O('propose','Propongo io, poi decide qualcun altro','La direzione, la proprietà, un socio','Allora, a un certo punto, conviene che ci sia anche chi decide: ti aiuto a prepararlo.'),
+      O('group','Se ne parla e si decide insieme','Più responsabili intorno a un tavolo'),
+      O('unk','Non saprei, dipende','Dal tema o dal budget')];}},
 
     {k:'climate',skip:function(){return solo();},t:'L\'AI divide. Da voi com\'è vista?',h:'Entusiasti e contrari hanno quasi sempre le loro buone ragioni.',o:function(){return [
       O('pro','Con entusiasmo','Molti vorrebbero iniziare'),
@@ -940,7 +937,7 @@ dl.map dd{margin:0;font-weight:500}
 
     if(arr('pain').indexOf('unk')>-1)tail.push('Non sapere ancora dove intervenire è normale: il primo passo è guardare come si lavora, non scegliere uno strumento.');
     if(A.climate==='mixed'||A.climate==='con')tail.push('Chi è scettico sull\'AI di solito ha ragioni valide: le ascolto per prime, e lavoro sui problemi reali delle persone, non su demo.');
-    if(A.decide&&A.decide!=='me')tail.push('Se la decisione non è solo tua, può servire che alla conversazione ci sia anche chi decide: qui accanto trovi una sintesi da girargli.');
+    if(A.decide&&A.decide!=='me')tail.push('Se la decisione non è solo tua, può servire che alla call ci sia anche chi decide: puoi invitarlo tu, oppure ti aiuto a prepararlo.');
     if(A.start==='failed')tail.push('Se le prove fatte finora non hanno retto, partiamo da lì: da cosa è andato storto.');
     if(A.when==='1m')tail.push('Per vedere risultati entro un mese si parte da un processo piccolo e ben scelto, non da tutta l\'organizzazione.');
     if(A.sector==='edu')tail.push('Lavoro da anni con docenti e alunni, dall\'infanzia alle superiori: i casi partono dalla tua classe o dalla tua scuola.');
@@ -960,15 +957,15 @@ dl.map dd{margin:0;font-weight:500}
   function rows(){
     var R=[];function add(l,v){if(v)R.push([l,v]);}
     function lc(s){return s?s.charAt(0).toLowerCase()+s.slice(1):s;}
-    add('Chi sei',[lab('seg'),lc(lab('sector'))].filter(Boolean).join(', '));
-    add('Cosa ti ha portato qui',lab('trigger'));
-    var p=lab('pain');if(A.painNote)p+=(p?' · ':'')+'«'+A.painNote+'»';add('Dove il lavoro si inceppa',p);
+    add('Chi è',[lab('seg'),lc(lab('sector'))].filter(Boolean).join(', '));
+    add('Perché ora',lab('trigger'));
+    var p=lab('pain');if(A.painNote)p+=(p?' · ':'')+'«'+A.painNote+'»';add('Dove si inceppa',p);
     add('Se non cambia nulla',lab('cost'));
     add('Punto di partenza con l\'AI',lab('start'));
     add('Persone coinvolte',[lab('size'),lc(lab('spread'))].filter(Boolean).join(', '));
-    add('Chi decide',lab('decide'));
+    add('Come si decide',lab('decide'));
     add('Clima sull\'AI',lab('climate'));
-    add('Cosa cambierebbe per te',lab('stake'));
+    add('Cosa cambierebbe a livello personale',lab('stake'));
     add('Tempi e risultati',[lab('when'),lab('result')].filter(Boolean).join(' · '));
     return R;
   }
@@ -982,15 +979,13 @@ dl.map dd{margin:0;font-weight:500}
   }
   function paintResult(){
     $('rMapW').style.display=direct?'none':'block';
-    ['shareBox'].forEach(function(id){$(id).style.display=direct?'none':'block';});
-    $('rKick').textContent=direct?'Parliamone':'Quello che ho capito';
-    $('rTitle').textContent=direct?'Scrivimi due righe, ti rispondo di persona.':'Ecco cosa ho capito, e da dove partirei.';
-    $('fTitle').textContent=direct?'Raccontami di te':'Fissiamo 30 minuti';
-    $('send').textContent=BOOKING_URL?'Invia e scegli un orario →':'Fissiamo 30 minuti →';
-    $('cPriv').checked=false;
+    $('rKick').textContent=direct?'Parliamone':'Grazie';
+    $('rTitle').textContent=direct?'Scrivimi due righe, ti rispondo di persona.':'Ora ho un quadro. Ecco da dove partirei.';
+    $('fTitle').textContent=direct?'Raccontami di te':'Fissiamo la call conoscitiva';
+    var hasB=!!BOOKING_URL;$('book').style.display=hasB?'inline-flex':'none';$('send').className='btn'+(hasB?' ghost':' big');$('send').textContent=hasB?'Preferisco che mi scrivi tu':'Invia la richiesta →';
+    $('cPriv').checked=false;updatePreview();
     $('thanks').className='thanks';$('thanks').innerHTML='';$('toast').textContent='';
     if(direct)return;
-    $('rMap').innerHTML=rows().map(function(r){return '<div><dt>'+esc(r[0])+'</dt><dd>'+esc(r[1])+'</dd></div>';}).join('');
     $('rNames').textContent=CUR.names.join(' + ');
     $('rWhy').innerHTML=whyList().map(function(x){return '<li>'+esc(x)+'</li>';}).join('');
     var bands=$('rBands').children,inc=[CUR.c.l1.on,CUR.c.l2.on];
@@ -1000,14 +995,6 @@ dl.map dd{margin:0;font-weight:500}
   function openContact(opts){direct=true;CUR=null;paintResult();go('result',opts);}
 
   /* ===== invio, copia, stampa ===== */
-  function shareText(){
-    var out=['Sintesi per la direzione: consulenza e formazione sull\'intelligenza artificiale','',"Cosa è emerso da una prima conversazione:"];
-    rows().forEach(function(r){out.push('- '+r[0]+': '+r[1]);});
-    out.push('','Percorso proposto: '+CUR.names.join(' + '));
-    whyList().forEach(function(x){out.push('- '+x);});
-    out.push('','Prossimo passo: 30 minuti con Mario Mele, 25 per parlare del lavoro e 5 per una proposta. Nessun preventivo a sorpresa.','','Mario Mele, info@mariomele.com');
-    return out.join('\n');
-  }
   function mailText(){
     var v=function(id){return $(id).value.trim();},out=['Richiesta di una conversazione di 30 minuti','','Nome: '+v('cName')];
     if(v('cOrg'))out.push('Azienda o attività: '+v('cOrg'));
@@ -1022,9 +1009,33 @@ dl.map dd{margin:0;font-weight:500}
     out.push('','Inviato da mariomele.com');
     return out.join('\n');
   }
-  function bookUrl(nm,ml){var u=BOOKING_URL;if(!nm&&!ml)return u;return u+(u.indexOf('?')>-1?'&':'?')+'name='+encodeURIComponent(nm||'')+'&email='+encodeURIComponent(ml||'');}
+  function calSummary(){
+    var v=function(id){return $(id).value.trim();},p=[];
+    if(v('cOrg'))p.push('Azienda: '+v('cOrg'));if(v('cTel'))p.push('Telefono: '+v('cTel'));
+    if(!direct){rows().forEach(function(r){p.push(r[0]+': '+r[1]);});var op=openPoints();if(op.length)p.push('Da approfondire: '+op.join('; '));p.push('Percorso che immagino: '+CUR.names.join(' + '));}
+    if(v('cWho'))p.push('Chi altro dovrebbe esserci: '+v('cWho'));if(v('cNote'))p.push('Note: '+v('cNote'));
+    var s=p.join(' | ');return s.length>1400?s.slice(0,1397)+'…':s;
+  }
+  function bookUrl(){
+    var q=[],nm=$('cName').value.trim(),ml=$('cMail').value.trim(),s=calSummary();
+    if(nm)q.push('name='+encodeURIComponent(nm));if(ml)q.push('email='+encodeURIComponent(ml));if(s)q.push('a1='+encodeURIComponent(s));
+    return BOOKING_URL+(q.length?(BOOKING_URL.indexOf('?')>-1?'&':'?')+q.join('&'):'');
+  }
+  function updatePreview(){if(CUR||direct)$('pvText').textContent=mailText();}
+  $('cform').addEventListener('input',updatePreview);
+  $('pv').addEventListener('toggle',updatePreview);
   document.querySelectorAll('[data-booking]').forEach(function(a){if(BOOKING_URL)a.href=BOOKING_URL;else a.style.display='none';});
   document.querySelectorAll('[data-bookwrap]').forEach(function(w){if(!BOOKING_URL)w.style.display='none';});
+  function silentSend(){
+    if(!FORM_ENDPOINT)return;
+    try{fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({nome:$('cName').value,email:$('cMail').value,azienda:$('cOrg').value,telefono:$('cTel').value,chi_altro:$('cWho').value,note:$('cNote').value,riepilogo:mailText(),origine:'prenotazione'})});}catch(e){}
+  }
+  $('book').addEventListener('click',function(){
+    if(!$('cPriv').checked){toast('Per proseguire, spunta la presa visione dell\'informativa sulla privacy.');$('cPriv').focus();return;}
+    var u=bookUrl();silentSend();
+    var w=window.open(u,'_blank','noopener');
+    thanks(w?'Ho aperto Calendly in una nuova scheda: scegli l\'orario che preferisci.':'<a href="'+esc(u)+'" target="_blank" rel="noopener">Apri Calendly e scegli un orario →</a>');
+  });
   function toast(m){$('toast').textContent=m;setTimeout(function(){$('toast').textContent='';},4000);}
   function thanks(html){var t=$('thanks');t.innerHTML=html;t.className='thanks on';}
   $('cform').addEventListener('submit',function(e){
@@ -1033,7 +1044,7 @@ dl.map dd{margin:0;font-weight:500}
     if(!nm){toast('Come ti chiami? Mi basta il nome.');$('cName').focus();return;}
     if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(ml)){toast('Controlla l\'email: mi serve per risponderti.');$('cMail').focus();return;}
     if(!$('cPriv').checked){toast('Per inviare, spunta la presa visione dell\'informativa sulla privacy.');$('cPriv').focus();return;}
-    var body=mailText(),book=BOOKING_URL?'<br><a href="'+esc(bookUrl(nm,ml))+'" target="_blank" rel="noopener">Scegli ora un orario →</a>':'';
+    var body=mailText(),book=BOOKING_URL?'<br><a href="'+esc(bookUrl())+'" target="_blank" rel="noopener">Scegli ora un orario →</a>':'';
     $('toast').textContent='';
     if(!FORM_ENDPOINT){
       thanks('Si apre la tua posta con il riepilogo già scritto: inviala e ti rispondo di persona.'+book);
@@ -1045,13 +1056,6 @@ dl.map dd{margin:0;font-weight:500}
       .then(function(x){if(!x.ok)throw 0;toast('');thanks('Ricevuto, grazie. Ti rispondo io, di persona.'+book);})
       .catch(function(){toast('Invio non riuscito: scrivimi a '+MAIL+'.');});
   });
-  $('copy').addEventListener('click',function(){
-    var t=shareText();
-    function fallback(){var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();var ok=false;try{ok=document.execCommand('copy');}catch(e){}document.body.removeChild(ta);toast(ok?'Sintesi copiata.':'Copia non riuscita: usa Stampa o PDF.');}
-    try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){toast('Sintesi copiata.');},fallback);}else fallback();}catch(e){fallback();}
-  });
-  $('print').addEventListener('click',function(){try{window.print();}catch(e){toast('Stampa non disponibile qui: usa il comando Stampa del browser.');}});
-
   /* ===== navigazione ===== */
   function route(){
     if(location.hash==='#parliamone'||location.hash==='#preventivo'){openContact({pop:true,keepScroll:true,noFocus:true});history.replaceState({s:'result',q:0},'');}
