@@ -451,10 +451,6 @@ textarea{resize:vertical;min-height:84px}
 .thanks{display:none;margin-top:14px;padding:14px 16px;border-left:3px solid var(--cobalt);background:var(--s1);border-radius:0 8px 8px 0;font-size:15.5px}
 .thanks.on{display:block}
 .thanks a{font-weight:600}
-details.pv{margin-top:16px;border:0;padding:0}
-details.pv summary{font-size:14px;font-weight:500;color:var(--graphite)}
-details.pv summary::after{content:none}
-pre#pvText{white-space:pre-wrap;font:13px/1.5 var(--sans);background:var(--paper-2);padding:12px;border-radius:6px;max-height:260px;overflow:auto;margin:8px 0 0}
 .res-grid>*{min-width:0}
 </style>
 </head>
@@ -491,7 +487,7 @@ pre#pvText{white-space:pre-wrap;font:13px/1.5 var(--sans);background:var(--paper
           <button class="btn big" type="button" data-start-quiz>Facciamo due chiacchiere →</button>
           <span class="muted" style="font-size:15px">Qualche domanda, tre minuti, anche se non sai ancora qual è il problema. Nessun listino, nessun preventivo a sorpresa.</span>
         </div>
-        <p style="margin:20px 0 0;font-size:15px"><button class="linkbtn" type="button" data-skip>Preferisco scrivere direttamente</button> &nbsp;·&nbsp; <a class="linkbtn" data-booking target="_blank" rel="noopener">Prenota subito una call conoscitiva</a></p>
+        <p style="margin:20px 0 0;font-size:15px"><button class="linkbtn" type="button" data-skip>Preferisco scrivere direttamente</button></p>
       </div>
     </div>
     <div class="fam">
@@ -679,19 +675,18 @@ pre#pvText{white-space:pre-wrap;font:13px/1.5 var(--sans);background:var(--paper
       <aside class="pricecard" id="rForm">
         <h3 class="fh" id="fTitle">Fissiamo la call conoscitiva</h3>
         <p class="u fs">30 minuti: 25 per parlare di te e del tuo lavoro, 5 per una proposta. Nessun preventivo a sorpresa.</p>
-        <p class="u fs" style="font-size:13.5px">Se prenoti, nome ed email sono facoltativi: li chiede Calendly, e se li scrivi qui li precompilo io.</p>
+        <p class="u fs" id="fNote" style="font-size:13.5px"></p>
         <form id="cform" class="cf" novalidate>
           <label class="f">Come ti chiami<input type="text" id="cName" autocomplete="name" placeholder="Nome e cognome"></label>
           <label class="f">Email<input type="email" id="cMail" autocomplete="email" inputmode="email" placeholder="nome@azienda.it"></label>
-          <label class="f">Azienda, studio o attività (facoltativo)<input type="text" id="cOrg" autocomplete="organization"></label>
+          <label class="f">Azienda, studio o attività<input type="text" id="cOrg" autocomplete="organization"></label>
           <label class="f">Telefono (facoltativo)<input type="tel" id="cTel" autocomplete="tel" inputmode="tel"></label>
           <label class="f">Chi altro dovrebbe essere in questa conversazione? (facoltativo)<input type="text" id="cWho" placeholder="Chi decide, chi userà gli strumenti, anche chi è scettico"></label>
           <label class="f">Vuoi aggiungere qualcosa? (facoltativo)<textarea id="cNote" rows="3"></textarea></label>
           <label class="chk"><input type="checkbox" id="cPriv"><span style="font-size:14.5px">Ho letto l'<a href="privacy.html" target="_blank" rel="noopener">informativa sulla privacy</a> e mi va bene che usi questi dati per risponderti.</span></label>
-          <button class="btn big" type="button" id="book">Scegli un orario →</button>
+          <button class="btn big" type="button" id="book">Invia e scegli un orario →</button>
           <button class="btn ghost" type="submit" id="send">Preferisco che mi scrivi tu</button>
         </form>
-        <details class="pv" id="pv"><summary>Cosa mi arriva, se mi scrivi (puoi controllarlo)</summary><pre id="pvText"></pre></details>
         <p class="toast" id="toast" role="status"></p>
         <div id="thanks" class="thanks" role="status"></div>
         <p style="margin:14px 0 0"><button class="linkbtn" type="button" id="redo">Rifai la conversazione</button></p>
@@ -726,7 +721,7 @@ pre#pvText{white-space:pre-wrap;font:13px/1.5 var(--sans);background:var(--paper
 
 <script>
 (function(){
-  var FORM_ENDPOINT=''; // es. 'https://formspree.io/f/xxxxxxx' : se vuoto, l'invio apre il client di posta (mailto)
+  var FORM_ENDPOINT=''; // URL dell'app web che raccoglie le richieste (vedi _setup/raccolta-lead.gs), oppure di un servizio come Formspree. Se vuoto, 'Preferisco che mi scrivi tu' apre il client di posta
   var BOOKING_URL='https://calendly.com/mariomele/hello-noor'; // call conoscitiva su Calendly: se vuoto, rispondi tu per fissare l'orario
   var MAIL='info@mariomele.com';
   function $(id){return document.getElementById(id);}
@@ -983,7 +978,7 @@ pre#pvText{white-space:pre-wrap;font:13px/1.5 var(--sans);background:var(--paper
     $('rTitle').textContent=direct?'Scrivimi due righe, ti rispondo di persona.':'Ora ho un quadro. Ecco da dove partirei.';
     $('fTitle').textContent=direct?'Raccontami di te':'Fissiamo la call conoscitiva';
     var hasB=!!BOOKING_URL;$('book').style.display=hasB?'inline-flex':'none';$('send').className='btn'+(hasB?' ghost':' big');$('send').textContent=hasB?'Preferisco che mi scrivi tu':'Invia la richiesta →';
-    $('cPriv').checked=false;updatePreview();
+    $('cPriv').checked=false;$('fNote').textContent=FORM_ENDPOINT?'Prima ricevo i tuoi dati, poi scegli l\'orario: così, anche se non completi la prenotazione, posso scriverti io.':'';
     $('thanks').className='thanks';$('thanks').innerHTML='';$('toast').textContent='';
     if(direct)return;
     $('rNames').textContent=CUR.names.join(' + ');
@@ -1021,41 +1016,40 @@ pre#pvText{white-space:pre-wrap;font:13px/1.5 var(--sans);background:var(--paper
     if(nm)q.push('name='+encodeURIComponent(nm));if(ml)q.push('email='+encodeURIComponent(ml));if(s)q.push('a1='+encodeURIComponent(s));
     return BOOKING_URL+(q.length?(BOOKING_URL.indexOf('?')>-1?'&':'?')+q.join('&'):'');
   }
-  function updatePreview(){if(CUR||direct)$('pvText').textContent=mailText();}
-  $('cform').addEventListener('input',updatePreview);
-  $('pv').addEventListener('toggle',updatePreview);
   document.querySelectorAll('[data-booking]').forEach(function(a){if(BOOKING_URL)a.href=BOOKING_URL;else a.style.display='none';});
-  document.querySelectorAll('[data-bookwrap]').forEach(function(w){if(!BOOKING_URL)w.style.display='none';});
-  function silentSend(){
-    if(!FORM_ENDPOINT)return;
-    try{fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({nome:$('cName').value,email:$('cMail').value,azienda:$('cOrg').value,telefono:$('cTel').value,chi_altro:$('cWho').value,note:$('cNote').value,riepilogo:mailText(),origine:'prenotazione'})});}catch(e){}
+  /* i dati partono verso di te PRIMA di aprire Calendly: se la prenotazione non si completa, non si perdono */
+  function sendLead(origin){
+    if(!FORM_ENDPOINT)return false;
+    var d=new URLSearchParams({nome:$('cName').value.trim(),azienda:$('cOrg').value.trim(),email:$('cMail').value.trim(),telefono:$('cTel').value.trim(),chi_altro:$('cWho').value.trim(),note:$('cNote').value.trim(),riepilogo:mailText(),origine:origin});
+    try{if(navigator.sendBeacon&&navigator.sendBeacon(FORM_ENDPOINT,d))return true;}catch(e){}
+    try{fetch(FORM_ENDPOINT,{method:'POST',body:d,mode:'no-cors',keepalive:true});return true;}catch(e){}
+    return false;
+  }
+  function validContact(){
+    var nm=$('cName').value.trim(),og=$('cOrg').value.trim(),ml=$('cMail').value.trim();
+    if(!nm){toast('Come ti chiami? Mi serve il nome.');$('cName').focus();return false;}
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(ml)){toast('Controlla l\'email: mi serve per risponderti.');$('cMail').focus();return false;}
+    if(!og){toast('Scrivi l\'azienda, lo studio o l\'attività: mi aiuta a prepararmi.');$('cOrg').focus();return false;}
+    if(!$('cPriv').checked){toast('Per proseguire, spunta la presa visione dell\'informativa sulla privacy.');$('cPriv').focus();return false;}
+    return true;
   }
   $('book').addEventListener('click',function(){
-    if(!$('cPriv').checked){toast('Per proseguire, spunta la presa visione dell\'informativa sulla privacy.');$('cPriv').focus();return;}
-    var u=bookUrl();silentSend();
-    var w=window.open(u,'_blank','noopener');
-    thanks(w?'Ho aperto Calendly in una nuova scheda: scegli l\'orario che preferisci.':'<a href="'+esc(u)+'" target="_blank" rel="noopener">Apri Calendly e scegli un orario →</a>');
+    if(!validContact())return;
+    var u=bookUrl(),saved=sendLead('prenotazione');
+    thanks(saved?'Ho ricevuto i tuoi dati. Ora scegli l\'orario su Calendly: se non completi la prenotazione, ti scrivo io.':'Ora scegli l\'orario su Calendly.');
+    setTimeout(function(){var w=null;try{w=window.open(u,'_blank');if(w)w.opener=null;}catch(e){}if(!w)location.href=u;},saved?350:0);
   });
   function toast(m){$('toast').textContent=m;setTimeout(function(){$('toast').textContent='';},4000);}
   function thanks(html){var t=$('thanks');t.innerHTML=html;t.className='thanks on';}
   $('cform').addEventListener('submit',function(e){
     e.preventDefault();
-    var nm=$('cName').value.trim(),ml=$('cMail').value.trim();
-    if(!nm){toast('Come ti chiami? Mi basta il nome.');$('cName').focus();return;}
-    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(ml)){toast('Controlla l\'email: mi serve per risponderti.');$('cMail').focus();return;}
-    if(!$('cPriv').checked){toast('Per inviare, spunta la presa visione dell\'informativa sulla privacy.');$('cPriv').focus();return;}
-    var body=mailText(),book=BOOKING_URL?'<br><a href="'+esc(bookUrl())+'" target="_blank" rel="noopener">Scegli ora un orario →</a>':'';
+    if(!validContact())return;
     $('toast').textContent='';
-    if(!FORM_ENDPOINT){
-      thanks('Si apre la tua posta con il riepilogo già scritto: inviala e ti rispondo di persona.'+book);
-      location.href='mailto:'+MAIL+'?subject='+encodeURIComponent('Parliamone: '+nm)+'&body='+encodeURIComponent(body);
-      return;
-    }
-    toast('Invio in corso…');
-    fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({nome:nm,email:ml,azienda:$('cOrg').value,telefono:$('cTel').value,chi_altro:$('cWho').value,note:$('cNote').value,riepilogo:body})})
-      .then(function(x){if(!x.ok)throw 0;toast('');thanks('Ricevuto, grazie. Ti rispondo io, di persona.'+book);})
-      .catch(function(){toast('Invio non riuscito: scrivimi a '+MAIL+'.');});
+    if(sendLead('richiesta')){thanks('Ricevuto, grazie. Ti rispondo io, di persona.');return;}
+    thanks('Si apre la tua posta con il riepilogo già scritto: inviala e ti rispondo di persona.');
+    location.href='mailto:'+MAIL+'?subject='+encodeURIComponent('Parliamone: '+$('cName').value.trim())+'&body='+encodeURIComponent(mailText());
   });
+
   /* ===== navigazione ===== */
   function route(){
     if(location.hash==='#parliamone'||location.hash==='#preventivo'){openContact({pop:true,keepScroll:true,noFocus:true});history.replaceState({s:'result',q:0},'');}
