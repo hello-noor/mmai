@@ -500,7 +500,7 @@ dl.map dd{margin:0;font-weight:500}
           <button class="btn big" type="button" data-start-quiz>Facciamo due chiacchiere →</button>
           <span class="muted" style="font-size:15px">Qualche domanda, tre minuti. Nessun impegno, nessun preventivo a sorpresa.</span>
         </div>
-        <p style="margin:20px 0 0;font-size:15px"><button class="linkbtn" type="button" data-skip>Preferisco scrivere direttamente</button></p>
+        <p style="margin:20px 0 0;font-size:15px"><button class="linkbtn" type="button" data-skip>Preferisco scrivere direttamente</button> &nbsp;·&nbsp; <a class="linkbtn" data-booking target="_blank" rel="noopener">Prenota subito una call conoscitiva</a></p>
       </div>
     </div>
     <div class="fam">
@@ -683,11 +683,12 @@ dl.map dd{margin:0;font-weight:500}
           <label class="f">Telefono (facoltativo)<input type="tel" id="cTel" autocomplete="tel" inputmode="tel"></label>
           <label class="f">Chi altro dovrebbe essere in questa conversazione? (facoltativo)<input type="text" id="cWho" placeholder="Chi decide, chi userà gli strumenti, anche chi è scettico"></label>
           <label class="f">Vuoi aggiungere qualcosa? (facoltativo)<textarea id="cNote" rows="3"></textarea></label>
+          <label class="chk"><input type="checkbox" id="cPriv"><span style="font-size:14.5px">Ho letto l'<a href="privacy.html" target="_blank" rel="noopener">informativa sulla privacy</a> e mi va bene che usi questi dati per risponderti.</span></label>
           <button class="btn big" type="submit" id="send">Fissiamo 30 minuti →</button>
         </form>
+        <p class="u fs" style="margin:14px 0 0;text-align:center" data-bookwrap>oppure <a class="linkbtn" data-booking target="_blank" rel="noopener">prenota subito una call conoscitiva</a></p>
         <p class="toast" id="toast" role="status"></p>
         <div id="thanks" class="thanks" role="status"></div>
-        <p class="hint">Uso questi dati solo per risponderti.</p>
         <div class="noprint" id="shareBox">
           <h3 class="fh2">Da portare alla direzione</h3>
           <p class="u fs">Se la decisione non è solo tua, questa è la sintesi da girare a chi decide.</p>
@@ -713,6 +714,7 @@ dl.map dd{margin:0;font-weight:500}
     </div>
     <div>
       <p><a href="#come" data-anchor="come">Domande frequenti</a></p>
+      <p><a data-booking target="_blank" rel="noopener">Prenota una call conoscitiva</a></p>
       <p><a href="https://www.instagram.com/mariomele.ai/">Instagram @mariomele.ai</a></p>
       <p><a href="https://mariomele.substack.com">ExMachina su Substack</a></p>
     </div>
@@ -720,6 +722,7 @@ dl.map dd{margin:0;font-weight:500}
       <p>Mario Mele</p>
       <p>Consulente e formatore in intelligenza artificiale</p>
       <p>P.IVA 04025410541</p>
+      <p><a href="privacy.html">Informativa sulla privacy</a></p>
     </div>
   </div>
 </footer>
@@ -727,7 +730,7 @@ dl.map dd{margin:0;font-weight:500}
 <script>
 (function(){
   var FORM_ENDPOINT=''; // es. 'https://formspree.io/f/xxxxxxx' : se vuoto, l'invio apre il client di posta (mailto)
-  var BOOKING_URL='';   // link al tuo calendario (Google Calendar, Cal.com, Calendly…): se vuoto, rispondi tu per fissare l'orario
+  var BOOKING_URL='https://calendly.com/mariomele/hello-noor'; // call conoscitiva su Calendly: se vuoto, rispondi tu per fissare l'orario
   var MAIL='info@mariomele.com';
   function $(id){return document.getElementById(id);}
   function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
@@ -984,6 +987,7 @@ dl.map dd{margin:0;font-weight:500}
     $('rTitle').textContent=direct?'Scrivimi due righe, ti rispondo di persona.':'Ecco cosa ho capito, e da dove partirei.';
     $('fTitle').textContent=direct?'Raccontami di te':'Fissiamo 30 minuti';
     $('send').textContent=BOOKING_URL?'Invia e scegli un orario →':'Fissiamo 30 minuti →';
+    $('cPriv').checked=false;
     $('thanks').className='thanks';$('thanks').innerHTML='';$('toast').textContent='';
     if(direct)return;
     $('rMap').innerHTML=rows().map(function(r){return '<div><dt>'+esc(r[0])+'</dt><dd>'+esc(r[1])+'</dd></div>';}).join('');
@@ -1018,6 +1022,9 @@ dl.map dd{margin:0;font-weight:500}
     out.push('','Inviato da mariomele.com');
     return out.join('\n');
   }
+  function bookUrl(nm,ml){var u=BOOKING_URL;if(!nm&&!ml)return u;return u+(u.indexOf('?')>-1?'&':'?')+'name='+encodeURIComponent(nm||'')+'&email='+encodeURIComponent(ml||'');}
+  document.querySelectorAll('[data-booking]').forEach(function(a){if(BOOKING_URL)a.href=BOOKING_URL;else a.style.display='none';});
+  document.querySelectorAll('[data-bookwrap]').forEach(function(w){if(!BOOKING_URL)w.style.display='none';});
   function toast(m){$('toast').textContent=m;setTimeout(function(){$('toast').textContent='';},4000);}
   function thanks(html){var t=$('thanks');t.innerHTML=html;t.className='thanks on';}
   $('cform').addEventListener('submit',function(e){
@@ -1025,7 +1032,9 @@ dl.map dd{margin:0;font-weight:500}
     var nm=$('cName').value.trim(),ml=$('cMail').value.trim();
     if(!nm){toast('Come ti chiami? Mi basta il nome.');$('cName').focus();return;}
     if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(ml)){toast('Controlla l\'email: mi serve per risponderti.');$('cMail').focus();return;}
-    var body=mailText(),book=BOOKING_URL?'<br><a href="'+esc(BOOKING_URL)+'" target="_blank" rel="noopener">Scegli ora un orario →</a>':'';
+    if(!$('cPriv').checked){toast('Per inviare, spunta la presa visione dell\'informativa sulla privacy.');$('cPriv').focus();return;}
+    var body=mailText(),book=BOOKING_URL?'<br><a href="'+esc(bookUrl(nm,ml))+'" target="_blank" rel="noopener">Scegli ora un orario →</a>':'';
+    $('toast').textContent='';
     if(!FORM_ENDPOINT){
       thanks('Si apre la tua posta con il riepilogo già scritto: inviala e ti rispondo di persona.'+book);
       location.href='mailto:'+MAIL+'?subject='+encodeURIComponent('Parliamone: '+nm)+'&body='+encodeURIComponent(body);
